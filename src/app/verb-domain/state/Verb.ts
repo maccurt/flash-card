@@ -10,6 +10,7 @@ export class TenseType {
 
 //https://www.bucks.edu/media/bcccmedialibrary/tutoring/documents/writingareahandoutrevision/spanish/Spanish-Subject-Pronouns.pdf
 export class Tense {
+    
     fistPersonSingular!: TenseType;
     firstPersonPlural!: string;    //we/nosotoros    
     secondPersonSingular!: String;//you/tu        

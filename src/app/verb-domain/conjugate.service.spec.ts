@@ -1,12 +1,8 @@
 import { Tense, TenseType, Verb } from './state/Verb';
 import { ConjugateService, VerbEnding } from './conjugate.service';
 
-// á = 0225; Á = 0193.
-// é = 0233; É = 0201.
-// í = 0237; Í = 0205.
-// ó = 0243; Ó = 0211.
-// ú = 0250; Ú = 0218.
-// ý = 0253; Ý = 0221.
+// á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
+// ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
 
 describe('ConjugateService', () => {
   let service: ConjugateService;
@@ -24,6 +20,58 @@ describe('ConjugateService', () => {
       expect(service.getVerbEnding('')).toBe(VerbEnding.unknown);
     });
   });
+
+  describe('past tense', () => {
+
+
+    it('hablar', () => {
+
+      let tense = service.getPastTense('hablar');
+      //single
+      expect(tense.fistPersonSingular?.text).toBe('hablé');
+      expect(tense.secondPersonSingular).toBe('hablaste');
+      expect(tense.thirdPersonSingular).toBe('habló');
+      //plural
+      expect(tense.firstPersonPlural).toBe('hablamos');
+      expect(tense.secondPersonPlural).toBe('hablasteis');
+      expect(tense.thirdPersonPlurual).toBe('hablaron');
+    });
+
+
+    it('vivir', () => {
+
+      // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
+      // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
+
+      let tense = service.getPastTense('vivir');
+      //single
+      expect(tense.fistPersonSingular?.text).toBe('viví');
+      expect(tense.secondPersonSingular).toBe('viviste');
+      expect(tense.thirdPersonSingular).toBe('vivió');
+      //plural
+      expect(tense.firstPersonPlural).toBe('vivimos');
+      expect(tense.secondPersonPlural).toBe('vivisteis');
+      expect(tense.thirdPersonPlurual).toBe('vivieron');
+    });
+
+
+    it('comer', () => {
+
+      // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
+      // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
+
+      let tense = service.getPastTense('comer');
+      //single
+      expect(tense.fistPersonSingular?.text).toBe('comí');
+      expect(tense.secondPersonSingular).toBe('comiste');
+      expect(tense.thirdPersonSingular).toBe('comió');
+      //plural
+      expect(tense.firstPersonPlural).toBe('comimos');
+      expect(tense.secondPersonPlural).toBe('comisteis');
+      expect(tense.thirdPersonPlurual).toBe('comieron');
+    });
+
+  })
 
   describe('setSpanishPresentTest', () => {
 
@@ -51,7 +99,7 @@ describe('ConjugateService', () => {
       verb.to = 'hablar';
       verb.presentTense = new Tense();
       verb.presentTense.fistPersonSingular = new TenseType();
-      verb.presentTense.fistPersonSingular.sentenceList?.push({to:'',from:''});
+      verb.presentTense.fistPersonSingular.sentenceList?.push({ to: '', from: '' });
       let tense = service.getSpanishPresentTest(verb);
 
       expect(tense.fistPersonSingular.text).toBe('hablo');

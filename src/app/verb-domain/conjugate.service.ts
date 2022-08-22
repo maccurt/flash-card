@@ -14,11 +14,20 @@ export enum VerbEnding {
 export class ConjugateService {
   //â, ê, î, ô, û Â, Ê, Î, Ô, Û
   //ã, ñ, õ Ã, Ñ, Õ
+  //é
+
+  // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
+  // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
   verbEndings = {
     presentTense: {
       ar: ['o', 'as', 'a', 'amos', 'áis', 'an'],
       er: ['o', 'es', 'e', 'emos', 'éis', 'en'],
       ir: ['o', 'es', 'e', 'imos', 'ís', 'en']
+    },
+    pastTense: {
+      ar: ['é', 'aste', 'ó', 'amos', 'asteis', 'aron'],
+      er: ['í', 'iste', 'ió', 'imos', 'isteis', 'ieron'],
+      ir: ['í', 'iste', 'ió', 'imos', 'isteis', 'ieron']
     }
   };
 
@@ -52,7 +61,7 @@ export class ConjugateService {
       tense.fistPersonSingular = orignalTense.fistPersonSingular;
     }
 
-    if (orignalTense.secondPersonSingular) {  
+    if (orignalTense.secondPersonSingular) {
       tense.secondPersonSingular = orignalTense.secondPersonSingular;
     }
 
@@ -75,14 +84,50 @@ export class ConjugateService {
     return tense;
   };
 
+
+  getPastTense = (verb: string): Tense => {
+
+    let tense = new Tense()
+    tense.fistPersonSingular = new TenseType();
+
+    verb = verb.toLowerCase();
+    let stem = this.getSpanishRoot(verb);
+    let verbEnding = this.getVerbEnding(verb);
+    let endings: string[] = [];
+
+    switch (verbEnding) {
+      case VerbEnding.ar:
+        endings = this.verbEndings.pastTense.ar;
+        break;
+      case VerbEnding.er:
+        endings = this.verbEndings.pastTense.er;
+        break;
+      case VerbEnding.ir:
+        endings = this.verbEndings.pastTense.ir;
+        break;
+    }
+
+    tense.fistPersonSingular.text = stem + endings[0];
+    tense.secondPersonSingular = stem + endings[1];
+    tense.thirdPersonSingular = stem + endings[2];
+    tense.firstPersonPlural = stem + endings[3];
+    tense.secondPersonPlural = stem + endings[4];
+    tense.thirdPersonPlurual = stem + endings[5];
+
+    return tense
+  }
+
+
+
+
   getSpanishPresentTense = (verb: string): Tense => {
 
+    let tense = new Tense();
     //TODO consider this, do you want to change all input to lower case
     verb = verb.toLowerCase();
     let verbEnding = this.getVerbEnding(verb);
     let stem = this.getSpanishRoot(verb);
 
-    let tense = new Tense();
     tense.fistPersonSingular = new TenseType();
     let endings: string[] = [];
 
@@ -109,7 +154,7 @@ export class ConjugateService {
     tense.thirdPersonSingular = stem + endings[2];
     tense.firstPersonPlural = stem + endings[3];
     tense.secondPersonPlural = stem + endings[4];
-    tense.thirdPersonPlurual = stem + endings[5];    
+    tense.thirdPersonPlurual = stem + endings[5];
 
     return tense;
 

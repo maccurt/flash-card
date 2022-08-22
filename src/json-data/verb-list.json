@@ -1,5 +1,33 @@
 [
     {
+        "to": "Hablar",
+        "from": "To Speak",
+        "presentTense": {
+            "fistPersonSingular": {
+                "sentenceList": [
+                    {
+                        "to": "Yo hablo espanol cada dia.",
+                        "from": "I speak spanish every day."
+                    },
+                    {
+                        "to": "Hablo español con mi amiga española",
+                        "from": "I speak spanish with my spanish friend."
+                    }
+                ]
+            }
+        },
+        "pastTense": {
+            "fistPersonSingular": {
+                "sentenceList": [
+                    {
+                        "to": "I spoke spanish yesterday with a student",
+                        "from": "Ayer hablé español con una estudiante"
+                    }
+                ]
+            }
+        }
+    },
+    {
         "to": "Reconocer",
         "from": "To Recognize",
         "presentTense": {
@@ -54,24 +82,6 @@
                     {
                         "from": "i undo my dress.",
                         "to": "me deshago el vestido."
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "to": "Hablar",
-        "from": "To Speak",
-        "presentTense": {
-            "fistPersonSingular": {
-                "sentenceList": [
-                    {
-                        "to": "Yo hablo espanol cada dia.",
-                        "from": "I speak spanish every day."
-                    },
-                    {
-                        "to": "Hablo español con mi amiga española",
-                        "from": "I speak spanish with my spanish friend."
                     }
                 ]
             }
