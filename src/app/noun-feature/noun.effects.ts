@@ -16,6 +16,6 @@ export class NounEffect {
                     map(nounList => nounActions.loadNounListSucess({ nounList }))
                 )),
             catchError(error => of(nounActions.loadNounListError({ error })))
-        )
-    })
+        );
+    });
 }

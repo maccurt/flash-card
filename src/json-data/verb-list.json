@@ -54,7 +54,6 @@
                     {
                         "from": "i undo my dress.",
                         "to": "me deshago el vestido."
-                        
                     }
                 ]
             }
@@ -73,10 +72,6 @@
                     {
                         "to": "Hablo español con mi amiga española",
                         "from": "I speak spanish with my spanish friend."
-                    },
-                    {
-                        "to": "Hablo español con mi amiga española",
-                        "from": "Practico hablar "
                     }
                 ]
             }
@@ -119,8 +114,8 @@
                         "from": "I can't live in an aparment because I have a dog"
                     },
                     {
-                        "to": "I do not live in the house on the corner.",
-                        "from": "yo no vivo en la casa de la esquina"
+                        "to": "yo no vivo en la casa de la esquina",
+                        "from": "I do not live in the house on the corner."
                     }
                 ]
             }
@@ -155,7 +150,7 @@
                         "from": "I recognize que your music is garbage."
                     },
                     {
-                        "to": "reconozco que eres muy inteligente y hermosa.I recognize that you are very intelligent and beautiful.",
+                        "to": "reconozco que eres muy inteligente y hermosa.",
                         "from": "I recognize that you are very intelligent and beautiful."
                     }
                 ]
@@ -181,12 +176,7 @@
         "from": "To Please",
         "presentTense": {
             "fistPersonSingular": {
-                "sentenceList": [
-                    {
-                        "from": "please put a sentence here.",
-                        "to": "please put a sentence here."
-                    }
-                ]
+                "sentenceList": []
             }
         }
     },
@@ -195,12 +185,7 @@
         "from": "To Grow",
         "presentTense": {
             "fistPersonSingular": {
-                "sentenceList": [
-                    {
-                        "from": "please put a sentence here.",
-                        "to": "please put a sentence here."
-                    }
-                ]
+                "sentenceList": []
             }
         }
     },
@@ -211,8 +196,8 @@
             "fistPersonSingular": {
                 "sentenceList": [
                     {
-                        "from": "Establezco mi dominio ahora.",
-                        "to": " establish my dominance now."
+                        "to": "Establezco mi dominio ahora.",
+                        "from": " establish my dominance now."
                     }
                 ]
             }
@@ -225,8 +210,8 @@
             "fistPersonSingular": {
                 "sentenceList": [
                     {
-                        "from": "Merezco todo el dinero now.",
-                        "to": "I deserve all the money ahora"
+                        "to": "Merezco todo el dinero now.",
+                        "from": "I deserve all the money ahora"
                     }
                 ]
             }
@@ -239,8 +224,8 @@
             "fistPersonSingular": {
                 "sentenceList": [
                     {
-                        "from": "No te ofrezco condiciones de paz.",
-                        "to": "I don't offer you peace terms."
+                        "to": "No te ofrezco condiciones de paz.",
+                        "from": "I don't offer you peace terms."
                     }
                 ]
             }
@@ -251,12 +236,7 @@
         "from": "to suffer",
         "presentTense": {
             "fistPersonSingular": {
-                "sentenceList": [
-                    {
-                        "from": "please put a sentence here.",
-                        "to": "please put a sentence here."
-                    }
-                ]
+                "sentenceList": []
             }
         }
     },
@@ -265,12 +245,7 @@
         "from": "To Remain",
         "presentTense": {
             "fistPersonSingular": {
-                "sentenceList": [
-                    {
-                        "from": "please put a sentence here.",
-                        "to": "please put a sentence here."
-                    }
-                ]
+                "sentenceList": []
             }
         }
     },
@@ -295,8 +270,8 @@
             "fistPersonSingular": {
                 "sentenceList": [
                     {
-                        "from": "I recoginze that you are very intelligent",
-                        "to": "reconozco que eres muy inteligente"
+                        "from": "I recoginze that you are very intelligent.",
+                        "to": "reconozco que eres muy inteligente."
                     }
                 ]
             }
@@ -309,8 +284,8 @@
             "fistPersonSingular": {
                 "sentenceList": [
                     {
-                        "to": "I translate the complicated to simple for idiots.",
-                        "from": "Traduzco la complicada a simple para idiotas."
+                        "from": "I translate the complicated to simple for idiots.",
+                        "to": "Traduzco la complicada a simple para idiotas."
                     }
                 ]
             }
@@ -323,8 +298,8 @@
             "fistPersonSingular": {
                 "sentenceList": [
                     {
-                        "to": "I drive my truck to the lake all the time",
-                        "from": "Conduzco mi camioneta al lago todo el tiempo"
+                        "from": "I drive my truck to the lake all the time",
+                        "to": "Conduzco mi camioneta al lago todo el tiempo"
                     }
                 ]
             }
@@ -337,8 +312,8 @@
             "fistPersonSingular": {
                 "sentenceList": [
                     {
-                        "from": "Produzco música muy simple.",
-                        "to": "I produce very simple music"
+                        "to": "Produzco música sencilla.",
+                        "from": "I produce very simple music."
                     }
                 ]
             }

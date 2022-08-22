@@ -20,7 +20,7 @@ export class ConjugationListComponent implements OnInit {
     this.store.dispatch(verbActions.loadVerbList());
     this.store.select(verbSelectors.getVerbListSelector).subscribe((verbList) => {
       this.verbList = verbList;
-    })
+    });
 
   }
 }

@@ -7,10 +7,12 @@ import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { VerbListComponent } from './verb-list/verb-list.component';
+import { VerbComponent } from './verb/verb.component';
 
 @NgModule({
   declarations: [
-    VerbListComponent,    
+    VerbListComponent,
+    VerbComponent,    
   ],
   imports: [
     CommonModule,

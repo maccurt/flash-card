@@ -10,6 +10,6 @@ export const nounActions = {
     loadNounList,
     loadNounListSucess,
     loadNounListError
-}
+};
 
-export default nounActions
+export default nounActions;

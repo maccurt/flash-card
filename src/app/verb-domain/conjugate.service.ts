@@ -40,7 +40,7 @@ export class ConjugateService {
   getSpanishPresentTest = (verb: Verb): Tense => {
     let tense = this.getSpanishPresentTense(verb.to);
     return this.swapTense(verb.presentTense, tense);
-  }
+  };
 
   swapTense = (orignalTense: Tense, tense: Tense): Tense => {
 
@@ -57,28 +57,28 @@ export class ConjugateService {
     }
 
     if (orignalTense.thirdPersonSingular) {
-      tense.thirdPersonSingular = orignalTense.thirdPersonSingular
+      tense.thirdPersonSingular = orignalTense.thirdPersonSingular;
     }
 
     if (orignalTense.firstPersonPlural) {
-      tense.firstPersonPlural = orignalTense.firstPersonPlural
+      tense.firstPersonPlural = orignalTense.firstPersonPlural;
     }
 
     if (orignalTense.secondPersonPlural) {
-      tense.secondPersonPlural = orignalTense.secondPersonPlural
+      tense.secondPersonPlural = orignalTense.secondPersonPlural;
 
     }
     if (orignalTense.thirdPersonPlurual) {
-      tense.thirdPersonPlurual = orignalTense.thirdPersonPlurual
+      tense.thirdPersonPlurual = orignalTense.thirdPersonPlurual;
     }
 
     return tense;
-  }
+  };
 
   getSpanishPresentTense = (verb: string): Tense => {
 
     //TODO consider this, do you want to change all input to lower case
-    verb = verb.toLowerCase()
+    verb = verb.toLowerCase();
     let verbEnding = this.getVerbEnding(verb);
     let stem = this.getSpanishRoot(verb);
 
@@ -119,16 +119,15 @@ export class ConjugateService {
 
     if (verb.length > 4) {
       let last4 = verb.slice(-4).toLowerCase();
-      let vowels = ['a', 'e', 'i', 'o', 'u']
+      let vowels = ['a', 'e', 'i', 'o', 'u'];
 
       if (last4.endsWith('cer') || last4.endsWith('cir')) {
         let firstChar = last4.substring(0, 1);
-        return (vowels.findIndex((v) => { return v === firstChar }) > -1);
+        return (vowels.findIndex((v) => { return v === firstChar; }) > -1);
       }
     }
 
     return false;
 
-  }
-
+  };
 }

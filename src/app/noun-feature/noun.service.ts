@@ -14,5 +14,5 @@ export class NounService {
 
     return this.httpClient.get<Noun[]>('/json-data/verb-list.json');
 
-  }
+  };
 }

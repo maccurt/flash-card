@@ -14,7 +14,7 @@ export interface NounState {
 
 export const nounInitialState: NounState = {
     nounList: []
-}
+};
 
 export const nounReducer = createReducer<NounState>(nounInitialState,
 
@@ -30,7 +30,7 @@ export const nounReducer = createReducer<NounState>(nounInitialState,
             ...state,
             error: '',
             nounList: action.nounList
-        }
+        };
     }),
 
     on(nounActions.loadNounListError, (state, action): NounState => {
@@ -38,6 +38,6 @@ export const nounReducer = createReducer<NounState>(nounInitialState,
             ...state,
             error: action.error.message,
             nounList: []
-        }
+        };
     })
-)
+);

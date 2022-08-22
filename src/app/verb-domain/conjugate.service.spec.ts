@@ -33,10 +33,10 @@ describe('ConjugateService', () => {
       verb.to = 'hacer';
       verb.presentTense = new Tense();
       verb.presentTense.fistPersonSingular = { text: 'hago' };
-      verb.presentTense.secondPersonSingular = ''
-      verb.presentTense.thirdPersonSingular = undefined as any
-      verb.presentTense.firstPersonPlural = null as any
-      const tense = service.getSpanishPresentTest(verb)
+      verb.presentTense.secondPersonSingular = '';
+      verb.presentTense.thirdPersonSingular = undefined as any;
+      verb.presentTense.firstPersonPlural = null as any;
+      const tense = service.getSpanishPresentTest(verb);
 
       expect(tense.fistPersonSingular?.text).toBe('hago');
       expect(tense.secondPersonSingular).toBe('haces');
@@ -50,10 +50,9 @@ describe('ConjugateService', () => {
       let verb = new Verb();
       verb.to = 'hablar';
       verb.presentTense = new Tense();
-      verb.presentTense.fistPersonSingular = new TenseType()
-      verb.presentTense.fistPersonSingular.sentenceList?.push({to:'',from:''})
-      let tense = service.getSpanishPresentTest(verb)
-
+      verb.presentTense.fistPersonSingular = new TenseType();
+      verb.presentTense.fistPersonSingular.sentenceList?.push({to:'',from:''});
+      let tense = service.getSpanishPresentTest(verb);
 
       expect(tense.fistPersonSingular.text).toBe('hablo');
       expect(tense.secondPersonSingular).toBe('hablas');
@@ -81,7 +80,6 @@ describe('ConjugateService', () => {
       expect(tense.fistPersonSingular.text).toBe('traduzco');
     });
 
-
     it('agradecer', () => {
       let tense = service.getSpanishPresentTense('agradecer');
       expect(tense.fistPersonSingular.text).toBe('agradezco');
@@ -91,7 +89,6 @@ describe('ConjugateService', () => {
       expect(tense.secondPersonPlural).toBe('agradecéis');
       expect(tense.thirdPersonPlurual).toBe('agradecen');
     });
-
 
     it('hablar', () => {
       let tense = service.getSpanishPresentTense('hablar');
@@ -148,9 +145,7 @@ describe('ConjugateService', () => {
       //Use this
       // expect(service.endsInCerOrCirWithVowel('hacer')).toBeFalse();
 
-
     });
-
 
   });
 
