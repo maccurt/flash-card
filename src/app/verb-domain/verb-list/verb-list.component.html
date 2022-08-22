@@ -1,0 +1,56 @@
+<br>
+<br>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-12 col-sm-6 col-xxl-4">
+            <!-- TODO  this needs to be a component-->
+            <br>
+            <mat-card>
+                <mat-card-content>
+                    <div style="height:200px">
+                        <!-- TODO  Make this a class-->
+                        <div *ngIf="fromTo">
+                            <h1>{{fromTo.to | lowercase}}</h1>
+                            <div class="sentence-to">
+                                <span *ngIf="sentence">{{sentence.to}}</span>
+                                <span *ngIf="!sentence"> &nbsp;</span>
+                            </div>
+                            <hr>
+                            <div *ngIf="showTo">
+                                <h1>{{fromTo.from | lowercase }}</h1>
+                                <div class="sentence-from">
+                                    <span *ngIf="sentence">{{sentence.from}}</span>
+                                    <span *ngIf="!sentence"> &nbsp;</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 *ngIf="!fromTo">Loading...</h2>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-12 col-xxl-6">
+            <mat-card>
+                <mat-card-content>
+                    <div *ngIf="sentenceList.length > 0">
+                        <ul class="sentene" *ngFor="let s of sentenceList">
+                            <li class="from"> {{s.to}}</li>
+                        </ul>
+                    </div>
+
+                </mat-card-content>
+
+            </mat-card>
+
+        </div>
+
+
+    </div>
+
+    <br>
+
+</div>

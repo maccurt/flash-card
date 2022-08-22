@@ -1,0 +1,18 @@
+[    
+    {
+        "from": "Hombre",
+        "to": "Man"
+    },
+    {
+        "from": "Mujer",
+        "to": "Woman"
+    },
+    {
+        "from": "Case",
+        "to": "House"
+    },
+    {
+        "from": "Comprar",
+        "to": "To Buy"
+    }    
+]
