@@ -1,5 +1,25 @@
 [
     {
+        "to": "atacar",
+        "from": "to attack",
+        "presentTense": {
+            "fistPersonSingular": {
+                "sentenceList": []
+            }
+        },
+        "preteriteTense": {
+            "fistPersonSingular": {
+                "text": "actaqué",
+                "sentenceList": [
+                    {
+                        "from": "I attacked the enemy yesterday in the morning.",
+                        "to": "Ataqué al enemigo ayer por la mañana."
+                    }
+                ]
+            }
+        }
+    },
+    {
         "to": "Hacer",
         "from": "To Do",
         "presentTense": {
@@ -9,14 +29,6 @@
                     {
                         "from": "I do my homework not because I want to but because I have to.",
                         "to": "Hago mis deberes no porque quiero sino porque necesito."
-                    },
-                    {
-                        "from": "I undo the straps of my boat.",
-                        "to": "Deshago las correas de mi barco."
-                    },
-                    {
-                        "from": "I do not want to undo something.",
-                        "to": "no quiero deshacer algo."
                     }
                 ]
             }
@@ -80,8 +92,8 @@
                 "text": "dehago",
                 "sentenceList": [
                     {
-                        "from": "i undo my dress.",
-                        "to": "me deshago el vestido."
+                        "from": "i undo my buttons.",
+                        "to": "me deshago mis botones."
                     }
                 ]
             }

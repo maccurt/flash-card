@@ -51,7 +51,7 @@ export class ConjugateService {
   };
 
   getPreteriteTense = (verb: Verb): Tense => {
-    let tense = this.getPreteriteTenseSpanish(verb.to);
+    let tense = this.getPreteriteTenseSpanish(verb.to);    
     return this.swapTense(verb.preteriteTense, tense);
   };
 
@@ -100,8 +100,7 @@ export class ConjugateService {
 
     let tense = new Tense();
     //TODO consider this, do you want to change all input to lower case
-    verb = verb.toLowerCase();
-    let verbEnding = this.getVerbEnding(verb);
+    verb = verb.toLowerCase();    
     let stem = this.getSpanishRoot(verb);
 
     tense.fistPersonSingular = new TenseType();

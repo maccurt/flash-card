@@ -11,6 +11,32 @@ describe('ConjugateService', () => {
     service = new ConjugateService();
   });
 
+
+  describe('Name of the group', () => {
+
+
+    it('should behave...', () => {
+      let verb = new Verb();
+
+      verb.from = 'to attack';
+      verb.to = 'atacar';
+      verb.preteriteTense = new Tense();
+      verb.preteriteTense.fistPersonSingular.text = 'actaqué'
+      let tense = service.getPreteriteTense(verb);
+
+      //single
+      expect(tense.fistPersonSingular?.text).toBe('actaqué');
+      expect(tense.secondPersonSingular).toBe('atacaste');
+      expect(tense.thirdPersonSingular).toBe('atacó');
+      //plural
+      expect(tense.firstPersonPlural).toBe('atacamos');
+      expect(tense.secondPersonPlural).toBe('atacasteis');
+      expect(tense.thirdPersonPlurual).toBe('atacaron');
+
+    });
+
+  });
+
   describe('getVerbEndingList', () => {
 
     it('should behave...', () => {

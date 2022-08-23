@@ -13,7 +13,7 @@ export class VerbEffect {
         return this.actions$.pipe(
             ofType(verbActions.loadVerbList),            
             mergeMap(() => this.verbService.getVerbList()
-                .pipe(
+                .pipe(                    
                     map(verbList => verbActions.loadVerbListSucess({ verbList }))
                 )),
             catchError(error => of(verbActions.loadVerbListError({ error })))
