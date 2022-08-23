@@ -24,5 +24,5 @@ export class Verb implements FromTo {
     from!: string;
     to!: string;
     presentTense!: Tense;
-    pastTense!:Tense;
+    preteriteTense!:Tense;
 }

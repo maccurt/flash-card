@@ -55,7 +55,7 @@ export class VerbListComponent implements OnInit {
 
         this.presentTense = this.conjugationService.getPresentTense(verb);
         //TOOO fix this so it uses the a non string version
-        this.preteriteTense = this.conjugationService.getPastTense(this.verb.to);
+        this.preteriteTense = this.conjugationService.getPreteriteTenseSpanish(this.verb.to);
 
         this.sentence = null;
         if (verb.presentTense && verb.presentTense.fistPersonSingular && verb.presentTense.fistPersonSingular.sentenceList) {

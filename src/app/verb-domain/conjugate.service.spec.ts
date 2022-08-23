@@ -26,7 +26,7 @@ describe('ConjugateService', () => {
 
     it('hablar', () => {
 
-      let tense = service.getPastTense('hablar');
+      let tense = service.getPreteriteTenseSpanish('hablar');
       //single
       expect(tense.fistPersonSingular?.text).toBe('hablé');
       expect(tense.secondPersonSingular).toBe('hablaste');
@@ -43,7 +43,7 @@ describe('ConjugateService', () => {
       // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
       // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
 
-      let tense = service.getPastTense('vivir');
+      let tense = service.getPreteriteTenseSpanish('vivir');
       //single
       expect(tense.fistPersonSingular?.text).toBe('viví');
       expect(tense.secondPersonSingular).toBe('viviste');
@@ -60,7 +60,7 @@ describe('ConjugateService', () => {
       // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
       // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
 
-      let tense = service.getPastTense('comer');
+      let tense = service.getPreteriteTenseSpanish('comer');
       //single
       expect(tense.fistPersonSingular?.text).toBe('comí');
       expect(tense.secondPersonSingular).toBe('comiste');

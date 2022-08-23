@@ -2,35 +2,34 @@ import { Verb, Tense, TenseType } from './state/Verb';
 import { Injectable } from '@angular/core';
 
 export enum VerbEnding {
-  unknown = 0,
-  ar,
-  ir,
-  er
+  unknown = 0, ar, ir, er
+};
+
+export interface VerbEndingInterface {
+  ar: string[],
+  er: string[],
+  ir: string[]
+};
+
+export const verbEndings = {
+  presentTense: {
+    ar: ['o', 'as', 'a', 'amos', 'áis', 'an'],
+    er: ['o', 'es', 'e', 'emos', 'éis', 'en'],
+    ir: ['o', 'es', 'e', 'imos', 'ís', 'en']
+  },
+  preteriteTense: {
+    ar: ['é', 'aste', 'ó', 'amos', 'asteis', 'aron'],
+    er: ['í', 'iste', 'ió', 'imos', 'isteis', 'ieron'],
+    ir: ['í', 'iste', 'ió', 'imos', 'isteis', 'ieron']
+  }
 };
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConjugateService {
-  //â, ê, î, ô, û Â, Ê, Î, Ô, Û
-  //ã, ñ, õ Ã, Ñ, Õ
-  //é
-
   // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
   // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
-  verbEndings = {
-    presentTense: {
-      ar: ['o', 'as', 'a', 'amos', 'áis', 'an'],
-      er: ['o', 'es', 'e', 'emos', 'éis', 'en'],
-      ir: ['o', 'es', 'e', 'imos', 'ís', 'en']
-    },
-    pastTense: {
-      ar: ['é', 'aste', 'ó', 'amos', 'asteis', 'aron'],
-      er: ['í', 'iste', 'ió', 'imos', 'isteis', 'ieron'],
-      ir: ['í', 'iste', 'ió', 'imos', 'isteis', 'ieron']
-    }
-  };
-
   constructor() { }
 
   getSpanishRoot = (verb: string): string => {
@@ -51,41 +50,32 @@ export class ConjugateService {
     return this.swapTense(verb.presentTense, tense);
   };
 
-  swapTense = (orignalTense: Tense, tense: Tense): Tense => {
-
-    if (!orignalTense) {
-      return tense;
-    }
-
-    if (orignalTense.fistPersonSingular.text) {
-      tense.fistPersonSingular = orignalTense.fistPersonSingular;
-    }
-
-    if (orignalTense.secondPersonSingular) {
-      tense.secondPersonSingular = orignalTense.secondPersonSingular;
-    }
-
-    if (orignalTense.thirdPersonSingular) {
-      tense.thirdPersonSingular = orignalTense.thirdPersonSingular;
-    }
-
-    if (orignalTense.firstPersonPlural) {
-      tense.firstPersonPlural = orignalTense.firstPersonPlural;
-    }
-
-    if (orignalTense.secondPersonPlural) {
-      tense.secondPersonPlural = orignalTense.secondPersonPlural;
-
-    }
-    if (orignalTense.thirdPersonPlurual) {
-      tense.thirdPersonPlurual = orignalTense.thirdPersonPlurual;
-    }
-
-    return tense;
+  getPreteriteTense = (verb: Verb): Tense => {
+    let tense = this.getPreteriteTenseSpanish(verb.to);
+    return this.swapTense(verb.preteriteTense, tense);
   };
 
 
-  getPastTense = (verb: string): Tense => {
+  getVerbEndingList = (verbEnding: VerbEnding, tenseVerbEnding: VerbEndingInterface): string[] => {
+
+    let endingListToReturn: string[];
+    switch (verbEnding) {
+      case VerbEnding.ar:
+        endingListToReturn = tenseVerbEnding.ar;
+        break;
+      case VerbEnding.er:
+        endingListToReturn = tenseVerbEnding.er;
+        break;
+      case VerbEnding.ir:
+        endingListToReturn = tenseVerbEnding.ir;
+        break;
+      default:
+        endingListToReturn = [];
+    }
+    return endingListToReturn;
+  }
+
+  getPreteriteTenseSpanish = (verb: string): Tense => {
 
     let tense = new Tense()
     tense.fistPersonSingular = new TenseType();
@@ -97,13 +87,13 @@ export class ConjugateService {
 
     switch (verbEnding) {
       case VerbEnding.ar:
-        endings = this.verbEndings.pastTense.ar;
+        endings = verbEndings.preteriteTense.ar;
         break;
       case VerbEnding.er:
-        endings = this.verbEndings.pastTense.er;
+        endings = verbEndings.preteriteTense.er;
         break;
       case VerbEnding.ir:
-        endings = this.verbEndings.pastTense.ir;
+        endings = verbEndings.preteriteTense.ir;
         break;
     }
 
@@ -130,13 +120,13 @@ export class ConjugateService {
 
     switch (verbEnding) {
       case VerbEnding.ar:
-        endings = this.verbEndings.presentTense.ar;
+        endings = verbEndings.presentTense.ar;
         break;
       case VerbEnding.er:
-        endings = this.verbEndings.presentTense.er;
+        endings = verbEndings.presentTense.er;
         break;
       case VerbEnding.ir:
-        endings = this.verbEndings.presentTense.ir;
+        endings = verbEndings.presentTense.ir;
         break;
     }
 
@@ -146,15 +136,43 @@ export class ConjugateService {
     else {
       tense.fistPersonSingular.text = stem + endings[0];
     }
-
     tense.secondPersonSingular = stem + endings[1];
     tense.thirdPersonSingular = stem + endings[2];
     tense.firstPersonPlural = stem + endings[3];
     tense.secondPersonPlural = stem + endings[4];
     tense.thirdPersonPlurual = stem + endings[5];
+    return tense;
+  };
+
+  swapTense = (orignalTense: Tense, tense: Tense): Tense => {
+
+    if (!orignalTense) { return tense; }
+
+    if (orignalTense.fistPersonSingular.text) {
+      tense.fistPersonSingular = orignalTense.fistPersonSingular;
+    };
+
+    if (orignalTense.secondPersonSingular) {
+      tense.secondPersonSingular = orignalTense.secondPersonSingular;
+    };
+
+    if (orignalTense.thirdPersonSingular) {
+      tense.thirdPersonSingular = orignalTense.thirdPersonSingular;
+    };
+
+    if (orignalTense.firstPersonPlural) {
+      tense.firstPersonPlural = orignalTense.firstPersonPlural;
+    };
+
+    if (orignalTense.secondPersonPlural) {
+      tense.secondPersonPlural = orignalTense.secondPersonPlural;
+    };
+
+    if (orignalTense.thirdPersonPlurual) {
+      tense.thirdPersonPlurual = orignalTense.thirdPersonPlurual;
+    };
 
     return tense;
-
   };
 
   endsInCerOrCirWithVowel = (verb: string): boolean => {
@@ -168,8 +186,6 @@ export class ConjugateService {
         return (vowels.findIndex((v) => { return v === firstChar; }) > -1);
       }
     }
-
     return false;
-
   };
 }
