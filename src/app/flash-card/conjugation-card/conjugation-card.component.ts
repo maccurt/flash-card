@@ -9,12 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ConjugationCardComponent implements OnInit {
 
-  @Input() verb!: Verb;
-  tense!: Tense;
+  @Input() header!: string | null | undefined;
+  @Input() tense!: Tense;
   constructor(private conjugationService: ConjugateService) { }
 
   ngOnInit(): void {
-    this.tense = new Tense();
-    this.tense = this.conjugationService.getSpanishPresentTest(this.verb);
+
   }
 }

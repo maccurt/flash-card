@@ -46,7 +46,7 @@ export class ConjugateService {
     return VerbEnding.unknown;
   };
 
-  getSpanishPresentTest = (verb: Verb): Tense => {
+  getPresentTense = (verb: Verb): Tense => {
     let tense = this.getSpanishPresentTense(verb.to);
     return this.swapTense(verb.presentTense, tense);
   };
@@ -116,9 +116,6 @@ export class ConjugateService {
 
     return tense
   }
-
-
-
 
   getSpanishPresentTense = (verb: string): Tense => {
 

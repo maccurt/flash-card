@@ -1,4 +1,3 @@
-import { FromToCardComponent } from './../../flash-card/from-to-card/from-to-card.component';
 import { ConjugateService } from './../conjugate.service';
 import { verbActions } from './../state/verb.actions';
 import { verbSelectors } from './../state/verb.selectos';
@@ -15,7 +14,10 @@ export class VerbListComponent implements OnInit {
   verbList: Verb[] = [];
   fromTo!: FromTo;
   showTo: boolean = false;
-  tense!: Tense | null;
+  // tense!: Tense | null;
+
+  presentTense!: Tense | null;
+  pastTense!: Tense | null;
   sentence!: FromTo | null;
   showSentence: boolean = false;
   sentenceList: FromTo[] = [];
@@ -50,7 +52,9 @@ export class VerbListComponent implements OnInit {
       for (const verb of verbList) {
 
         this.fromTo = verb;
-        this.tense = this.conjugationService.getSpanishPresentTense(this.fromTo.to);
+        this.presentTense = this.conjugationService.getPresentTense(verb);
+
+        this.pastTense = this.conjugationService.getPastTense(this.fromTo.to);
 
         //TODO this is hack fix this
         this.sentence = null;
@@ -69,11 +73,12 @@ export class VerbListComponent implements OnInit {
 
         //Wait to rotate to next verb
         await wait(waitTime + 8000);
-        this.tense = null;
+        //TODO FIX THIS don't want to use hide the thing
+        //this should be hide the
+        this.presentTense = null;
       }
     };
     loop();
 
   };
-
 }

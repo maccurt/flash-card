@@ -1,5 +1,28 @@
 [
     {
+        "to": "Hacer",
+        "from": "To Do",
+        "presentTense": {
+            "fistPersonSingular": {
+                "text": "hago",
+                "sentenceList": [
+                    {
+                        "from": "I do my homework not because I want to but because I have to.",
+                        "to": "Hago mis deberes no porque quiero sino porque necesito."
+                    },
+                    {
+                        "from": "I undo the straps of my boat.",
+                        "to": "Deshago las correas de mi barco."
+                    },
+                    {
+                        "from": "I do not want to undo something.",
+                        "to": "no quiero deshacer algo."
+                    }
+                ]
+            }
+        }
+    },
+    {
         "to": "Hablar",
         "from": "To Speak",
         "presentTense": {
@@ -44,29 +67,6 @@
                     {
                         "from": "I recognize that you are very intelligent and beautiful.",
                         "to": "Reconozco que eres muy inteligente y hermosa."
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "to": "Hacer",
-        "from": "To Do",
-        "presentTense": {
-            "fistPersonSingular": {
-                "text": "hago",
-                "sentenceList": [
-                    {
-                        "from": "I do my homework not because I want to but because I have to.",
-                        "to": "Hago mis deberes no porque quiero sino porque necesito."
-                    },
-                    {
-                        "from": "I undo the straps of my boat.",
-                        "to": "Deshago las correas de mi barco."
-                    },
-                    {
-                        "from": "I do not want to undo something.",
-                        "to": "no quiero deshacer algo."
                     }
                 ]
             }

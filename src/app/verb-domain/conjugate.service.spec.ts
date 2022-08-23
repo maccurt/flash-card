@@ -84,7 +84,7 @@ describe('ConjugateService', () => {
       verb.presentTense.secondPersonSingular = '';
       verb.presentTense.thirdPersonSingular = undefined as any;
       verb.presentTense.firstPersonPlural = null as any;
-      const tense = service.getSpanishPresentTest(verb);
+      const tense = service.getPresentTense(verb);
 
       expect(tense.fistPersonSingular?.text).toBe('hago');
       expect(tense.secondPersonSingular).toBe('haces');
@@ -100,7 +100,7 @@ describe('ConjugateService', () => {
       verb.presentTense = new Tense();
       verb.presentTense.fistPersonSingular = new TenseType();
       verb.presentTense.fistPersonSingular.sentenceList?.push({ to: '', from: '' });
-      let tense = service.getSpanishPresentTest(verb);
+      let tense = service.getPresentTense(verb);
 
       expect(tense.fistPersonSingular.text).toBe('hablo');
       expect(tense.secondPersonSingular).toBe('hablas');
