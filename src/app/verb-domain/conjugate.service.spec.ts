@@ -1,5 +1,5 @@
 import { Tense, TenseType, Verb } from './state/Verb';
-import { ConjugateService, VerbEnding } from './conjugate.service';
+import { ConjugateService, VerbEnding, verbEndings } from './conjugate.service';
 
 // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
 // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
@@ -9,6 +9,18 @@ describe('ConjugateService', () => {
 
   beforeEach(() => {
     service = new ConjugateService();
+  });
+
+  describe('getVerbEndingList', () => {
+
+    it('should behave...', () => {
+
+      let endings = service.getVerbEndingList(VerbEnding.ar, verbEndings.presentTense);
+      expect(endings.length).toBe(6);
+      expect(endings).toEqual(verbEndings.presentTense.ar)
+      expect(endings[0]).toEqual('o')
+    });
+
   });
 
   describe('getVerbEnding', () => {
@@ -114,7 +126,7 @@ describe('ConjugateService', () => {
   describe('getSpanishPresentTense', () => {
 
     it('CONDUCIR', () => {
-      let tense = service.getSpanishPresentTense('CONDUCIR');
+      let tense = service.getPresentTenseSpanish('CONDUCIR');
       expect(tense.fistPersonSingular.text).toBe('conduzco');
       expect(tense.secondPersonSingular).toBe('conduces');
       expect(tense.thirdPersonSingular).toBe('conduce');
@@ -124,12 +136,12 @@ describe('ConjugateService', () => {
     });
 
     it('CONDUCIR', () => {
-      let tense = service.getSpanishPresentTense('TRADUCIR');
+      let tense = service.getPresentTenseSpanish('TRADUCIR');
       expect(tense.fistPersonSingular.text).toBe('traduzco');
     });
 
     it('agradecer', () => {
-      let tense = service.getSpanishPresentTense('agradecer');
+      let tense = service.getPresentTenseSpanish('agradecer');
       expect(tense.fistPersonSingular.text).toBe('agradezco');
       expect(tense.secondPersonSingular).toBe('agradeces');
       expect(tense.thirdPersonSingular).toBe('agradece');
@@ -139,7 +151,7 @@ describe('ConjugateService', () => {
     });
 
     it('hablar', () => {
-      let tense = service.getSpanishPresentTense('hablar');
+      let tense = service.getPresentTenseSpanish('hablar');
       expect(tense.fistPersonSingular.text).toBe('hablo');
       expect(tense.secondPersonSingular).toBe('hablas');
       expect(tense.secondPersonPlural).toBe('habláis');
@@ -149,7 +161,7 @@ describe('ConjugateService', () => {
     });
 
     it('beber', () => {
-      let tense = service.getSpanishPresentTense('beber');
+      let tense = service.getPresentTenseSpanish('beber');
       expect(tense.fistPersonSingular.text).toBe('bebo');
       expect(tense.secondPersonSingular).toBe('bebes');
       expect(tense.thirdPersonSingular).toBe('bebe');
@@ -159,7 +171,7 @@ describe('ConjugateService', () => {
     });
 
     it('vivir', () => {
-      let tense = service.getSpanishPresentTense('vivir');
+      let tense = service.getPresentTenseSpanish('vivir');
       expect(tense.fistPersonSingular.text).toBe('vivo');
       expect(tense.secondPersonSingular).toBe('vives');
       expect(tense.thirdPersonSingular).toBe('vive');

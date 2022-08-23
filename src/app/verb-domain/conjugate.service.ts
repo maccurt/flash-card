@@ -46,7 +46,7 @@ export class ConjugateService {
   };
 
   getPresentTense = (verb: Verb): Tense => {
-    let tense = this.getSpanishPresentTense(verb.to);
+    let tense = this.getPresentTenseSpanish(verb.to);
     return this.swapTense(verb.presentTense, tense);
   };
 
@@ -82,20 +82,9 @@ export class ConjugateService {
 
     verb = verb.toLowerCase();
     let stem = this.getSpanishRoot(verb);
-    let verbEnding = this.getVerbEnding(verb);
     let endings: string[] = [];
 
-    switch (verbEnding) {
-      case VerbEnding.ar:
-        endings = verbEndings.preteriteTense.ar;
-        break;
-      case VerbEnding.er:
-        endings = verbEndings.preteriteTense.er;
-        break;
-      case VerbEnding.ir:
-        endings = verbEndings.preteriteTense.ir;
-        break;
-    }
+    endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.preteriteTense)    
 
     tense.fistPersonSingular.text = stem + endings[0];
     tense.secondPersonSingular = stem + endings[1];
@@ -107,7 +96,7 @@ export class ConjugateService {
     return tense
   }
 
-  getSpanishPresentTense = (verb: string): Tense => {
+  getPresentTenseSpanish = (verb: string): Tense => {
 
     let tense = new Tense();
     //TODO consider this, do you want to change all input to lower case
@@ -116,19 +105,7 @@ export class ConjugateService {
     let stem = this.getSpanishRoot(verb);
 
     tense.fistPersonSingular = new TenseType();
-    let endings: string[] = [];
-
-    switch (verbEnding) {
-      case VerbEnding.ar:
-        endings = verbEndings.presentTense.ar;
-        break;
-      case VerbEnding.er:
-        endings = verbEndings.presentTense.er;
-        break;
-      case VerbEnding.ir:
-        endings = verbEndings.presentTense.ir;
-        break;
-    }
+    let endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.presentTense)    
 
     if (this.endsInCerOrCirWithVowel(verb)) {
       tense.fistPersonSingular.text = verb.substring(0, verb.length - 3) + 'zco';
