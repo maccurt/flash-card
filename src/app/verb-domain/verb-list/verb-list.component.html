@@ -7,7 +7,7 @@
             <br>
             <mat-card style="background-color: #ffffe6;border: 1px solid black;">
                 <mat-card-content>
-                    <div style="height:200px">                        
+                    <div style="height:200px">
                         <div *ngIf="verb">
                             <h1>{{verb.to | lowercase}}</h1>
                             <div class="sentence-to">
@@ -34,23 +34,18 @@
 
                 <div class="col-12 ">
                     <app-conjugation-card *ngIf="presentTense" [header]="'Present'" [tense]="presentTense">
-
                     </app-conjugation-card>
                     <br>
                 </div>
 
-
                 <div class="col-12 ">
-                    <app-conjugation-card *ngIf="pastTense" [header]="'Past'"  [tense]="pastTense">
-
+                    <app-conjugation-card *ngIf="preteriteTense" [header]="'Preterite'" [tense]="preteriteTense">
                     </app-conjugation-card>
                     <br>
                 </div>
 
             </div>
-
         </div>
-
 
         <!-- <div class="col-12 col-xxl-6">
             <mat-card>
