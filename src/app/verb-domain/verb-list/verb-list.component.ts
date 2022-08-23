@@ -1,9 +1,10 @@
+import { FromTo } from './../state/Verb';
 import { ConjugateService } from './../conjugate.service';
 import { verbActions } from './../state/verb.actions';
 import { verbSelectors } from './../state/verb.selectos';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Tense, FromTo, Verb } from '../state/Verb';
+import { Tense, Verb } from '../state/Verb';
 
 @Component({
   selector: 'app-verb-list',
@@ -12,9 +13,8 @@ import { Tense, FromTo, Verb } from '../state/Verb';
 })
 export class VerbListComponent implements OnInit {
   verbList: Verb[] = [];
-  fromTo!: FromTo;
-  showTo: boolean = false;
-  // tense!: Tense | null;
+  verb!: Verb;
+  showTranslation: boolean = false;
 
   presentTense!: Tense | null;
   pastTense!: Tense | null;
@@ -33,6 +33,7 @@ export class VerbListComponent implements OnInit {
     this.store.select(verbSelectors.getVerbListSelector).subscribe((verbList) => {
       if (verbList.length > 0) {
         this.verbList = verbList;
+        //toFromList.sort(() => Math.random() - 0.5)        
         this.flashToFromList([...this.verbList]);
       }
 
@@ -41,40 +42,35 @@ export class VerbListComponent implements OnInit {
 
   flashToFromList = (verbList: Verb[]) => {
 
-    //TODO Should this shuffle be somewhere else?
-    //toFromList.sort(() => Math.random() - 0.5)
-    //We create function that returns a new promise
-
     const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
     const waitTime = 3000;
 
     const loop = async () => {
       for (const verb of verbList) {
 
-        this.fromTo = verb;
+        //baseline
+        this.verb = verb;
+        this.showTranslation = false;
+
         this.presentTense = this.conjugationService.getPresentTense(verb);
-
-        this.pastTense = this.conjugationService.getPastTense(this.fromTo.to);
-
-        //TODO this is hack fix this
-        this.sentence = null;
+        //TOOO fix this so it uses the a non string version
+        this.pastTense = this.conjugationService.getPastTense(this.verb.to);
+        
+        this.sentence = null;        
         if (verb.presentTense && verb.presentTense.fistPersonSingular && verb.presentTense.fistPersonSingular.sentenceList) {
           if (verb.presentTense.fistPersonSingular.sentenceList.length > 0) {
             this.sentence = verb.presentTense.fistPersonSingular.sentenceList[0];
             this.sentenceList = verb.presentTense.fistPersonSingular.sentenceList;
           }
         }
-
-        this.showTo = false;
-
-        //Show the to version
+        
+        //show the translation
         await wait(waitTime);
-        this.showTo = true;
+        this.showTranslation = true;
 
         //Wait to rotate to next verb
         await wait(waitTime + 8000);
-        //TODO FIX THIS don't want to use hide the thing
-        //this should be hide the
+        
         this.presentTense = null;
       }
     };
