@@ -2,6 +2,24 @@
     {
         "to": "atacar",
         "from": "to attack",
+        "sentenceList": [
+            {
+                "from": "I attacked the enemy yesterday at noon.",
+                "to": "Ataqué al enemigo ayer al mediodía."
+            },
+            {
+                "from": "We attacked the enemy two days ago",
+                "to": "Nosotros atacamos al enemigo hace dos dias."
+            },
+            {
+                "from": "You attacked the enemy.",
+                "to": "Atacaste al enemigo."
+            },
+            {
+                "from": "I want to attack the people who stole my bike.",
+                "to": "Quiero atacar a las personas que robaron mi bicicleta."
+            }
+        ],
         "presentTense": {
             "fistPersonSingular": {
                 "sentenceList": []
@@ -22,6 +40,12 @@
     {
         "to": "Hacer",
         "from": "To Do",
+        "sentenceList": [
+            {
+                "from": "I do my homework not because I want to but because I have to.",
+                "to": "Hago mis deberes no porque quiero sino porque necesito."
+            }
+        ],
         "presentTense": {
             "fistPersonSingular": {
                 "text": "hago",

@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { FlashCardModule } from './../flash-card/flash-card.module';
 import { SharedModule } from './../shared/shared.module';
 import { VerbEffect } from './state/verb.effectss';
@@ -12,14 +13,15 @@ import { VerbComponent } from './verb/verb.component';
 @NgModule({
   declarations: [
     VerbListComponent,
-    VerbComponent,    
+    VerbComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
     FlashCardModule,
     StoreModule.forFeature('verb', verbReducer),
-    EffectsModule.forFeature([VerbEffect])    
+    EffectsModule.forFeature([VerbEffect])
   ]
 })
 export class VerbModule { }

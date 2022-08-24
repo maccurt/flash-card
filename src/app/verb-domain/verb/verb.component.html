@@ -1,1 +1,46 @@
-<p>verb works!</p>
+<br>
+<div *ngIf="verb$ | async as verb" class="container">
+
+    <div class="row">
+
+        <div class="col-12 col-sm-6 col-xxl-4">
+
+            <mat-card style="background-color: #ffffe6;border: 1px solid black;">
+                <mat-card-content>
+                    <div>
+                        <div *ngIf="verb">
+                            <h1> {{verb.to}}</h1>
+                            <hr>
+                            <div>
+                                <h1>{{verb.from | lowercase }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+
+
+        <div *ngIf="verb.sentenceList && verb.sentenceList.length > 0" class="col-sm-6 col-xxl-6">
+
+            <div *ngFor="let s of verb.sentenceList" class="row">
+                <mat-card style="border: 1px solid #cccccc;margin-bottom: 25px;background-color: #f2f2f2;">
+                    <mat-card-content>
+                        <div>
+                            <div>
+                                <h4> {{s.to}}</h4>
+                                <hr>
+                                <div>
+                                    <h4>{{s.from }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                
+            </div>
+
+        </div>
+    </div>
+</div>

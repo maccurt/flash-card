@@ -4,6 +4,7 @@ import { Verb } from './Verb';
 
 export interface VerbState {
     verbList: Verb[];
+    verb?: Verb
     error: string;
 }
 
@@ -35,5 +36,22 @@ export const verbReducer = createReducer<VerbState>(verbStateInitial,
             error: action.error.message,
             verbList: []
         };
-    })
+    }),
+    on(verbActions.loadVerb, (state, action): VerbState => {
+        return {
+            ...state,
+            error: ''
+        };
+    }),
+    on(verbActions.loadVerbSuccess, (state, action): VerbState => {
+        return {
+            ...state,
+            verb:action.verb,
+            error: ''
+        };
+    }),
+
+
+
+
 );
