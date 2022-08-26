@@ -1,7 +1,7 @@
+import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './../state/verb.selectos';
-import { verbActions } from './../state/verb.actions';
 import { Observable } from 'rxjs';
-import { Verb } from './../state/Verb';
+import { Verb, Tense } from './../state/Verb';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -12,14 +12,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./verb.component.scss']
 })
 export class VerbComponent implements OnInit {
-  verb$!: Observable<Verb | undefined>;
+  verb: Verb | undefined
+  tenseList: Tense[] = [];
 
-  constructor(private store: Store, private route: ActivatedRoute) {
+  constructor(private store: Store,
+    private route: ActivatedRoute, private conjugateService: ConjugateService) {
 
     this.route.paramMap.subscribe((param) => {
-      let verb = param.get('verb')?.toString();
-      if (verb) {
-        this.verb$ = this.store.select(verbSelectors.getVerbSelector(verb));
+      //CAN THIS BE IN THE EFFECT?
+      let verbRouteParam = param.get('verb')?.toString();
+      if (verbRouteParam) {
+        this.store.select(verbSelectors.getVerbSelector(verbRouteParam)).subscribe((verb) => {
+
+          //move all this code into an effect/etc.. NGRX IT
+          if (verb) {
+            this.tenseList.push(this.conjugateService.getPresentTense(verb));
+            this.tenseList.push(this.conjugateService.getPreteriteTense(verb));
+          }
+          this.verb = verb
+        })
       }
     })
   }

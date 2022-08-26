@@ -16,6 +16,11 @@ export class VerbEffect {
     loadVerbList$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(verbActions.loadVerbList),
+            //TODO merge maps runs streams/observables in parallel
+            //Is this the best operator for this?
+            //why not concat map? concatMap runs them in order, sync
+            //OK, you are in an observable and need to get another observable
+            //so you merge that observable in
             mergeMap(() => this.verbService.getVerbList()
                 .pipe(
                     map(verbList => verbActions.loadVerbListSucess({ verbList }))
@@ -23,17 +28,4 @@ export class VerbEffect {
             catchError(error => of(verbActions.loadVerbListError({ error })))
         );
     });
-
-    // loadVerb$ = createEffect(() => {
-
-    //     return this.actions$.pipe(
-    //         ofType(verbActions.loadVerb),
-    //         mergeMap(() => this.store.select(verbSelectors.getVerbListSelector).pipe(
-
-    //         ))
-
-
-    //     )
-
-    // })
 }

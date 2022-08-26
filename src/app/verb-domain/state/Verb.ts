@@ -28,17 +28,16 @@ export class Verb implements FromTo {
 
 //https://www.bucks.edu/media/bcccmedialibrary/tutoring/documents/writingareahandoutrevision/spanish/Spanish-Subject-Pronouns.pdf
 export class Tense {
-
-
-    constructor() {
-        this.fistPersonSingular = new TenseType();
-    }
+    text: string = '';
     fistPersonSingular!: TenseType;
     firstPersonPlural: string = '';
     secondPersonSingular: string = '';
     secondPersonPlural: string = '';
     thirdPersonSingular: string = '';
     thirdPersonPlurual: string = '';
+    constructor() {
+        this.fistPersonSingular = new TenseType();
+    }
 }
 
 

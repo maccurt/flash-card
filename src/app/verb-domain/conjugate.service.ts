@@ -78,6 +78,7 @@ export class ConjugateService {
   getPreteriteTenseSpanish = (verb: string): Tense => {
 
     let tense = new Tense()
+    tense.text  = "Preterite";
     tense.fistPersonSingular = new TenseType();
 
     verb = verb.toLowerCase();
@@ -103,6 +104,7 @@ export class ConjugateService {
     verb = verb.toLowerCase();    
     let stem = this.getSpanishRoot(verb);
 
+    tense.text  = "Present Tense";
     tense.fistPersonSingular = new TenseType();
     let endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.presentTense)    
 

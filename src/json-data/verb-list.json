@@ -1,5 +1,30 @@
 [
     {
+        "to": "practicar",
+        "from": "to practice",
+        "sentenceList": [
+            {
+                "from": "Yesterday, I practiced spanish.",
+                "to": "Ayer, practiqué español."
+            },
+            {
+                "from": "You practiced yesterday. We practiced yesterday. They practiced in the morning.",
+                "to": "Practicaste ayer. Practicamos ayer. Practicaron por la mañana."
+            }
+        ],
+        "presentTense": {
+            "fistPersonSingular": {
+                "sentenceList": []
+            }
+        },
+        "preteriteTense": {
+            "fistPersonSingular": {
+                "text": "practiqué",
+                "sentenceList": []
+            }
+        }
+    },
+    {
         "to": "atacar",
         "from": "to attack",
         "sentenceList": [
@@ -354,6 +379,20 @@
     {
         "to": "Producir",
         "from": "To Produce",
+        "sentenceList": [
+            {
+                "from": "I produce. You produce. She produce. We produce. They produced.",
+                "to": "Produzco. Tú produces. Ella produce. Nosotros producimos. Ellos produjeron."
+            },
+            {
+                "from": "I produced a movie for my job.",
+                "to": "Produje una película para mi trabajo."
+            },
+            {
+                "from": "she produced a play for female children.",
+                "to": "produjo una obra de teatro para niñas."
+            }
+        ],
         "presentTense": {
             "fistPersonSingular": {
                 "sentenceList": [
