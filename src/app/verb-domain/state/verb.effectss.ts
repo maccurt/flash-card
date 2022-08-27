@@ -1,3 +1,4 @@
+import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './verb.selectos';
 import { Store } from '@ngrx/store';
 import { verbActions } from './verb.actions';
@@ -11,6 +12,7 @@ export class VerbEffect {
 
     constructor(private actions$: Actions,
         private verbService: VerbService,
+        private conjugateService: ConjugateService,
         private store: Store) { }
 
     loadVerbList$ = createEffect(() => {
@@ -28,4 +30,13 @@ export class VerbEffect {
             catchError(error => of(verbActions.loadVerbListError({ error })))
         );
     });
+
+    loadVerb$ = createEffect(() => {
+
+        //TODO how do you get the verb string out the parm?
+        
+        return this.actions$.pipe(
+            ofType(verbActions.loadVerb)            
+        )
+    })
 }

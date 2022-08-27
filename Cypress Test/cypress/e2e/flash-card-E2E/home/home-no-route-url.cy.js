@@ -1,12 +1,11 @@
 /// <reference types="cypress" />
 
-describe('example to-do app', () => {
+describe('home-no-route-url', () => {
   beforeEach(() => {
     cy.visit('http://localhost:4200/')
   })
 
-  it('should behave...', () => {
-
+  it('url should include home', () => {
     cy.url().should('include', 'home');
   });
 

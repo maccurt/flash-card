@@ -69,6 +69,10 @@
             {
                 "from": "I do my homework not because I want to but because I have to.",
                 "to": "Hago mis deberes no porque quiero sino porque necesito."
+            },
+            {
+                "from": "I made my coffee strong this morning. Now I am going to work on my project.",
+                "to":"Hice mi café fuerte esta mañana. Ahora voy a trabajar en mi proyecto."
             }
         ],
         "presentTense": {
