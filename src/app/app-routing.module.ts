@@ -7,11 +7,11 @@ import { VerbComponent } from './verb-domain/verb/verb.component';
 
 const routes: Routes = [
 
+  { path: 'home', component: VerbListComponent },
   { path: 'verb-list', component: VerbListComponent },
   { path: 'verb/:verb', component: VerbComponent },
   { path: 'conjugation-list', component: ConjugationListComponent },
-  // { path: 'home', component: VerbListComponent },
-  { path: '**', redirectTo: 'verb-list', pathMatch: 'full' }
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
 ];
 

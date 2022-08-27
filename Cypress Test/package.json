@@ -1,0 +1,9 @@
+{
+  "name": "flash-card-cypress",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^10.6.0"
+  }
+}
