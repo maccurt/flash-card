@@ -45,16 +45,21 @@ export class ConjugateService {
     return VerbEnding.unknown;
   };
 
+  setAllTense = (verb: Verb) => {
+
+    verb.presentTense = this.getPresentTense(verb);
+    verb.preteriteTense = this.getPreteriteTense(verb);
+  };
+
   getPresentTense = (verb: Verb): Tense => {
     let tense = this.getPresentTenseSpanish(verb.to);
     return this.swapTense(verb.presentTense, tense);
   };
 
   getPreteriteTense = (verb: Verb): Tense => {
-    let tense = this.getPreteriteTenseSpanish(verb.to);    
+    let tense = this.getPreteriteTenseSpanish(verb.to);
     return this.swapTense(verb.preteriteTense, tense);
   };
-
 
   getVerbEndingList = (verbEnding: VerbEnding, tenseVerbEnding: VerbEndingInterface): string[] => {
 
@@ -73,19 +78,19 @@ export class ConjugateService {
         endingListToReturn = [];
     }
     return endingListToReturn;
-  }
+  };
 
   getPreteriteTenseSpanish = (verb: string): Tense => {
 
-    let tense = new Tense()
-    tense.text  = "Preterite";
+    let tense = new Tense();
+    tense.text = "Preterite";
     tense.fistPersonSingular = new TenseType();
 
     verb = verb.toLowerCase();
     let stem = this.getSpanishRoot(verb);
     let endings: string[] = [];
 
-    endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.preteriteTense)    
+    endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.preteriteTense);
 
     tense.fistPersonSingular.text = stem + endings[0];
     tense.secondPersonSingular = stem + endings[1];
@@ -94,19 +99,19 @@ export class ConjugateService {
     tense.secondPersonPlural = stem + endings[4];
     tense.thirdPersonPlurual = stem + endings[5];
 
-    return tense
-  }
+    return tense;
+  };
 
   getPresentTenseSpanish = (verb: string): Tense => {
 
     let tense = new Tense();
     //TODO consider this, do you want to change all input to lower case
-    verb = verb.toLowerCase();    
+    verb = verb.toLowerCase();
     let stem = this.getSpanishRoot(verb);
 
-    tense.text  = "Present Tense";
+    tense.text = "Present Tense";
     tense.fistPersonSingular = new TenseType();
-    let endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.presentTense)    
+    let endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.presentTense);
 
     if (this.endsInCerOrCirWithVowel(verb)) {
       tense.fistPersonSingular.text = verb.substring(0, verb.length - 3) + 'zco';

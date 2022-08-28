@@ -4,7 +4,7 @@ export interface FromTo {
 }
 
 export class TenseType {
-    text: string = ''
+    text: string = '';
     sentenceList?: FromTo[];
 }
 
@@ -15,7 +15,7 @@ export class Sentence implements FromTo {
 
 export class Verb implements FromTo {
     constructor() {
-        this.presentTense = new Tense()
+        this.presentTense = new Tense();
         this.preteriteTense = new Tense();
     }
     sentenceList!: FromTo[];
@@ -24,7 +24,6 @@ export class Verb implements FromTo {
     presentTense!: Tense;
     preteriteTense!: Tense;
 }
-
 
 //https://www.bucks.edu/media/bcccmedialibrary/tutoring/documents/writingareahandoutrevision/spanish/Spanish-Subject-Pronouns.pdf
 export class Tense {
@@ -39,5 +38,4 @@ export class Tense {
         this.fistPersonSingular = new TenseType();
     }
 }
-
 

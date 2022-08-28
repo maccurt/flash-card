@@ -28,8 +28,6 @@ export class VerbListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
-
     this.store.select(verbSelectors.getVerbListSelector).subscribe((verbList) => {
       if (verbList.length > 0) {
         this.verbList = verbList;

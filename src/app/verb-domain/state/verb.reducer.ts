@@ -51,7 +51,4 @@ export const verbReducer = createReducer<VerbState>(verbStateInitial,
         };
     }),
 
-
-
-
 );
