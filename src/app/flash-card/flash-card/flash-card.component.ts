@@ -6,14 +6,12 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './flash-card.component.html',
   styleUrls: ['./flash-card.component.scss']
 })
-export class FlashCardComponent implements OnInit {
+export class FlashCardComponent  {
 
   @Input() card!: FromTo;
   showTo: boolean = false;
 
-  constructor() { }
-
-  ngOnInit(): void { }
+  constructor() { }  
 
   toggleShowTo = () => {
     this.showTo = !this.showTo;

@@ -6,12 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './from-to-card.component.html',
   styleUrls: ['./from-to-card.component.scss']
 })
-export class FromToCardComponent implements OnInit {
+export class FromToCardComponent {
 
   constructor() { }
 
   @Input() card!: FromTo;
   showTo: boolean = false;
-
-  ngOnInit(): void { }
 }

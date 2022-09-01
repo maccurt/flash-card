@@ -12,7 +12,6 @@ describe('ConjugateService', () => {
     service = new ConjugateService();
   });
 
-
   describe('Name of the group', () => {
 
     it('should behave...', () => {
@@ -20,13 +19,13 @@ describe('ConjugateService', () => {
       verb.from = 'to attack';
       verb.to = 'atacar';
 
-      expect(verb.presentTense.firstPersonPlural).toEqual('')
-      expect(verb.preteriteTense.firstPersonPlural).toEqual('')
+      expect(verb.presentTense.firstPersonPlural).toEqual('');
+      expect(verb.preteriteTense.firstPersonPlural).toEqual('');
       
       service.setAllTense(verb);
 
-      expect(verb.presentTense.firstPersonPlural).not.toEqual('')
-      expect(verb.preteriteTense.firstPersonPlural).not.toEqual('')
+      expect(verb.presentTense.firstPersonPlural).not.toEqual('');
+      expect(verb.preteriteTense.firstPersonPlural).not.toEqual('');
 
     });
 

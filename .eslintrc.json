@@ -19,6 +19,7 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "no-console": "error",
         "semi": [
           2,
           "always"

@@ -5,7 +5,6 @@ import { selectRouteParams } from '../../router-state/router.selectors';
 const getVerbStateSelector = createFeatureSelector<VerbState>('verb');
 export const getVerbListSelector = createSelector(getVerbStateSelector,
     (state) => {
-        console.log('state',state);
         return state.verbList;
     });
 

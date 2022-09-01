@@ -3,7 +3,7 @@ import { verbSelectors } from './verb.selectos';
 
 describe('verb.selectors', () => {
 
-    const verbToPractice = { to: 'practicar' }
+    const verbToPractice = { to: 'practicar' };
     let verbStore: VerbState;
 
     beforeEach(() => {
