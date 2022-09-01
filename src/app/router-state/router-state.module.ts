@@ -7,14 +7,9 @@ import { StoreModule } from '@ngrx/store';
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forRoot({ router: routerReducer }),
-    
-    //TODO odd this is for root, need to explain or understand
-    //Yes this does have to be the for the root
+    StoreModule.forFeature('router', routerReducer),
     StoreRouterConnectingModule.forRoot()
   ],
-  //TODO why do we have to export these?
-  //1. So the app module can get it?
-  exports:[StoreModule, StoreRouterConnectingModule]
+  exports: [StoreModule, StoreRouterConnectingModule]
 })
 export class RouterStateModule { }

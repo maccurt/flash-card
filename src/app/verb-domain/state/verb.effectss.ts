@@ -1,6 +1,6 @@
 import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './verb.selectos';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { verbActions } from './verb.actions';
 import { VerbService } from './../verb.service';
 import { Injectable } from "@angular/core";
@@ -16,8 +16,9 @@ export class VerbEffect {
         private store: Store) { }
 
     loadVerbList$ = createEffect(() => {
-        return this.actions$.pipe(
-            ofType(verbActions.loadVerbList),
+        
+        return this.actions$.pipe(            
+            ofType(verbActions.loadVerbList),        
             //TODO merge maps runs streams/observables in parallel
             //Is this the best operator for this?
             //why not concat map? concatMap runs them in order, sync
@@ -36,13 +37,12 @@ export class VerbEffect {
             ofType(verbActions.loadVerb),
             //TODO learn/teach why does switch map get you the parm?   
             //would map work here
-            switchMap((action) => {
-                return this.store.select(verbSelectors.getVerbFromListSelector(action.verb)).pipe(
+            switchMap(() => {
+                return this.store.select(verbSelectors.getVerbFromRouteSelector).pipe(
                     map((verb) => {
                         if (verb) {
                             //TODO COULD YOU just do all this work in here
-                            //and not have an action to load the tense
-                            //consider that
+                            // and not have an action to load the tense                            
                             return verbActions.loadVerbTense({ verb });
                         }
                         const error = new Error('verb not found');

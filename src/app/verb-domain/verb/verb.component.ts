@@ -1,7 +1,8 @@
 import { verbActions } from './../state/verb.actions';
 import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './../state/verb.selectos';
-import { Verb, Tense } from './../state/Verb';
+import { Tense } from './../state/Verb';
+import { Verb } from "../state/verb.class.";
 import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -20,22 +21,12 @@ export class VerbComponent {
 
     this.route.paramMap.subscribe((param) => {
 
-      //TODO CAN THIS BE IN THE EFFECT?
-      let verbRouteParam = param.get('verb')?.toString();
+      this.store.dispatch(verbActions.loadVerb());
+      this.store.select(verbSelectors.getVerbSelector()).subscribe((verb) => {
+        this.verb = verb;
+        
+      });
 
-      if (verbRouteParam) {
-
-        this.store.dispatch(verbActions.loadVerb({ verb: verbRouteParam }));
-        this.store.select(verbSelectors.getVerbSelector()).subscribe((verb) => {
-
-          if (verb) {
-            this.verb = verb;
-            this.tenseList.push(this.verb.presentTense);
-            this.tenseList.push(this.verb.preteriteTense);
-          }
-        });
-
-      }
     });
   }
 }

@@ -14,7 +14,7 @@ import { RouterStateModule } from './router-state/router-state.module';
 
 @NgModule({
   declarations: [
-    AppComponent    
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +26,9 @@ import { RouterStateModule } from './router-state/router-state.module';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     BrowserAnimationsModule,
     SharedModule,
+    RouterStateModule
+  ],
+  exports: [
     RouterStateModule
   ],
   providers: [],

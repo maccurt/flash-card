@@ -1,4 +1,5 @@
-import { Tense, TenseType, Verb } from './state/Verb';
+import { Tense, TenseType } from './state/Verb';
+import { Verb } from "./state/verb.class.";
 import { ConjugateService, VerbEnding, verbEndings } from './conjugate.service';
 
 // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.

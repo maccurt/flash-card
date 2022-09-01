@@ -1,4 +1,5 @@
-import { Verb, Tense, TenseType } from './state/Verb';
+import { Tense, TenseType } from './state/Verb';
+import { Verb } from "./state/verb.class.";
 import { Injectable } from '@angular/core';
 
 export enum VerbEnding {
@@ -48,7 +49,11 @@ export class ConjugateService {
   setAllTense = (verb: Verb) => {
 
     verb.presentTense = this.getPresentTense(verb);
-    verb.preteriteTense = this.getPreteriteTense(verb);
+    verb.preteriteTense = this.getPreteriteTense(verb);    
+    verb.tenseList = [];
+    verb.tenseList.push(verb.presentTense);    
+    verb.tenseList.push(verb.preteriteTense);
+
   };
 
   getPresentTense = (verb: Verb): Tense => {
