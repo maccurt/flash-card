@@ -12,9 +12,29 @@ describe('ConjugateService', () => {
     service = new ConjugateService();
   });
 
+
   describe('Name of the group', () => {
 
     it('should behave...', () => {
+      let verb = new Verb();
+      verb.from = 'to attack';
+      verb.to = 'atacar';
+
+      expect(verb.presentTense.firstPersonPlural).toEqual('')
+      expect(verb.preteriteTense.firstPersonPlural).toEqual('')
+      
+      service.setAllTense(verb);
+
+      expect(verb.presentTense.firstPersonPlural).not.toEqual('')
+      expect(verb.preteriteTense.firstPersonPlural).not.toEqual('')
+
+    });
+
+  });
+
+  describe('getPreteriteTense', () => {
+
+    it('should set actacar correctly and override correctly', () => {
       let verb = new Verb();
 
       verb.from = 'to attack';
@@ -31,14 +51,13 @@ describe('ConjugateService', () => {
       expect(tense.firstPersonPlural).toBe('atacamos');
       expect(tense.secondPersonPlural).toBe('atacasteis');
       expect(tense.thirdPersonPlurual).toBe('atacaron');
-
     });
 
   });
 
   describe('getVerbEndingList', () => {
 
-    it('should behave...', () => {
+    it('ending should be correct', () => {
 
       let endings = service.getVerbEndingList(VerbEnding.ar, verbEndings.presentTense);
       expect(endings.length).toBe(6);
@@ -228,7 +247,5 @@ describe('ConjugateService', () => {
       // expect(service.endsInCerOrCirWithVowel('hacer')).toBeFalse();
 
     });
-
   });
-
 });
