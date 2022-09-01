@@ -20,7 +20,7 @@ export class VerbComponent {
 
   constructor(private store: Store,
     private route: ActivatedRoute, private conjugateService: ConjugateService) {
-    this.route.paramMap.subscribe((param) => {
+    this.route.paramMap.subscribe((param) => { 
 
       this.store.dispatch(verbActions.loadVerb());
       this.verb$ = this.store.select(verbSelectors.getVerbSelector);

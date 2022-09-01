@@ -1,6 +1,5 @@
 import { ConjugateService } from './../../verb-domain/conjugate.service';
 import { Tense } from './../../verb-domain/state/Verb';
-import { Verb } from "../../verb-domain/state/verb.class.";
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
