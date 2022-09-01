@@ -1,4 +1,5 @@
-import { Tense, TenseType, Verb } from './state/Verb';
+import { Tense, TenseType } from './state/Verb';
+import { Verb } from "./state/verb.class.";
 import { ConjugateService, VerbEnding, verbEndings } from './conjugate.service';
 
 // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
@@ -11,9 +12,7 @@ describe('ConjugateService', () => {
     service = new ConjugateService();
   });
 
-
   describe('Name of the group', () => {
-
 
     it('should behave...', () => {
       let verb = new Verb();
@@ -21,7 +20,7 @@ describe('ConjugateService', () => {
       verb.from = 'to attack';
       verb.to = 'atacar';
       verb.preteriteTense = new Tense();
-      verb.preteriteTense.fistPersonSingular.text = 'actaqué'
+      verb.preteriteTense.fistPersonSingular.text = 'actaqué';
       let tense = service.getPreteriteTense(verb);
 
       //single
@@ -43,8 +42,8 @@ describe('ConjugateService', () => {
 
       let endings = service.getVerbEndingList(VerbEnding.ar, verbEndings.presentTense);
       expect(endings.length).toBe(6);
-      expect(endings).toEqual(verbEndings.presentTense.ar)
-      expect(endings[0]).toEqual('o')
+      expect(endings).toEqual(verbEndings.presentTense.ar);
+      expect(endings[0]).toEqual('o');
     });
 
   });
@@ -61,7 +60,6 @@ describe('ConjugateService', () => {
 
   describe('past tense', () => {
 
-
     it('hablar', () => {
 
       let tense = service.getPreteriteTenseSpanish('hablar');
@@ -74,7 +72,6 @@ describe('ConjugateService', () => {
       expect(tense.secondPersonPlural).toBe('hablasteis');
       expect(tense.thirdPersonPlurual).toBe('hablaron');
     });
-
 
     it('vivir', () => {
 
@@ -92,7 +89,6 @@ describe('ConjugateService', () => {
       expect(tense.thirdPersonPlurual).toBe('vivieron');
     });
 
-
     it('comer', () => {
 
       // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
@@ -109,7 +105,7 @@ describe('ConjugateService', () => {
       expect(tense.thirdPersonPlurual).toBe('comieron');
     });
 
-  })
+  });
 
   describe('setSpanishPresentTest', () => {
 

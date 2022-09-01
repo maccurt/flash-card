@@ -1,4 +1,4 @@
-import { Verb } from './../../verb-domain/state/Verb';
+import { Verb } from "../../verb-domain/state/verb.class.";
 import { verbSelectors } from './../../verb-domain/state/verb.selectos';
 import { verbActions } from './../../verb-domain/state/verb.actions';
 import { ConjugateService } from './../../verb-domain/conjugate.service';

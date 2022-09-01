@@ -4,7 +4,8 @@ import { verbActions } from './../state/verb.actions';
 import { verbSelectors } from './../state/verb.selectos';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Tense, Verb } from '../state/Verb';
+import { Tense } from '../state/Verb';
+import { Verb } from "../state/verb.class.";
 
 @Component({
   selector: 'app-verb-list',
@@ -27,8 +28,6 @@ export class VerbListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    
 
     this.store.select(verbSelectors.getVerbListSelector).subscribe((verbList) => {
       if (verbList.length > 0) {
