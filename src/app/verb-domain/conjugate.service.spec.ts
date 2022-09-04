@@ -1,8 +1,7 @@
-import { TenseType } from "./state/TenseType";
-import { Tense } from "./state/Tense";
 import { Verb } from "./types/verb.class.";
 import { ConjugateService, VerbEnding, verbEndings } from './conjugate.service';
-
+import { Tense } from "./types/Tense";
+import { TenseType } from "./types/TenseType";
 // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
 // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
 
@@ -24,13 +23,16 @@ describe('ConjugateService', () => {
       expect(service.getPresentTenseStemChange('cerrar')).toBe('cierr');
       expect(service.getPresentTenseStemChange('querer')).toBe('quier');
       expect(service.getPresentTenseStemChange('contar')).toBe('cuent');
-      expect(service.getPresentTenseStemChange('volver')).toBe('vuelv');      
+      expect(service.getPresentTenseStemChange('volver')).toBe('vuelv');
       expect(service.getPresentTenseStemChange('encerar')).toBe('encier');
     });
-
   });
 
   describe('stem changing present tense verb', () => {
+
+    it('should behave...', () => {
+      let verb = new Verb();
+    });
 
     it('cerrar should conguate as stem change', () => {
 
