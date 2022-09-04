@@ -2,11 +2,11 @@ import { Observable } from 'rxjs';
 import { verbActions } from './../state/verb.actions';
 import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './../state/verb.selectos';
-import { Tense } from './../state/Verb';
-import { Verb } from "../state/verb.class.";
+import { Verb } from "../types/verb.class.";
 import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Tense } from '../types/Tense';
 
 @Component({
   selector: 'app-verb',

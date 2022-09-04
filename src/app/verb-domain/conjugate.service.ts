@@ -1,6 +1,7 @@
-import { Tense, TenseType } from './state/Verb';
-import { Verb } from "./state/verb.class.";
+import { Verb } from "./types/verb.class.";
 import { Injectable } from '@angular/core';
+import { Tense } from "./types/Tense";
+import { TenseType } from "./types/TenseType";
 
 export enum VerbEnding {
   unknown = 0, ar, ir, er
@@ -49,15 +50,15 @@ export class ConjugateService {
   setAllTense = (verb: Verb) => {
 
     verb.presentTense = this.getPresentTense(verb);
-    verb.preteriteTense = this.getPreteriteTense(verb);    
+    verb.preteriteTense = this.getPreteriteTense(verb);
     verb.tenseList = [];
-    verb.tenseList.push(verb.presentTense);    
+    verb.tenseList.push(verb.presentTense);
     verb.tenseList.push(verb.preteriteTense);
 
   };
 
   getPresentTense = (verb: Verb): Tense => {
-    let tense = this.getPresentTenseSpanish(verb.to);
+    let tense = this.getPresentTenseSpanish(verb.to, verb.presentTense.isStemChange);
     return this.swapTense(verb.presentTense, tense);
   };
 
@@ -103,16 +104,45 @@ export class ConjugateService {
     tense.firstPersonPlural = stem + endings[3];
     tense.secondPersonPlural = stem + endings[4];
     tense.thirdPersonPlurual = stem + endings[5];
-
     return tense;
   };
 
-  getPresentTenseSpanish = (verb: string): Tense => {
+  getPresentTenseStemChange = (verb: string): string => {
+
+    let stem = verb.substring(0, verb.length - 2);
+
+    if (stem.indexOf('e') > -1) {
+      //consider empezer (to begin) begins with e
+      if (verb[0].toLowerCase() === "e") {
+        stem = 'e' + stem.substring(1).replace('e', 'ie');
+      }
+      else {
+        stem = stem.replace('e', 'ie');
+      }
+      return stem;
+    }
+
+    if (stem.indexOf('o')) {
+      stem = stem.replace('o', 'ue');
+      return stem;
+    }
+    return stem;
+
+  };
+
+  getPresentTenseSpanish = (verb: string, isStemChange: boolean = false): Tense => {
 
     let tense = new Tense();
-    //TODO consider this, do you want to change all input to lower case
     verb = verb.toLowerCase();
     let stem = this.getSpanishRoot(verb);
+    let stemChange = '';
+
+    if (isStemChange) {
+      stemChange = this.getPresentTenseStemChange(verb);
+    }
+    else {
+      stemChange = stem;
+    }
 
     tense.text = "Present Tense";
     tense.fistPersonSingular = new TenseType();
@@ -122,13 +152,14 @@ export class ConjugateService {
       tense.fistPersonSingular.text = verb.substring(0, verb.length - 3) + 'zco';
     }
     else {
-      tense.fistPersonSingular.text = stem + endings[0];
+      tense.fistPersonSingular.text = stemChange + endings[0];
     }
-    tense.secondPersonSingular = stem + endings[1];
-    tense.thirdPersonSingular = stem + endings[2];
+    tense.secondPersonSingular = stemChange + endings[1];
+    tense.thirdPersonSingular = stemChange + endings[2];
+
     tense.firstPersonPlural = stem + endings[3];
     tense.secondPersonPlural = stem + endings[4];
-    tense.thirdPersonPlurual = stem + endings[5];
+    tense.thirdPersonPlurual = stemChange + endings[5];
     return tense;
   };
 

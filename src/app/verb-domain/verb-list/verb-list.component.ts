@@ -1,18 +1,21 @@
-import { FromTo } from './../state/Verb';
+import { FromTo } from '../types/FromTo';
+import { VerbGroup } from "../types/VerbGroup";
 import { ConjugateService } from './../conjugate.service';
 import { verbActions } from './../state/verb.actions';
 import { verbSelectors } from './../state/verb.selectos';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Tense } from '../state/Verb';
-import { Verb } from "../state/verb.class.";
+
+import { FormControl, FormGroup } from '@angular/forms';
+import { Verb } from '../types/verb.class.';
+import { Tense } from '../types/Tense';
 
 @Component({
   selector: 'app-verb-list',
   templateUrl: './verb-list.component.html',
   styleUrls: ['./verb-list.component.scss']
 })
-export class VerbListComponent implements OnInit {
+export class VerbListComponent implements OnInit, AfterViewInit {
   verbList: Verb[] = [];
   verb!: Verb;
   showTranslation: boolean = false;
@@ -22,6 +25,13 @@ export class VerbListComponent implements OnInit {
   sentence!: FromTo | null;
   showSentence: boolean = false;
   sentenceList: FromTo[] = [];
+
+  verbGroupList?: VerbGroup[] = [];
+  //form
+  formGroup!: FormGroup;
+  verbGroupListControl!: FormControl;
+
+  //
   constructor(private store: Store,
     private conjugationService: ConjugateService
 
@@ -29,13 +39,36 @@ export class VerbListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.store.select(verbSelectors.getVerbListSelector).subscribe((verbList) => {
-      if (verbList.length > 0) {
-        this.verbList = verbList;
-        //toFromList.sort(() => Math.random() - 0.5)        
-        this.flashToFromList([...this.verbList]);
-      }
+    //Set up form
+    this.verbGroupListControl = new FormControl([]);    
+    this.formGroup = new FormGroup({
+      verbGroupList: this.verbGroupListControl
+    });
 
+    //get the verb group list for the select
+    this.store.select(verbSelectors.getVerbGroupList).subscribe((verbGroupList) => {
+      this.verbGroupList = verbGroupList;
+    });
+
+    //set the to drop down select to selected verb group
+    this.store.select(verbSelectors.getVerbGroup).subscribe((verbGroup)=>{
+      this.verbGroupListControl.setValue(verbGroup);
+    });
+
+    
+    // this.store.select(verbSelectors.getVerbListFromGroup).subscribe((verbList) => {            
+    //   if (verbList.length > 0) {
+    //     this.verbList = verbList;
+    //     //toFromList.sort(() => Math.random() - 0.5)        
+    //     this.flashToFromList([...this.verbList]);
+    //   }
+    // });
+  }
+
+  ngAfterViewInit(): void {
+
+    this.verbGroupListControl.valueChanges.subscribe((value) => {
+      this.store.dispatch(verbActions.setVerbGroupSelected({ verbGroup: value }));
     });
   }
 

@@ -1,10 +1,11 @@
+import { VerbGroup } from "../types/VerbGroup";
 import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './verb.selectos';
 import { Store } from '@ngrx/store';
 import { verbActions } from './verb.actions';
 import { VerbService } from './../verb.service';
 import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { act, Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
 
 @Injectable()
@@ -15,15 +16,21 @@ export class VerbEffect {
         private conjugateService: ConjugateService,
         private store: Store) { }
 
+    loadVerbGroupList$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(verbActions.loadVerbGroupList),
+            mergeMap(() => this.verbService.getVerbGroupList()
+                .pipe(
+                    map(verbGroupList => verbActions.loadVerbGroupListSuccess({ verbGroupList }))
+                )),
+            catchError(error => of(verbActions.loadVerbGroupListError({ error })))
+        );
+    });
+
     loadVerbList$ = createEffect(() => {
-        
-        return this.actions$.pipe(            
-            ofType(verbActions.loadVerbList),        
-            //TODO merge maps runs streams/observables in parallel
-            //Is this the best operator for this?
-            //why not concat map? concatMap runs them in order, sync
-            //OK, you are in an observable and need to get another observable
-            //so you merge that observable in
+
+        return this.actions$.pipe(
+            ofType(verbActions.loadVerbList),
             mergeMap(() => this.verbService.getVerbList()
                 .pipe(
                     map(verbList => verbActions.loadVerbListSucess({ verbList }))
@@ -63,4 +70,14 @@ export class VerbEffect {
             })
         );
     });
+
+    setVerbGroupSelected$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(verbActions.setVerbGroupSelected),
+            switchMap(({ verbGroup }) => {
+                return of(verbActions.setVerbGroupSelectedSuccess({ verbGroup }));
+            })
+        );
+    });
+
 }

@@ -1,4 +1,4 @@
-import { FromTo } from './../../verb-domain/state/Verb';
+import { FromTo } from '../../verb-domain/types/FromTo';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

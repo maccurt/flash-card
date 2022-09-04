@@ -1,5 +1,6 @@
-import { Tense, TenseType } from './state/Verb';
-import { Verb } from "./state/verb.class.";
+import { TenseType } from "./state/TenseType";
+import { Tense } from "./state/Tense";
+import { Verb } from "./types/verb.class.";
 import { ConjugateService, VerbEnding, verbEndings } from './conjugate.service';
 
 // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
@@ -12,6 +13,61 @@ describe('ConjugateService', () => {
     service = new ConjugateService();
   });
 
+  describe('getPresentTenseStemChange', () => {
+
+    it('should behave...', () => {
+      expect(service.getPresentTenseStemChange('empezar')).toBe('empiez');
+    });
+
+    it('should return cierrar', () => {
+
+      expect(service.getPresentTenseStemChange('cerrar')).toBe('cierr');
+      expect(service.getPresentTenseStemChange('querer')).toBe('quier');
+      expect(service.getPresentTenseStemChange('contar')).toBe('cuent');
+      expect(service.getPresentTenseStemChange('volver')).toBe('vuelv');      
+      expect(service.getPresentTenseStemChange('encerar')).toBe('encier');
+    });
+
+  });
+
+  describe('stem changing present tense verb', () => {
+
+    it('cerrar should conguate as stem change', () => {
+
+      let verb = new Verb();
+      verb.to = "cerrar";
+      verb.presentTense.isStemChange = true;
+      const tense = service.getPresentTense(verb);
+      //single
+      expect(tense.fistPersonSingular?.text).toBe('cierro');
+      expect(tense.secondPersonSingular).toBe('cierras');
+      expect(tense.thirdPersonSingular).toBe('cierra');
+      //plural
+      expect(tense.firstPersonPlural).toBe('cerramos');
+      expect(tense.secondPersonPlural).toBe('cerráis');
+      expect(tense.thirdPersonPlurual).toBe('cierran');
+
+    });
+
+    it('empezar should conguate as stem change', () => {
+
+      let verb = new Verb();
+      verb.to = "empezar";
+      verb.presentTense.isStemChange = true;
+      const tense = service.getPresentTense(verb);
+      //single
+      expect(tense.fistPersonSingular?.text).toBe('empiezo');
+      expect(tense.secondPersonSingular).toBe('empiezas');
+      expect(tense.thirdPersonSingular).toBe('empieza');
+      //plural
+      expect(tense.firstPersonPlural).toBe('empezamos');
+      expect(tense.secondPersonPlural).toBe('empezáis');
+      expect(tense.thirdPersonPlurual).toBe('empiezan');
+
+    });
+
+  });
+
   describe('Name of the group', () => {
 
     it('should behave...', () => {
@@ -21,7 +77,7 @@ describe('ConjugateService', () => {
 
       expect(verb.presentTense.firstPersonPlural).toEqual('');
       expect(verb.preteriteTense.firstPersonPlural).toEqual('');
-      
+
       service.setAllTense(verb);
 
       expect(verb.presentTense.firstPersonPlural).not.toEqual('');

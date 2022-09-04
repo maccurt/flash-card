@@ -1,0 +1,228 @@
+[
+    {
+        "id": 1,
+        "name": "This is a group of verbs",
+        "description": "This is the description. Please put a better description",
+        "verbList": [
+            {
+                "from": "to govern,rule",
+                "to": "gobernar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to close",
+                "to": "cerrar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to think (of,about)",
+                "to": "pensar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to guess",
+                "to": "acertar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to start, begin",
+                "to": "empezar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Group ABC of verbs",
+        "description": "This is the description. Please put a better description",
+        "verbList": [
+            {
+                "from": "to govern,rule",
+                "to": "gobernar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to close",
+                "to": "cerrar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to close",
+                "to": "cerrar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to close",
+                "to": "cerrar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Dummmy Group 3 For Testing",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing. Quam quisque id diam vel quam elementum pulvinar.",
+        "verbList": [
+            {
+                "from": "to govern,rule",
+                "to": "gobernar",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Dummmy Group 4 For Testing",
+        "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
+
+        "verbList": [
+            {
+                "from": "dummy verb",
+                "to": "dummy verb",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Dummmy Group 4 For Testing",
+        "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
+        
+        "verbList": [
+            {
+                "from": "dummy verb",
+                "to": "dummy verb",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Dummmy Group 6 For Testing",
+        "description": "Incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
+        
+        "verbList": [
+            {
+                "from": "dummy verb 1",
+                "to": "dummy verb 1",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "dummy verb 2",
+                "to": "dummy verb 2",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "dummy verb 2",
+                "to": "dummy verb 2",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "dummy verb 3",
+                "to": "dummy verb 3",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "dummy verb 4",
+                "to": "dummy verb 4",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "dummy verb 5",
+                "to": "dummy verb 5",
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            }
+
+        ]
+    }
+]

@@ -1,6 +1,6 @@
 import { ConjugateService } from './../../verb-domain/conjugate.service';
-import { Tense } from './../../verb-domain/state/Verb';
 import { Component, Input, OnInit } from '@angular/core';
+import { Tense } from 'src/app/verb-domain/types/Tense';
 
 @Component({
   selector: 'app-conjugation-card',

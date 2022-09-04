@@ -8,7 +8,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { Observable, of } from 'rxjs';
 import { VerbState, verbStateInitial } from './verb.reducer';
-import { Verb } from './verb.class.';
+import { Verb } from '../types/verb.class.';
 
 describe('verb effect', () => {
     let actions$: Observable<any>;

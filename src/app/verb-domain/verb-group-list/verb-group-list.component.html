@@ -1,0 +1,27 @@
+<div class="container" *ngIf="verbGroupList$ | async as verbGroupList">
+    <br>
+    <div id="verb-group-list"  class="row">
+
+        <div  id="verb-group-{{v.id}}" *ngFor="let v of verbGroupList" class="verb-group col-12 col-xxl-4">
+
+            <mat-card class="example-card">
+                <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+                <mat-card-title>{{v.name}}</mat-card-title>
+                <mat-card-content>
+                    <p>{{v.description}}</p>
+                    <hr>
+
+                    <mat-chip-list aria-label="Fish selection">
+                        <mat-chip *ngFor="let verb of v.verbList |slice:0:4">{{verb.to}}</mat-chip>
+
+                    </mat-chip-list>
+
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+
+
+    </div>
+
+</div>

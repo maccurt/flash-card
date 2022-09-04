@@ -9,7 +9,7 @@ import { getTestScheduler, hot } from 'jasmine-marbles';
 import { Action } from '@ngrx/store';
 import { TestScheduler } from 'rxjs/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { Verb } from './verb.class.';
+import { Verb } from '../types/verb.class.';
 
 describe('verb.effects.marble.specs.ts', () => {
     let testScheduler: TestScheduler, verbEffect: SpyObject<VerbEffect>;

@@ -9,11 +9,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { VerbListComponent } from './verb-list/verb-list.component';
 import { VerbComponent } from './verb/verb.component';
+import { VerbGroupListComponent } from './verb-group-list/verb-group-list.component';
 
 @NgModule({
   declarations: [
     VerbListComponent,
     VerbComponent,
+    VerbGroupListComponent,
   ],
   imports: [
     CommonModule,

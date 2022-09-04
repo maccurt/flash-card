@@ -1,5 +1,5 @@
 import { verbActions } from './verb.actions';
-import { Verb } from './verb.class.';
+import { Verb } from '../types/verb.class.';
 import { verbReducer, VerbState, verbStateInitial } from "./verb.reducer";
 
 describe('verbReducer', () => {
