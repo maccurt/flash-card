@@ -14,5 +14,4 @@ describe('route to verb-group-list from menu click', () => {
     cy.get('.verb-group').its('length').should("be.greaterThan", 1);
     //cy.get('.verb-group').its('length').should("eq",5);
   });
-
 })

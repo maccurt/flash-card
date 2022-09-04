@@ -1,3 +1,4 @@
+import { verbGroupActions } from './verb-group.actions';
 import { VerbGroup } from "../types/VerbGroup";
 import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './verb.selectos';
@@ -18,12 +19,23 @@ export class VerbEffect {
 
     loadVerbGroupList$ = createEffect(() => {
         return this.actions$.pipe(
-            ofType(verbActions.loadVerbGroupList),
+            ofType(verbGroupActions.loadVerbGroupList),
             mergeMap(() => this.verbService.getVerbGroupList()
                 .pipe(
-                    map(verbGroupList => verbActions.loadVerbGroupListSuccess({ verbGroupList }))
+                    map(verbGroupList => verbGroupActions.loadVerbGroupListSuccess({ verbGroupList }))
                 )),
-            catchError(error => of(verbActions.loadVerbGroupListError({ error })))
+            catchError(error => of(verbGroupActions.loadVerbGroupListError({ error })))
+        );
+    });
+
+
+
+    setVerbGroupSelected$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(verbGroupActions.setVerbGroupSelected),
+            switchMap(({ verbGroup }) => {
+                return of(verbGroupActions.setVerbGroupSelectedSuccess({ verbGroup }));
+            })
         );
     });
 
@@ -42,8 +54,6 @@ export class VerbEffect {
     loadVerb$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(verbActions.loadVerb),
-            //TODO learn/teach why does switch map get you the parm?   
-            //would map work here
             switchMap(() => {
                 return this.store.select(verbSelectors.getVerbFromRouteSelector).pipe(
                     map((verb) => {
@@ -60,6 +70,15 @@ export class VerbEffect {
         );
     });
 
+
+    verbGroupSelectedInRoute$ = createEffect(() => {
+
+        return this.actions$.pipe(
+            ofType(verbGroupActions.loadVerbGroup)
+
+        )
+    });
+
     loadVerbTense$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(verbActions.loadVerbTense),
@@ -71,13 +90,6 @@ export class VerbEffect {
         );
     });
 
-    setVerbGroupSelected$ = createEffect(() => {
-        return this.actions$.pipe(
-            ofType(verbActions.setVerbGroupSelected),
-            switchMap(({ verbGroup }) => {
-                return of(verbActions.setVerbGroupSelectedSuccess({ verbGroup }));
-            })
-        );
-    });
+
 
 }

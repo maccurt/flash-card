@@ -1,13 +1,16 @@
 <div class="container" *ngIf="verbGroupList$ | async as verbGroupList">
     <br>
-    <div id="verb-group-list"  class="row">
+    <div id="verb-group-list" class="row">
 
-        <div  id="verb-group-{{v.id}}" *ngFor="let v of verbGroupList" class="verb-group col-12 col-xxl-4">
+        <div id="verb-group-{{v.id}}" *ngFor="let v of verbGroupList" class="verb-group col-12 col-xxl-4">
 
             <mat-card class="example-card">
                 <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-                <mat-card-title>{{v.name}}</mat-card-title>
+                <mat-card-title>
+                    <a class="no-style-link" routerLink="/verb-group/{{v.id}}">{{v.name}}</a>
+                </mat-card-title>
                 <mat-card-content>
+
                     <p>{{v.description}}</p>
                     <hr>
 

@@ -12,36 +12,21 @@ export const loadVerbError = createAction('[verb] load verb error', props<{ erro
 export const loadVerbTense = createAction('[verb] load verb tense', props<{ verb: Verb }>());
 export const loadVerbTenseSuccess = createAction('[verb] load verb tense success', props<{ verb: Verb }>());
 //verb group list
-export const loadVerbGroupList = createAction('[verb] get verb group list');
-export const loadVerbGroupListSuccess = createAction('[verb] get verb group list success', props<{ verbGroupList: VerbGroup[] }>());
-export const loadVerbGroupListError = createAction('[verb] get verb group list error', props<{ error: Error }>());
-
-export const loadVerbGroup = createAction('[verb] load verb group',props<{verbGroup:VerbGroup}>());
-export const loadVerbGroupSuccess = createAction('[verb] load verb group success',props<{verbGroup:VerbGroup}>());
-
-export const setVerbGroupSelected = createAction('[verb] setVerbGroup selected',props<{verbGroup:VerbGroup}>());
-export const setVerbGroupSelectedSuccess = createAction('[verb] setVerbGroup selected success',props<{verbGroup:VerbGroup}>());
+// export const loadVerbGroupListError = createAction('[verb] get verb group list error', props<{ error: Error }>());
+// export const loadVerbGroup = createAction('[verb] load verb group',props<{verbGroup:VerbGroup}>());
+// export const loadVerbGroupSuccess = createAction('[verb] load verb group success',props<{verbGroup:VerbGroup}>());
+// export const setVerbGroupSelected = createAction('[verb] setVerbGroup selected',props<{verbGroup:VerbGroup}>());
+// export const setVerbGroupSelectedSuccess = createAction('[verb] setVerbGroup selected success',props<{verbGroup:VerbGroup}>());
 
 export const verbActions = {
     loadVerbList,
     loadVerbListSucess,
-    loadVerbListError,
-    //
+    loadVerbListError,    
     loadVerb,
     loadVerbSuccess,
-    loadVerbError,
-    //
+    loadVerbError,    
     loadVerbTense,
-    loadVerbTenseSuccess,
-    //
-    loadVerbGroupList,
-    loadVerbGroupListSuccess,
-    loadVerbGroupListError,
-    //
-    loadVerbGroup,
-    setVerbGroupSelected,
-    setVerbGroupSelectedSuccess
-    
+    loadVerbTenseSuccess
 };
 
 export default verbActions;

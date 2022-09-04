@@ -1,3 +1,4 @@
+import { verbGroupActions } from './../state/verb-group.actions';
 import { FromTo } from '../types/FromTo';
 import { VerbGroup } from "../types/VerbGroup";
 import { ConjugateService } from './../conjugate.service';
@@ -54,7 +55,6 @@ export class VerbListComponent implements OnInit, AfterViewInit {
     this.store.select(verbSelectors.getVerbGroup).subscribe((verbGroup)=>{
       this.verbGroupListControl.setValue(verbGroup);
     });
-
     
     // this.store.select(verbSelectors.getVerbListFromGroup).subscribe((verbList) => {            
     //   if (verbList.length > 0) {
@@ -68,7 +68,7 @@ export class VerbListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
 
     this.verbGroupListControl.valueChanges.subscribe((value) => {
-      this.store.dispatch(verbActions.setVerbGroupSelected({ verbGroup: value }));
+      this.store.dispatch(verbGroupActions.setVerbGroupSelected({ verbGroup: value }));
     });
   }
 
