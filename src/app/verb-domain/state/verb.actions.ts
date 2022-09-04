@@ -18,15 +18,19 @@ export const loadVerbTenseSuccess = createAction('[verb] load verb tense success
 // export const setVerbGroupSelected = createAction('[verb] setVerbGroup selected',props<{verbGroup:VerbGroup}>());
 // export const setVerbGroupSelectedSuccess = createAction('[verb] setVerbGroup selected success',props<{verbGroup:VerbGroup}>());
 
+export const setVerb = createAction('[verb] set verb', props<{ verb: Verb }>());
+
 export const verbActions = {
     loadVerbList,
     loadVerbListSucess,
-    loadVerbListError,    
+    loadVerbListError,
     loadVerb,
     loadVerbSuccess,
-    loadVerbError,    
+    loadVerbError,
     loadVerbTense,
-    loadVerbTenseSuccess
+    loadVerbTenseSuccess,
+    setVerb
+
 };
 
 export default verbActions;

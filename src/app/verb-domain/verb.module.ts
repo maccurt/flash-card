@@ -12,6 +12,7 @@ import { VerbComponent } from './verb/verb.component';
 import { VerbGroupListComponent } from './verb-group-list/verb-group-list.component';
 import { VerbGroupComponent } from './verb-group/verb-group.component';
 import { VerbGroupEffect } from './state/verb-group.effects';
+import { TenseListComponent } from './tense-list/tense-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { VerbGroupEffect } from './state/verb-group.effects';
     VerbComponent,
     VerbGroupListComponent,
     VerbGroupComponent,
+    TenseListComponent,
   ],
   imports: [
     CommonModule,

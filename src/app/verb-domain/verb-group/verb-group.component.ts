@@ -1,7 +1,9 @@
+import { verbActions } from './../state/verb.actions';
+import { Tense } from 'src/app/verb-domain/types/Tense';
+import { ConjugateService } from './../conjugate.service';
+import { Verb } from './../types/verb.class.';
 import { VerbGroup } from './../types/VerbGroup';
 import { Observable } from 'rxjs';
-import { verbSelectors } from './../state/verb.selectos';
-import { verbActions } from './../state/verb.actions';
 import { Store } from '@ngrx/store';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import verbGroupActions from '../state/verb-group.actions';
@@ -13,12 +15,26 @@ import verbGroupSelectors from '../state/verb-group.selectors';
   styleUrls: ['./verb-group.component.scss']
 })
 export class VerbGroupComponent implements OnInit {
-  verbGroup$!: Observable<VerbGroup | undefined>;
-
-  constructor(private store: Store) { }
+  verbGroup$!: Observable<VerbGroup | undefined>;  
+  verb!: Verb;
+  constructor(private store: Store,
+    private conjugationService: ConjugateService
+  ) { }
 
   ngOnInit(): void {
     this.store.dispatch(verbGroupActions.loadVerbGroupSelectedInRoute());
     this.verbGroup$ = this.store.select(verbGroupSelectors.getVerbGroup);
+
+    this.verbGroup$.subscribe((vg) => {
+      if (vg?.verbList) {
+        this.verbClick(vg?.verbList[0]);
+      }
+
+    });
   }
+
+  verbClick = (verb: Verb) => {
+    this.verb = verb;    
+    this.store.dispatch(verbActions.setVerb({verb}));    
+  };
 }

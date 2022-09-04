@@ -18,14 +18,6 @@ export class VerbEffect {
         private conjugateService: ConjugateService,
         private store: Store) { }
 
-    // init$ = createEffect(() => {
-    //     return this.actions$.pipe(            
-    //         map((action) => {
-    //             console.log('init effect',action)
-    //         })
-    //     )
-    // }, { dispatch: false })
-
     loadVerbGroupList$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(verbGroupActions.loadVerbGroupList),

@@ -47,6 +47,16 @@ export class ConjugateService {
     return VerbEnding.unknown;
   };
 
+  getTenselist = (verb: Verb): Tense[] => {
+
+    const tenseList: Tense[] = [];
+    tenseList.push(this.getPresentTense(verb));
+    tenseList.push(this.getPreteriteTense(verb));
+
+    return tenseList;
+
+  };
+
   setAllTense = (verb: Verb) => {
 
     verb.presentTense = this.getPresentTense(verb);

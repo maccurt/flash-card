@@ -1,8 +1,9 @@
+<br>
 <div *ngIf="verbGroup$ | async as verbGroup" class="container">
 
     <div class="row">
 
-        <div id="verb-group-{{verbGroup.id}}" class="verb-group col-12 col-xxl-4">
+        <div id="verb-group-{{verbGroup.id}}" class="verb-group col-12 col-xxl-6">
 
             <mat-card class="verb-group-card">
 
@@ -14,10 +15,27 @@
                     <p>{{verbGroup.description}}</p>
                     <hr>
 
-                    <mat-chip-list aria-label="Fish selection">
-                        <mat-chip *ngFor="let verb of verbGroup.verbList |slice:0:4">{{verb.to}}</mat-chip>
+                    <table style="background-color:white;border: 1px solid #cccccc;"
+                        class="table table-striped table-bordered">
+                        <thead>
+                            <th> Spanish</th>
+                            <th> English</th>
+                        </thead>
+                        <tbody>
+                            <tr (click)="verbClick(verb)" *ngFor="let verb of verbGroup.verbList">
 
-                    </mat-chip-list>
+                                <td>
+
+                                    {{verb.to}}
+                                </td>
+                                <td>
+                                    {{verb.from}}
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
 
                 </mat-card-content>
             </mat-card>
@@ -25,5 +43,16 @@
         </div>
 
 
+        <div *ngIf="verb" class="col-xxl-6">
+
+            <app-tense-list>
+
+            </app-tense-list>
+
+
+        </div>
+
     </div>
+
+
 </div>

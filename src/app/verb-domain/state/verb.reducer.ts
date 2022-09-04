@@ -19,6 +19,14 @@ export const verbStateInitial: VerbState = {
 
 export const verbReducer = createReducer<VerbState>(verbStateInitial,
 
+    on(verbActions.setVerb, (state, action): VerbState => {
+        //console.log('in effect',action.verbGroup);
+        return {
+            ...state,
+            verb: action.verb,
+            error: ''
+        };
+    }),
     on(verbGroupActions.loadVerbGroupSuccess, (state, action): VerbState => {
         //console.log('in effect',action.verbGroup);
         return {
