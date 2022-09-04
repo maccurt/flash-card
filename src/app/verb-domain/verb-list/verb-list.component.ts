@@ -1,3 +1,4 @@
+import { verbGroupSelectors } from './../state/verb-group-selectors';
 import { verbGroupActions } from './../state/verb-group.actions';
 import { FromTo } from '../types/FromTo';
 import { VerbGroup } from "../types/VerbGroup";
@@ -47,12 +48,12 @@ export class VerbListComponent implements OnInit, AfterViewInit {
     });
 
     //get the verb group list for the select
-    this.store.select(verbSelectors.getVerbGroupList).subscribe((verbGroupList) => {
+    this.store.select(verbGroupSelectors.getVerbGroupList).subscribe((verbGroupList) => {
       this.verbGroupList = verbGroupList;
     });
 
     //set the to drop down select to selected verb group
-    this.store.select(verbSelectors.getVerbGroup).subscribe((verbGroup)=>{
+    this.store.select(verbGroupSelectors.getVerbGroup).subscribe((verbGroup)=>{
       this.verbGroupListControl.setValue(verbGroup);
     });
     

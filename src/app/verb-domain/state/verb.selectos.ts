@@ -1,5 +1,3 @@
-import { VerbGroup } from "../types/VerbGroup";
-import { Verb } from '../types/verb.class.';
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { VerbState } from "./verb.reducer";
 import { selectRouteParams } from '../../router-state/router.selectors';
@@ -24,55 +22,10 @@ export const getVerbFromRouteSelector = createSelector(
     }
 );
 
-export const getVerbGroup = createSelector(getVerbStateSelector, (state) => state.verbGroup);
-
-export const getVerbGroupFromRouteSelector = createSelector(
-    getVerbStateSelector,
-    selectRouteParams,
-    ({ verbGroupList }, { id }) => {
-
-        if (verbGroupList) {
-            return verbGroupList.find((v) => {
-                return v.id === id
-            });
-        }
-        //What should happen here, never should happen?
-        return undefined
-    }
-);
-
-export const getVerbGroupList = createSelector(getVerbStateSelector, (state) => {
-    return state.verbGroupList;
-});
-
 export const verbSelectors = {
     getVerbListSelector,
     getVerbSelector,
-    getVerbFromRouteSelector,
-    //
-    getVerbGroupList,
-    //getVerbListFromGroup,
-    getVerbGroup
+    getVerbFromRouteSelector    
 };
 
 export default verbSelectors;
-
-
-// export const getVerbListFromGroup = createSelector(
-//     getVerbStateSelector,
-//     (state) => {
-
-//         //TODO rethink this, not efficient, can you do with lodash?
-//         const verbListFilter: Verb[] = [];
-//         state.verbGroup?.verbList.forEach((v1) => {
-
-//             const verb = state.verbList.find((v2) => {
-//                 return v1.toLowerCase() === v2.to.toLowerCase();
-//             });
-//             if (verb) {
-//                 verbListFilter.push(verb);
-//             }
-//         });
-//         return verbListFilter;
-//     }
-// );
