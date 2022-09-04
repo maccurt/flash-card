@@ -16,6 +16,7 @@ export class AppComponent {
   constructor(public store: Store) {
 
     //TODO put all of this in an init function/action/ in the store NOT HERE!!
+
     this.store.dispatch(verbActions.loadVerbList());
     this.store.dispatch(verbGroupActions.loadVerbGroupList());
     // this.store.select(verbGroupSelectors.getVerbGroupList).subscribe((verbGroupList) => {

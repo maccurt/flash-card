@@ -26,7 +26,7 @@ import { VerbGroupEffect } from './state/verb-group.effects';
     RouterModule,
     FlashCardModule,
     StoreModule.forFeature('verb', verbReducer),
-    EffectsModule.forFeature([VerbEffect, VerbGroupEffect])
+    EffectsModule.forFeature([VerbGroupEffect, VerbEffect])
   ]
 })
 export class VerbModule { }

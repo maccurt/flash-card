@@ -21,16 +21,16 @@ export class VerbGroupEffect {
 
                 return this.store.select(verbGroupSelectors.getVerbGroupFromRouteSelector).pipe(
                     map((verbGroup) => {       
-                        console.log('VerbGroupEffect',verbGroup);                 
+                        //console.log('VerbGroupEffect',verbGroup);                 
                         if (verbGroup) {
-                            return verbGroupActions.loadVerbGroupSuccess({ verbGroup })
+                            return verbGroupActions.loadVerbGroupSuccess({ verbGroup });
                         }
                         let error = new Error('verb group not found from route');
                         return verbGroupActions.loadVerbGroupError({ error });
 
                     })
-                )
+                );
             })
-        )
-    })
+        );
+    });
 }

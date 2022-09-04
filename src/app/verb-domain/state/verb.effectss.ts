@@ -5,8 +5,10 @@ import { Store } from '@ngrx/store';
 import { verbActions } from './verb.actions';
 import { VerbService } from './../verb.service';
 import { Injectable } from "@angular/core";
-import { act, Actions, createEffect, ofType } from "@ngrx/effects";
+import { act, Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
+import { MatOptgroup } from '@angular/material/core';
+import { FEATURE_EFFECTS } from '@ngrx/effects/src/tokens';
 
 @Injectable()
 export class VerbEffect {
@@ -15,6 +17,14 @@ export class VerbEffect {
         private verbService: VerbService,
         private conjugateService: ConjugateService,
         private store: Store) { }
+
+    // init$ = createEffect(() => {
+    //     return this.actions$.pipe(            
+    //         map((action) => {
+    //             console.log('init effect',action)
+    //         })
+    //     )
+    // }, { dispatch: false })
 
     loadVerbGroupList$ = createEffect(() => {
         return this.actions$.pipe(
@@ -65,7 +75,7 @@ export class VerbEffect {
                 );
             })
         );
-    });    
+    });
 
     loadVerbTense$ = createEffect(() => {
         return this.actions$.pipe(

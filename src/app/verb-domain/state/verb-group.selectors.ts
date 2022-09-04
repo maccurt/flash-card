@@ -13,13 +13,13 @@ export const getVerbGroupFromRouteSelector = createSelector(
 
         if (verbGroupList) {
             let vg = verbGroupList.find((v) => {
-                return v.id == id
+                return v.id == id;
             });
-            console.log('returned',vg);
+            // console.log('returned',vg);
             return vg;
         }
         //What should happen here, never should happen?
-        return undefined
+        return undefined;
     }
 );
 
@@ -34,5 +34,4 @@ export const verbGroupSelectors = {
 };
 
 export default verbGroupSelectors;
-
 

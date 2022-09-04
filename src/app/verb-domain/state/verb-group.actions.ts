@@ -1,7 +1,6 @@
 import { VerbGroup } from "../types/VerbGroup";
 import { createAction, props } from "@ngrx/store";
 
-
 export const loadVerbGroupSelectedInRoute = createAction('[verb group] load VerbGroup Selected In Route');
 export const loadVerbGroup = createAction('[verb group] load verb group',props<{verbGroup:VerbGroup}>());
 export const loadVerbGroupSuccess = createAction('[verb group] load verb group success',props<{verbGroup:VerbGroup}>());
