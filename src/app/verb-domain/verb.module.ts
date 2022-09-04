@@ -11,6 +11,7 @@ import { VerbListComponent } from './verb-list/verb-list.component';
 import { VerbComponent } from './verb/verb.component';
 import { VerbGroupListComponent } from './verb-group-list/verb-group-list.component';
 import { VerbGroupComponent } from './verb-group/verb-group.component';
+import { VerbGroupEffect } from './state/verb-group.effects';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { VerbGroupComponent } from './verb-group/verb-group.component';
     RouterModule,
     FlashCardModule,
     StoreModule.forFeature('verb', verbReducer),
-    EffectsModule.forFeature([VerbEffect])
+    EffectsModule.forFeature([VerbEffect, VerbGroupEffect])
   ]
 })
 export class VerbModule { }

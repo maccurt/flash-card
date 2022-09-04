@@ -1,5 +1,4 @@
 import { verbGroupActions } from './verb-group.actions';
-import { VerbGroup } from "../types/VerbGroup";
 import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './verb.selectos';
 import { Store } from '@ngrx/store';
@@ -27,8 +26,6 @@ export class VerbEffect {
             catchError(error => of(verbGroupActions.loadVerbGroupListError({ error })))
         );
     });
-
-
 
     setVerbGroupSelected$ = createEffect(() => {
         return this.actions$.pipe(
@@ -68,16 +65,7 @@ export class VerbEffect {
                 );
             })
         );
-    });
-
-
-    verbGroupSelectedInRoute$ = createEffect(() => {
-
-        return this.actions$.pipe(
-            ofType(verbGroupActions.loadVerbGroup)
-
-        )
-    });
+    });    
 
     loadVerbTense$ = createEffect(() => {
         return this.actions$.pipe(
@@ -89,7 +77,4 @@ export class VerbEffect {
             })
         );
     });
-
-
-
 }

@@ -3,7 +3,7 @@ import { verbSelectors } from './../state/verb.selectos';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { VerbGroup } from "../types/VerbGroup";
-import verbGroupSelectors from '../state/verb-group-selectors';
+import verbGroupSelectors from '../state/verb-group.selectors';
 
 @Component({
   selector: 'app-verb-group-list',

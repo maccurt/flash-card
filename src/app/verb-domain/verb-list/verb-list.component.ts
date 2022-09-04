@@ -1,4 +1,4 @@
-import { verbGroupSelectors } from './../state/verb-group-selectors';
+import { verbGroupSelectors } from '../state/verb-group.selectors';
 import { verbGroupActions } from './../state/verb-group.actions';
 import { FromTo } from '../types/FromTo';
 import { VerbGroup } from "../types/VerbGroup";

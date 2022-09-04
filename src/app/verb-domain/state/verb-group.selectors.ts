@@ -12,9 +12,11 @@ export const getVerbGroupFromRouteSelector = createSelector(
     ({ verbGroupList }, { id }) => {
 
         if (verbGroupList) {
-            return verbGroupList.find((v) => {
-                return v.id === id
+            let vg = verbGroupList.find((v) => {
+                return v.id == id
             });
+            console.log('returned',vg);
+            return vg;
         }
         //What should happen here, never should happen?
         return undefined
@@ -27,7 +29,8 @@ export const getVerbGroupList = createSelector(getVerbStateSelector, (state) => 
 
 export const verbGroupSelectors = {
     getVerbGroupList,
-    getVerbGroup
+    getVerbGroup,
+    getVerbGroupFromRouteSelector
 };
 
 export default verbGroupSelectors;

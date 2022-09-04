@@ -3,7 +3,7 @@ import { AppModule } from './app.module';
 import { Component } from '@angular/core';
 import verbActions from './verb-domain/state/verb.actions';
 import verbGroupActions from './verb-domain/state/verb-group.actions';
-import verbGroupSelectors from './verb-domain/state/verb-group-selectors';
+import verbGroupSelectors from './verb-domain/state/verb-group.selectors';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +18,10 @@ export class AppComponent {
     //TODO put all of this in an init function/action/ in the store NOT HERE!!
     this.store.dispatch(verbActions.loadVerbList());
     this.store.dispatch(verbGroupActions.loadVerbGroupList());
-    this.store.select(verbGroupSelectors.getVerbGroupList).subscribe((verbGroupList) => {
-      if (verbGroupList && verbGroupList.length > 0) {
-        this.store.dispatch(verbGroupActions.setVerbGroupSelected({ verbGroup: verbGroupList[0] }));
-      }
-    });
+    // this.store.select(verbGroupSelectors.getVerbGroupList).subscribe((verbGroupList) => {
+    //   if (verbGroupList && verbGroupList.length > 0) {
+    //     this.store.dispatch(verbGroupActions.setVerbGroupSelected({ verbGroup: verbGroupList[0] }));
+    //   }
+    // });
   }
 }

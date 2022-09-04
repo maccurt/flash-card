@@ -19,6 +19,15 @@ export const verbStateInitial: VerbState = {
 
 export const verbReducer = createReducer<VerbState>(verbStateInitial,
 
+    on(verbGroupActions.loadVerbGroupSuccess, (state, action): VerbState => {
+        console.log('in effect',action.verbGroup);
+        return {
+            ...state,
+            verbGroup: action.verbGroup,
+            error: ''
+        };
+    }),
+
     on(verbGroupActions.loadVerbGroupList, (state): VerbState => {
         return {
             ...state,
@@ -77,7 +86,7 @@ export const verbReducer = createReducer<VerbState>(verbStateInitial,
             error: ''
         };
     }),
-    on(verbGroupActions.setVerbGroupSelectedSuccess, (state, action): VerbState => {        
+    on(verbGroupActions.setVerbGroupSelectedSuccess, (state, action): VerbState => {
         return {
             ...state,
             verbGroup: action.verbGroup,
