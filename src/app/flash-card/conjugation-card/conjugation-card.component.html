@@ -4,37 +4,71 @@
 
     <mat-card-content>
 
-        <table class="table table-striped">
-            
-        </table>
+        <table class="conjugation-table card-table table table-striped table-bordered ">
 
-        <div class="row">
-            <div class="col-6">
-                {{tense.fistPersonSingular.text}}
+            <thead>
+                <tr>
+                    <th colspan="2" class="pro-noun">Pronoun</th>
+                    <th colspan="2" class="pro-noun">Pronoun</th>
+                </tr>
+            </thead>
 
-            </div>
-            <div class="col-6">
-                {{tense.firstPersonPlural}}
-            </div>
-        </div>
+            <tbody>
+                <tr class="first-person">
+                    <td style="width:20%" class="pro-noun">
+                        yo
+                    </td>
+                    <td style="width:25%">
+                        {{tense.fistPersonSingular.text}}
+                    </td>
 
-        <div class="row">
-            <div class="col-6">
-                {{tense.secondPersonSingular}}
-            </div>
-            <div class="col-6">
-                {{tense.secondPersonPlural}}
-            </div>
-        </div>
+                    <td style="width:30%" class="pro-noun">
+                        nosotros
+                    </td>
 
-        <div class="row">
-            <div class="col-6">
-                {{tense.thirdPersonSingular}}
-            </div>
-            <div class="col-6">
-                {{tense.thirdPersonPlurual}}
-            </div>
-        </div>
+                    <td style="width:25%">
+                        {{tense.fistPersonSingular.text}}
+                    </td>
+                </tr>
+
+                <tr class="second-person">
+                    <td class="pro-noun">
+                        tu
+                    </td>
+                    <td>
+                        {{tense.secondPersonSingular}}
+                    </td>
+
+                    <td class="pro-noun">
+                        vosotros,vosotras
+                    </td>
+
+
+                    <td>
+                        {{tense.secondPersonPlural}}
+                    </td>
+                </tr>
+
+                <tr class="third-person">
+                    <td class="pro-noun">
+                        el, ella, usted
+                    </td>
+                    <td>
+                        {{tense.thirdPersonSingular}}
+                    </td>
+
+                    <td class="pro-noun">
+                        ustedes, ellos,ellas
+                    </td>
+
+                    <td>
+                        {{tense.thirdPersonPlurual}}
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>        
 
     </mat-card-content>
 </mat-card>

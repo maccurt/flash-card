@@ -1,0 +1,8 @@
+<div *ngIf="verb$ | async as verb">
+
+    <p  *ngIf="verb.sentenceList.length > 0">
+        {{verb.sentenceList[0].spanish}}
+    </p>
+
+
+</div>

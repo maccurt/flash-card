@@ -1,8 +1,9 @@
+import { Sentence } from './Sentence';
 import { FromTo } from "./FromTo";
 import { Tense } from "./Tense";
 
 export class Verb implements FromTo {
-    sentenceList!: FromTo[];
+    sentenceList: Sentence[] = [];
     to: string = '';
     from: string = '';
     //tense

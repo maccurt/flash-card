@@ -5,5 +5,22 @@
 }
 
 .mat-card-content {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.conjugation-table {
+    .pro-noun {
+        font-size: smaller;
+        font-weight: 200;
+    }
+    tbody{
+        font-weight: 500;
+    }
+
+    thead {
+        .pro-noun {
+            font-size: smaller;
+            font-weight: 200;
+        }
+    }
 }
