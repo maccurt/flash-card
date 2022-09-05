@@ -15,8 +15,9 @@ import verbGroupSelectors from '../state/verb-group.selectors';
   styleUrls: ['./verb-group.component.scss']
 })
 export class VerbGroupComponent implements OnInit {
-  verbGroup$!: Observable<VerbGroup | undefined>;  
+  verbGroup$!: Observable<VerbGroup | undefined>;
   verb!: Verb;
+  chosenIndex = 1
   constructor(private store: Store,
     private conjugationService: ConjugateService
   ) { }
@@ -27,14 +28,15 @@ export class VerbGroupComponent implements OnInit {
 
     this.verbGroup$.subscribe((vg) => {
       if (vg?.verbList) {
-        this.verbClick(vg?.verbList[0]);
+        this.verbClick(vg?.verbList[0], 0);
       }
 
     });
   }
 
-  verbClick = (verb: Verb) => {
-    this.verb = verb;    
-    this.store.dispatch(verbActions.setVerb({verb}));    
+  verbClick = (verb: Verb, index: number) => {
+    this.chosenIndex = index;
+    this.verb = verb;
+    this.store.dispatch(verbActions.setVerb({ verb }));
   };
 }

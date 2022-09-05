@@ -19,13 +19,13 @@
                         class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th> Spanish</th>
+                                <th style="width:35%"> Spanish</th>
                                 <th> English</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr (click)="verbClick(verb)" *ngFor="let verb of verbGroup.verbList">
-
+                            <tr [ngClass]="{'selected':i === chosenIndex}" (click)="verbClick(verb,i)"
+                                *ngFor="let verb of verbGroup.verbList,let i=index">
                                 <td>
 
                                     {{verb.to}}
@@ -39,23 +39,22 @@
 
                     </table>
 
-                </mat-card-content>                
+                </mat-card-content>
                 <hr>
                 <app-sentence></app-sentence>
 
-                
-            </mat-card>
 
-            
-            
-            
+            </mat-card>
 
         </div>
 
 
         <div *ngIf="verb" class="col-xxl-6">
 
-            <app-tense-list></app-tense-list>
+            <div style="border:1px solid #cccccc;padding:10px;background-color:#ebf0fa;">
+
+                <app-tense-list></app-tense-list>
+            </div>
 
         </div>
 

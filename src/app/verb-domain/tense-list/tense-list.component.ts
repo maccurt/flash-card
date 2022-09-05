@@ -19,9 +19,9 @@ export class TenseListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.store.select(verbSelectors.getVerbSelector).subscribe((verb) => {
-
-      if (verb) {
+    this.store.select(verbSelectors.getVerbSelector).subscribe((verb) => {      
+      if (verb) {      
+        this.verb = verb;
         this.tenseList = this.conjugationService.getTenselist(verb);
       }
     });
