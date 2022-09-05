@@ -3,16 +3,17 @@
 
     <div class="row">
 
-        <div id="verb-group-{{verbGroup.id}}" class="verb-group col-12 col-xxl-6">
+        
+        <div attr.data-test-id="verb-group-{{verbGroup.id}}" class="verb-group col-12 col-xxl-6">
 
             <mat-card class="verb-group-card">
 
-                <mat-card-title>
+                <mat-card-title data-test-id="name"  class="name">
                     {{verbGroup.name}}
                 </mat-card-title>
                 <mat-card-content>
 
-                    <p>{{verbGroup.description}}</p>
+                    <p  data-test-id="description"  class="description">{{verbGroup.description}}</p>
                     <hr>
 
                     <table style="background-color:white;border: 1px solid #cccccc;"
@@ -44,9 +45,9 @@
                 <app-sentence></app-sentence>
 
                 <hr>
-                <div class="instruction" *ngIf="verbGroup.instruction">                    
+                <div class="instruction" *ngIf="verbGroup.instruction">
                     <ul>
-                        <li *ngFor="let bullet of verbGroup.instruction.bulletpoints" >
+                        <li *ngFor="let bullet of verbGroup.instruction.bulletpoints">
                             {{bullet}}
                         </li>
                     </ul>
