@@ -2,7 +2,13 @@
     {
         "id": 1,
         "name": "Present Tense Stem Change -ar verbs",
-        "description": "This is the description. Please put a better description"
+        "description": "-ar stem-changing verbs vowel. e changes to ie.",
+        "instruction":{
+            "text":"e > ei",
+            "example":"",
+            "bulletpoints":["Change e to ei","shoe verb, in all forms except nosostros and vosotros. "]
+        }
+        
     ,
     "verbList": [
         {
@@ -10,8 +16,8 @@
             "to": "acertar",
             "sentenceList": [
                 {
-                    "english": "find a sentene for this.",
-                    "spanish": "find a sentene for this"
+                    "english": "I got it right the second time.",
+                    "spanish": "Acerté a la segunda vez."
                 }
             ],
             "presentTense": {

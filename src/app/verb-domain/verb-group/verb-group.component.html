@@ -43,6 +43,15 @@
                 <hr>
                 <app-sentence></app-sentence>
 
+                <hr>
+                <div class="instruction" *ngIf="verbGroup.instruction">                    
+                    <ul>
+                        <li *ngFor="let bullet of verbGroup.instruction.bulletpoints" >
+                            {{bullet}}
+                        </li>
+                    </ul>
+                </div>
+
 
             </mat-card>
 

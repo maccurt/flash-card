@@ -1,8 +1,13 @@
 <div *ngIf="verb$ | async as verb">
 
-    <p  *ngIf="verb.sentenceList.length > 0">
-        {{verb.sentenceList[0].spanish}}
-    </p>
+    <div *ngIf="verb.sentenceList.length > 0">
+        <div class="spanish">
+            {{verb.sentenceList[0].spanish}}
+        </div>
+        <div class="english">
+            {{verb.sentenceList[0].english}}
+        </div>
 
 
+    </div>
 </div>
