@@ -16,27 +16,7 @@ export class VerbEffect {
     constructor(private actions$: Actions,
         private verbService: VerbService,
         private conjugateService: ConjugateService,
-        private store: Store) { }
-
-    loadVerbGroupList$ = createEffect(() => {
-        return this.actions$.pipe(
-            ofType(verbGroupActions.loadVerbGroupList),
-            mergeMap(() => this.verbService.getVerbGroupList()
-                .pipe(
-                    map(verbGroupList => verbGroupActions.loadVerbGroupListSuccess({ verbGroupList }))
-                )),
-            catchError(error => of(verbGroupActions.loadVerbGroupListError({ error })))
-        );
-    });
-
-    setVerbGroupSelected$ = createEffect(() => {
-        return this.actions$.pipe(
-            ofType(verbGroupActions.setVerbGroupSelected),
-            switchMap(({ verbGroup }) => {
-                return of(verbGroupActions.setVerbGroupSelectedSuccess({ verbGroup }));
-            })
-        );
-    });
+        private store: Store) { }    
 
     loadVerbList$ = createEffect(() => {
 
