@@ -1,11 +1,16 @@
 <div *ngIf="verb$ | async as verb">
 
-    <div *ngIf="verb.sentenceList.length > 0">
-        <div class="spanish">
-            {{verb.sentenceList[0].spanish}}
-        </div>
-        <div class="english">
-            {{verb.sentenceList[0].english}}
+
+    <div *ngIf="verb?.sentenceList">
+        <div *ngFor="let s of verb.sentenceList">
+            <div class="sentence" data-test-id="sentence">
+                <div class="spanish">
+                    {{s.spanish}}
+                </div>
+                <div class="english">
+                    {{s.english}}
+                </div>
+            </div>
         </div>
 
 

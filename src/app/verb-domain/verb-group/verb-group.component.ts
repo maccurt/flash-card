@@ -17,7 +17,7 @@ import verbGroupSelectors from '../state/verb-group.selectors';
 export class VerbGroupComponent implements OnInit {
   verbGroup$!: Observable<VerbGroup | undefined>;
   verb!: Verb;
-  chosenIndex = 1
+  chosenIndex = 1;
   constructor(private store: Store,
     private conjugationService: ConjugateService
   ) { }

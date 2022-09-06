@@ -12,13 +12,9 @@ import { Verb } from '../types/verb.class.';
 export class SentenceComponent implements OnInit {
 
   verb$?: Observable<Verb | undefined>;
-
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-
     this.verb$ = this.store.select(verbSelectors.getVerbSelector);
-
   }
-
 }

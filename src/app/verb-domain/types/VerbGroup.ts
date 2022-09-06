@@ -8,4 +8,3 @@ export class VerbGroup {
     verbList: Verb[] = [];
 }
 
-

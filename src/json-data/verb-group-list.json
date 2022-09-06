@@ -3,247 +3,170 @@
         "id": 1,
         "name": "Present Tense Stem Change -ar verbs",
         "description": "-ar stem-changing verbs vowel. e changes to ie.",
-        "instruction":{
-            "text":"e > ei",
-            "example":"",
-            "bulletpoints":["Change e to ei","shoe verb, in all forms except nosostros and vosotros. "]
-        }
-        
-    ,
-    "verbList": [
-        {
-            "from": "to hit the mark,guess right, ",
-            "to": "acertar",
-            "sentenceList": [
-                {
-                    "english": "I got it right the second time.",
-                    "spanish": "Acerté a la segunda vez."
-                }
-            ],
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
+        "instruction": {
+            "text": "e > ei",
+            "example": "",
+            "bulletpoints": [
+                "Change e to ei",
+                "shoe verb, in all forms except nosostros and vosotros. "
+            ]
         },
-        {
-            "from": "to govern,rule",
-            "to": "gobernar",
-            "sentenceList": [
-                {
-                    "english": "I govern over the children in my house as a father.",
-                    "spanish": "Yo gobierno sobre los niños en mi casa como un padre."
+        "verbList": [
+            {
+                "from": "to hit the mark,guess right, ",
+                "to": "acertar",
+                "sentenceList": [
+                    {
+                        "english": "I got it right the second time.",
+                        "spanish": "Acerté a la segunda vez."
+                    },
+                    {
+                        "english": "I have to get it right this time",
+                        "spanish": "Tengo que acertar esta vez."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
                 }
-            ],
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
+            },
+            {
+                "from": "to govern,rule",
+                "to": "gobernar",
+                "sentenceList": [
+                    {
+                        "english": "I govern over the children in my house as a father.",
+                        "spanish": "Yo gobierno sobre los niños en mi casa como un padre."
+                    },
+                    {
+                        "english": "I governed yesterday sole. Today we govern together.",
+                        "spanish": "Goberné ayer sole. Hoy gobernamos juntos."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
                 }
-            }
-        },
-        {
-            "from": "to close",
-            "to": "cerrar",
-            "sentenceList":[
-                {
-                    "spanish":"Cierro la puerta todos los días. Lo cerré ayer también, pero el perro lo empujó para abrirlo. Mañana cerraré la puerta y la bloquearé.",
-                    "english":"I close the gate everday. I closed it yesterday also, but the dog pushed it open. Tommorow I will close the gate and lock it."
+            },
+            {
+                "from": "to close",
+                "to": "cerrar",
+                "sentenceList": [
+                    {
+                        "spanish": "Cierro la puerta todos los días.",
+                        "english": "I close the gate everday."
+                    },
+                    {
+                        "spanish": "Lo cerré ayer también, pero el perro lo empujó para abrirlo",
+                        "english": "I closed it yesterday also, but the dog pushed it open."
+                    },
+                    {
+                        "spanish": "Mañana cerraré la puerta y la bloquearé.",
+                        "english": "Tommorow I will close the gate and lock it."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
                 }
-            ],
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
+            },
+            {
+                "from": "to think (of,about)",
+                "to": "pensar",
+                "sentenceList": [
+                    {
+                        "spanish": "Ella piensa en su amiga durante el día.",
+                        "english": "she thinks about her friend during the day."
+                    },
+                    {
+                        "spanish": "yesterday,I thought about my dreams and goals",
+                        "english": "Ayer pensé en mis sueños y metas."
+                    },
+                    {
+                        "spanish": "mañana pensaremos en tus facturas hoy festejaremos.",
+                        "english": "tommorow, we will think about our bills today we will party."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
                 }
-            }
-        },
-        {
-            "from": "to think (of,about)",
-            "to": "pensar",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "to start, begin",
-            "to": "empezar",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        }
-    ]
-},
-{
-    "id": 2,
-    "name": "Group ABC of verbs",
-    "description": "This is the description. Please put a better description",
-    "verbList": [
-        {
-            "from": "to govern,rule",
-            "to": "gobernar",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "to close",
-            "to": "cerrar",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "to close",
-            "to": "cerrar",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "to close",
-            "to": "cerrar",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        }
-    ]
-},
-{
-    "id": 3,
-    "name": "Dummmy Group 3 For Testing",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing. Quam quisque id diam vel quam elementum pulvinar.",
-    "verbList": [
-        {
-            "from": "to govern,rule",
-            "to": "gobernar",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
+            },
+            {
+                "from": "to start, begin",
+                "to": "empezar",
+                "sentenceList": [
+                    {
+                        "spanish": "Empiezo a estudiar español cuando bebo café.",
+                        "english": "I begin to study spanish when I drink cafe."
+                    },
+                    {
+                        "spanish": "ayer empezaron a estudiar español por la noche.",
+                        "english": "yesterday, they began to study spanish at night."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
                 }
             }
-        }
-    ]
-},
-{
-    "id": 4,
-    "name": "Dummmy Group 4 For Testing",
-    "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
-    "verbList": [
-        {
-            "from": "dummy verb",
-            "to": "dummy verb",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Present Tense Stem Change -er Verbs",
+        "description": "-er stem-changing verbs vowel. e changes to ie.",
+        "verbList": [
+            {
+                "from": "to defend",
+                "to": "defender",
+                "sentenceList": [
+                    {
+                        "english": "add english sentence here",
+                        "spanish": "add spanish sentence here"
+                    },
+                    {
+                        "english": "add english sentence here",
+                        "spanish": "add spanish sentence here"
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "english",
+                "to": "spanish",
+                "sentenceList": [
+                    {
+                        "english": "add english sentence here",
+                        "spanish": "add spanish sentence here"
+                    },
+                    {
+                        "english": "add english sentence here",
+                        "spanish": "add spanish sentence here"
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
                 }
             }
-        }
-    ]
-},
-{
-    "id": 5,
-    "name": "Dummmy Group 5 For Testing",
-    "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
-    "verbList": [
-        {
-            "from": "dummy verb",
-            "to": "dummy verb",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        }
-    ]
-},
-{
-    "id": 6,
-    "name": "Dummmy Group 6 For Testing",
-    "description": "Incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing.",
-    "verbList": [
-        {
-            "from": "dummy verb 1",
-            "to": "dummy verb 1",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "dummy verb 2",
-            "to": "dummy verb 2",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "dummy verb 2",
-            "to": "dummy verb 2",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "dummy verb 3",
-            "to": "dummy verb 3",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "dummy verb 4",
-            "to": "dummy verb 4",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        },
-        {
-            "from": "dummy verb 5",
-            "to": "dummy verb 5",
-            "presentTense": {
-                "isStemChange": "true",
-                "fistPersonSingular": {
-                    "sentenceList": []
-                }
-            }
-        }
-    ]
-}
+        ]
+    }
 ]
