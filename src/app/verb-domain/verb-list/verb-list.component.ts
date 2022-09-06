@@ -1,7 +1,7 @@
 import { verbGroupSelectors } from '../state/verb-group.selectors';
 import { verbGroupActions } from './../state/verb-group.actions';
 import { FromTo } from '../types/FromTo';
-import { VerbGroup } from "../types/VerbGroup";
+import { VerbGroup } from "../types/VerbGroup.class";
 import { ConjugateService } from './../conjugate.service';
 import { verbActions } from './../state/verb.actions';
 import { verbSelectors } from './../state/verb.selectos';

@@ -1,4 +1,4 @@
-import { VerbGroup } from "../types/VerbGroup";
+import { VerbGroup } from "../types/VerbGroup.class";
 import { verbActions } from './verb.actions';
 import { createReducer, on } from "@ngrx/store";
 import { Verb } from "../types/verb.class.";

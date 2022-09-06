@@ -1,4 +1,4 @@
-import { VerbGroup } from "../types/VerbGroup";
+import { VerbGroup } from "../types/VerbGroup.class";
 import { createAction, props } from "@ngrx/store";
 import { Verb } from "../types/verb.class.";
 

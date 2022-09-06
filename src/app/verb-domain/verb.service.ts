@@ -1,8 +1,8 @@
-import { VerbGroup } from "./types/VerbGroup";
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Verb } from "./types/verb.class.";
+import { VerbGroup } from './types/VerbGroup.class';
 
 @Injectable({
   providedIn: 'root'

@@ -1,3 +1,4 @@
+import { StemChangeType } from './types/StemChangeType.enum';
 import { Verb } from "./types/verb.class.";
 import { Injectable } from '@angular/core';
 import { Tense } from "./types/Tense";
@@ -52,19 +53,15 @@ export class ConjugateService {
     const tenseList: Tense[] = [];
     tenseList.push(this.getPresentTense(verb));
     tenseList.push(this.getPreteriteTense(verb));
-
     return tenseList;
-
   };
 
   setAllTense = (verb: Verb) => {
-
     verb.presentTense = this.getPresentTense(verb);
     verb.preteriteTense = this.getPreteriteTense(verb);
     verb.tenseList = [];
     verb.tenseList.push(verb.presentTense);
     verb.tenseList.push(verb.preteriteTense);
-
   };
 
   getPresentTense = (verb: Verb): Tense => {
@@ -116,6 +113,33 @@ export class ConjugateService {
     tense.thirdPersonPlurual = stem + endings[5];
     return tense;
   };
+
+  getStemChange = (verb: string, stemChangeType: StemChangeType): string => {
+
+    let stem = verb.substring(0, verb.length - 2);
+
+    switch (stemChangeType) {
+      case StemChangeType.stemChange_ar_e_to_ei:
+      case StemChangeType.stemChange_er_e_to_ei:
+
+        let split = stem.split('e');
+        //TODO refactor this to work with all for verbs 
+        //that have an 2 e in stems > defender = defiend        
+        stem = split.length === 3 ?
+          stem = stem.replace(split[1] + 'e', split[1] + 'ie') :
+          stem = stem[0] + stem.substring(1).replace('e', 'ie');
+
+        break;
+      case StemChangeType.stemeChange_ar_o_to_ui:
+      case StemChangeType.stemeChange_er_o_to_ui:
+        stem = stem[0] + stem.substring(1).replace('o', 'ue');
+        break;
+    }
+
+    return stem;
+
+  }
+
 
   getPresentTenseStemChange = (verb: string): string => {
 

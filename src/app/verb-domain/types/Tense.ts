@@ -1,10 +1,11 @@
+import { StemChangeType } from "./StemChangeType.enum";
 import { TenseType } from "./TenseType";
 
-//https://www.bucks.edu/media/bcccmedialibrary/tutoring/documents/writingareahandoutrevision/spanish/Spanish-Subject-Pronouns.pdf
-
 export class Tense {
+    stemChangeType: StemChangeType = StemChangeType.none
     text: string = '';
     fistPersonSingular!: TenseType;
+    //TODO in the future this should be a TenseType not a string; does it have value?
     firstPersonPlural: string = '';
     secondPersonSingular: string = '';
     secondPersonPlural: string = '';

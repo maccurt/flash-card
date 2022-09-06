@@ -1,4 +1,4 @@
-import { VerbGroup } from "../types/VerbGroup";
+import { VerbGroup } from "../types/VerbGroup.class";
 import { createAction, props } from "@ngrx/store";
 
 export const loadVerbGroupSelectedInRoute = createAction('[verb group] load VerbGroup Selected In Route');

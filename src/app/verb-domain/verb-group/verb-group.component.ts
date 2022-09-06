@@ -2,7 +2,7 @@ import { verbActions } from './../state/verb.actions';
 import { Tense } from 'src/app/verb-domain/types/Tense';
 import { ConjugateService } from './../conjugate.service';
 import { Verb } from './../types/verb.class.';
-import { VerbGroup } from './../types/VerbGroup';
+import { VerbGroup } from '../types/VerbGroup.class';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Component, OnInit, AfterViewInit } from '@angular/core';

@@ -2,6 +2,7 @@ import { Verb } from "./types/verb.class.";
 import { ConjugateService, VerbEnding, verbEndings } from './conjugate.service';
 import { Tense } from "./types/Tense";
 import { TenseType } from "./types/TenseType";
+import { StemChangeType } from "./types/StemChangeType.enum";
 // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
 // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
 
@@ -16,6 +17,35 @@ describe('ConjugateService', () => {
 
     it('should behave...', () => {
       expect(service.getPresentTenseStemChange('empezar')).toBe('empiez');
+    });
+
+    describe('getStemChange', () => {
+
+      it('present tense stem change ar verbs e to ie', () => {
+        expect(service.getStemChange('cerrar', StemChangeType.stemChange_ar_e_to_ei)).toBe('cierr');
+        expect(service.getStemChange('acertar', StemChangeType.stemChange_ar_e_to_ei)).toBe('aciert');
+        expect(service.getStemChange('encerrar', StemChangeType.stemChange_ar_e_to_ei)).toBe('encierr');
+      });
+
+      it('present tense stem change er verbs e to ie', () => {
+        expect(service.getStemChange('defender', StemChangeType.stemChange_ar_e_to_ei))
+          .toBe('defiend');
+        expect(service.getStemChange('perder', StemChangeType.stemChange_ar_e_to_ei))
+          .toBe('pierd');
+
+      });
+
+
+      it('ar o to ue verb', () => {
+        expect(service.getStemChange('contar', StemChangeType.stemeChange_ar_o_to_ui)).toBe('cuent');
+        expect(service.getStemChange('colgar', StemChangeType.stemeChange_ar_o_to_ui)).toBe('cuelg');
+      });
+
+      it('er o to ue verb', () => {
+        expect(service.getStemChange('volver', StemChangeType.stemeChange_er_o_to_ui)).toBe('vuelv');
+        expect(service.getStemChange('poder', StemChangeType.stemeChange_er_o_to_ui)).toBe('pued');
+      });
+
     });
 
     it('should return cierrar', () => {
