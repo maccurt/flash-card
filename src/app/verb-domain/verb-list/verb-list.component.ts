@@ -86,7 +86,7 @@ export class VerbListComponent implements OnInit, AfterViewInit {
         this.presentTense = null;
         this.showTranslation = false;
 
-        this.presentTense = this.conjugationService.getPresentTense(verb);
+        this.presentTense = this.conjugationService.getPresentTenseNew(verb);
         //TOOO fix this so it uses the a non string version
         this.preteriteTense = this.conjugationService.getPreteriteTense(verb);
 

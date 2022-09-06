@@ -24,11 +24,18 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('getBySel', (selector, ...args) => {
-    return cy.get(`[data-test-id=${selector}]`, ...args)
-  })
-  
-  Cypress.Commands.add('getBySelLike', (selector, ...args) => {
-    return cy.get(`[data-test-id*=${selector}]`, ...args)
-  })
+// Cypress.Commands.add('getBySel', (selector, ...args) => {
+//   return cy.get(`[data-test-id=${selector}]`, {prevSubject:true})
+//   //return cy.get(`[data-test-id=${selector}]`, ...args)
+// });
 
+Cypress.Commands.add(
+  'getTestId',
+  { prevSubject: 'optional' },
+  (subject, id) => {
+    if (subject) {
+      return cy.wrap(subject).find(`[data-test-id="${id}"]`)
+    }
+    return cy.get(`[data-test-id="${id}"]`)
+  },
+)

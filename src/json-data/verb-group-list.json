@@ -8,8 +8,11 @@
             "example": "",
             "bulletpoints": [
                 "Change e to ei",
-                "shoe verb, in all forms except nosostros and vosotros. "
+                "shoe verb, in all forms except nosostros and vosotros."
             ]
+        },
+        "override": {
+            "presentTenseStemChangeType": 1
         },
         "verbList": [
             {
@@ -26,7 +29,6 @@
                     }
                 ],
                 "presentTense": {
-                    "isStemChange": "true",
                     "fistPersonSingular": {
                         "sentenceList": []
                     }
@@ -126,6 +128,9 @@
         "id": 2,
         "name": "Present Tense Stem Change -er Verbs",
         "description": "-er stem-changing verbs vowel. e changes to ie.",
+        "override": {
+            "presentTenseStemChangeType": 2
+        },
         "verbList": [
             {
                 "from": "to defend",
@@ -141,15 +146,14 @@
                     }
                 ],
                 "presentTense": {
-                    "isStemChange": "true",
                     "fistPersonSingular": {
                         "sentenceList": []
                     }
                 }
             },
             {
-                "from": "english",
-                "to": "spanish",
+                "from": "encender",
+                "to": "to light up",
                 "sentenceList": [
                     {
                         "english": "add english sentence here",
@@ -161,7 +165,6 @@
                     }
                 ],
                 "presentTense": {
-                    "isStemChange": "true",
                     "fistPersonSingular": {
                         "sentenceList": []
                     }

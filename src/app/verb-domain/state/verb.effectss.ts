@@ -1,14 +1,11 @@
-import { verbGroupActions } from './verb-group.actions';
 import { ConjugateService } from './../conjugate.service';
 import { verbSelectors } from './verb.selectos';
 import { Store } from '@ngrx/store';
 import { verbActions } from './verb.actions';
 import { VerbService } from './../verb.service';
 import { Injectable } from "@angular/core";
-import { act, Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from "@ngrx/effects";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
-import { MatOptgroup } from '@angular/material/core';
-import { FEATURE_EFFECTS } from '@ngrx/effects/src/tokens';
 
 @Injectable()
 export class VerbEffect {
@@ -16,7 +13,7 @@ export class VerbEffect {
     constructor(private actions$: Actions,
         private verbService: VerbService,
         private conjugateService: ConjugateService,
-        private store: Store) { }    
+        private store: Store) { }
 
     loadVerbList$ = createEffect(() => {
 

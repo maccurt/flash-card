@@ -2,8 +2,8 @@
 
 export enum StemChangeType {
     none = 0,
-    stemChange_ar_e_to_ei,
-    stemChange_er_e_to_ei,
-    stemeChange_ar_o_to_ui,
-    stemeChange_er_o_to_ui
+    ar_verb_e_to_ei,
+    er_verb_e_to_ei,
+    ar_verb_o_to_ui,
+    er_verb_o_to_ui
 }

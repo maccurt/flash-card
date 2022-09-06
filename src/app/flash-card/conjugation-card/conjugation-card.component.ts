@@ -7,9 +7,19 @@ import { Tense } from 'src/app/verb-domain/types/Tense';
   templateUrl: './conjugation-card.component.html',
   styleUrls: ['./conjugation-card.component.scss']
 })
-export class ConjugationCardComponent {
+export class ConjugationCardComponent implements OnInit {
 
   @Input() header!: string | null | undefined;
   @Input() tense!: Tense;
-  constructor(private conjugationService: ConjugateService) { }
+
+  testId: string = ''
+  constructor(private conjugationService: ConjugateService) {   
+
+  }
+  ngOnInit(): void {
+    if (this.tense) {
+      const searchRegExp = /\s/g;      
+      this.testId = this.tense.text.replace(searchRegExp, '-').toLowerCase();      
+    }
+  }
 }

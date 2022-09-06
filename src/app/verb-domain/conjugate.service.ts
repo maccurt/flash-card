@@ -3,16 +3,8 @@ import { Verb } from "./types/verb.class.";
 import { Injectable } from '@angular/core';
 import { Tense } from "./types/Tense";
 import { TenseType } from "./types/TenseType";
-
-export enum VerbEnding {
-  unknown = 0, ar, ir, er
-};
-
-export interface VerbEndingInterface {
-  ar: string[],
-  er: string[],
-  ir: string[]
-};
+import { VerbEndingInterface } from './VerbEndingInterface';
+import { VerbEnding } from './VerbEnding';
 
 export const verbEndings = {
   presentTense: {
@@ -35,6 +27,42 @@ export class ConjugateService {
   // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
   constructor() { }
 
+  getPresentTenseNew = (verb: Verb): Tense => {
+
+    let stem = verb.to.substring(0, verb.to.length - 2);
+    let bootStem = '';
+
+    const verbEnding = this.getVerbEnding(verb.to);
+    const endings = this.getVerbEndingList(verbEnding, verbEndings.presentTense);
+
+    switch (verb.presentTense.stemChangeType) {
+      case StemChangeType.er_verb_e_to_ei:
+        bootStem = this.getStemChange(verb.to, verb.presentTense.stemChangeType);
+        break;
+      case StemChangeType.ar_verb_e_to_ei:
+        bootStem = this.getStemChange(verb.to, verb.presentTense.stemChangeType);
+        break;
+      case StemChangeType.none:
+    }
+
+    let tense = new Tense();
+    tense.fistPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[0]);
+    tense.secondPersonSingular = this.conjugateFromStem(stem, bootStem, endings[1]);
+    tense.thirdPersonSingular = this.conjugateFromStem(stem, bootStem, endings[2]);
+    tense.firstPersonPlural = this.conjugateFromStem(stem, '', endings[3]);
+    tense.secondPersonPlural = this.conjugateFromStem(stem, '', endings[4]);
+    tense.thirdPersonPlurual = this.conjugateFromStem(stem, bootStem, endings[5]);
+    return this.swapTense(verb.presentTense, tense);
+  };
+
+  conjugateFromStem = (stem: string, stemChange: string, ending: string): string => {
+
+    if (stemChange !== '') {
+      return stemChange + ending;
+    }
+    return stem + ending;
+  }
+
   getSpanishRoot = (verb: string): string => {
     const root = verb.substring(0, verb.length - 2);
     return root;
@@ -51,23 +79,19 @@ export class ConjugateService {
   getTenselist = (verb: Verb): Tense[] => {
 
     const tenseList: Tense[] = [];
-    tenseList.push(this.getPresentTense(verb));
+    tenseList.push(this.getPresentTenseNew(verb));
     tenseList.push(this.getPreteriteTense(verb));
     return tenseList;
   };
 
   setAllTense = (verb: Verb) => {
-    verb.presentTense = this.getPresentTense(verb);
+    verb.presentTense = this.getPresentTenseNew(verb);
     verb.preteriteTense = this.getPreteriteTense(verb);
     verb.tenseList = [];
     verb.tenseList.push(verb.presentTense);
     verb.tenseList.push(verb.preteriteTense);
   };
 
-  getPresentTense = (verb: Verb): Tense => {
-    let tense = this.getPresentTenseSpanish(verb.to, verb.presentTense.isStemChange);
-    return this.swapTense(verb.presentTense, tense);
-  };
 
   getPreteriteTense = (verb: Verb): Tense => {
     let tense = this.getPreteriteTenseSpanish(verb.to);
@@ -119,8 +143,8 @@ export class ConjugateService {
     let stem = verb.substring(0, verb.length - 2);
 
     switch (stemChangeType) {
-      case StemChangeType.stemChange_ar_e_to_ei:
-      case StemChangeType.stemChange_er_e_to_ei:
+      case StemChangeType.ar_verb_e_to_ei:
+      case StemChangeType.er_verb_e_to_ei:
 
         let split = stem.split('e');
         //TODO refactor this to work with all for verbs 
@@ -130,16 +154,15 @@ export class ConjugateService {
           stem = stem[0] + stem.substring(1).replace('e', 'ie');
 
         break;
-      case StemChangeType.stemeChange_ar_o_to_ui:
-      case StemChangeType.stemeChange_er_o_to_ui:
+      case StemChangeType.ar_verb_o_to_ui:
+      case StemChangeType.er_verb_o_to_ui:
         stem = stem[0] + stem.substring(1).replace('o', 'ue');
         break;
     }
 
     return stem;
 
-  }
-
+  };
 
   getPresentTenseStemChange = (verb: string): string => {
 
@@ -163,6 +186,13 @@ export class ConjugateService {
     return stem;
 
   };
+
+
+  // getPresentTense = (verb: Verb): Tense => {
+  //   let tense = this.getPresentTenseSpanish(verb.to, verb.presentTense.isStemChange);
+  //   return this.swapTense(verb.presentTense, tense);
+  // };
+
 
   getPresentTenseSpanish = (verb: string, isStemChange: boolean = false): Tense => {
 

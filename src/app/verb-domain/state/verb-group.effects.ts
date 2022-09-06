@@ -1,3 +1,4 @@
+import { Verb } from './../types/verb.class.';
 import { verbGroupSelectors } from './verb-group.selectors';
 import { catchError, map, mergeMap, of, switchMap } from 'rxjs';
 import { verbGroupActions } from './verb-group.actions';
@@ -44,20 +45,11 @@ export class VerbGroupEffect {
 
                 return this.store.select(verbGroupSelectors.getVerbGroupFromRouteSelector).pipe(
                     map((verbGroup) => {
-                        //console.log('VerbGroupEffect',verbGroup);                 
+                        
                         if (verbGroup) {
-
-                            // verbGroup.verbList.forEach((verb) => {
-
-                            //     ///TODO not sure I want this here.
-                            //     //My issue is this run every time.
-                            //     if (verbGroup.presentTenseStemChangeType !== StemChangeType.none) {
-                            //         verb.presentTense.stemChangeType = verbGroup.presentTenseStemChangeType;
-                            //     }
-                            // })
-
-                            return verbGroupActions.loadVerbGroupSuccess({ verbGroup });
+                            return verbGroupActions.loadVerbGroupSuccess({verbGroup});
                         }
+
                         let error = new Error('verb group not found from route');
                         return verbGroupActions.loadVerbGroupError({ error });
 

@@ -3,7 +3,7 @@
 describe('verb-group-route-happy-path', () => {
 
     beforeEach(() => {
-        cy.getBySel('verb-group-1').as('verbGroup');
+        cy.getTestId('verb-group-1').as('verbGroup');
     })
 
     before(() => {
@@ -11,18 +11,18 @@ describe('verb-group-route-happy-path', () => {
     });
 
     it('verb group with an id of 1 should exist in the dom', () => {
-        cy.getBySel('verb-group-1').should('exist');
+        cy.getTestId('verb-group-1').should('exist');
     });
 
     it('the name should have the correct text', () => {
 
-        cy.get('@verbGroup').getBySel('name').should(($div) => {
+        cy.get('@verbGroup').getTestId('name').should(($div) => {
             expect($div.text().trim()).equal("Present Tense Stem Change -ar verbs");
         });        
     });
 
     it('the description should have the correct text', () => {
-        cy.get('@verbGroup').getBySel('description').should(($div) => {
+        cy.get('@verbGroup').getTestId('description').should(($div) => {
             expect($div.text().trim()).equal("-ar stem-changing verbs vowel. e changes to ie.");
         });
     });
