@@ -12,7 +12,7 @@ export class ConjugationCardComponent implements OnInit {
   @Input() header!: string | null | undefined;
   @Input() tense!: Tense;
 
-  testId: string = ''
+  testId: string = '';
   constructor(private conjugationService: ConjugateService) {   
 
   }

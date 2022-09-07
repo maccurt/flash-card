@@ -39,5 +39,5 @@ export class VerbService {
         verb.presentTense.stemChangeType = verbGroup.override.presentTenseStemChangeType;
       });
     }
-  }
+  };
 }
