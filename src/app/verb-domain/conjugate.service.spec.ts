@@ -61,6 +61,64 @@ describe('ConjugateService', () => {
   //TODO change this description once you figure it out
   describe('getPresentTenseNew', () => {
 
+    it('TRADUCIR', () => {
+      let verb = new Verb();
+      verb.to = 'TRADUCIR';
+      let tense = service.getPresentTenseNew(verb);
+      expect(tense.fistPersonSingular.text).toBe('traduzco');
+    });
+
+    it('hablar', () => {
+      let verb = new Verb();
+      verb.to = 'hablar';
+      let tense = service.getPresentTenseNew(verb);
+      expect(tense.fistPersonSingular.text).toBe('hablo');
+      expect(tense.secondPersonSingular).toBe('hablas');
+      expect(tense.secondPersonPlural).toBe('habláis');
+      expect(tense.thirdPersonSingular).toBe('habla');
+      expect(tense.firstPersonPlural).toBe('hablamos');
+      expect(tense.thirdPersonPlurual).toBe('hablan');
+    });
+
+    it('beber', () => {
+      let verb = new Verb();
+      verb.to = 'beber';
+      let tense = service.getPresentTenseNew(verb);
+
+      expect(tense.fistPersonSingular.text).toBe('bebo');
+      expect(tense.secondPersonSingular).toBe('bebes');
+      expect(tense.thirdPersonSingular).toBe('bebe');
+      expect(tense.firstPersonPlural).toBe('bebemos');
+      expect(tense.secondPersonPlural).toBe('bebéis');
+      expect(tense.thirdPersonPlurual).toBe('beben');
+    });
+
+    it('vivir', () => {
+      let verb = new Verb();
+      verb.to = 'vivir';
+      let tense = service.getPresentTenseNew(verb);
+      expect(tense.fistPersonSingular.text).toBe('vivo');
+      expect(tense.secondPersonSingular).toBe('vives');
+      expect(tense.thirdPersonSingular).toBe('vive');
+      expect(tense.firstPersonPlural).toBe('vivimos');
+      expect(tense.secondPersonPlural).toBe('vivís');
+      expect(tense.thirdPersonPlurual).toBe('viven');
+    });
+
+
+
+    it('CONDUCIR', () => {
+      let verb = new Verb();
+      verb.to = "CONDUCIR";
+      let tense = service.getPresentTenseNew(verb);
+      expect(tense.fistPersonSingular.text).toBe('conduzco');
+      expect(tense.secondPersonSingular).toBe('conduces');
+      expect(tense.thirdPersonSingular).toBe('conduce');
+      expect(tense.firstPersonPlural).toBe('conducimos');
+      expect(tense.secondPersonPlural).toBe('conducís');
+      expect(tense.thirdPersonPlurual).toBe('conducen');
+    });
+
     it('hablar with with not present test should be correct', () => {
       let verb = new Verb();
       verb.to = 'hablar';
@@ -80,7 +138,7 @@ describe('ConjugateService', () => {
 
     it('hacer.', () => {
 
-      let verb = new Verb();      
+      let verb = new Verb();
       verb.to = 'hacer';
       verb.presentTense = new Tense();
       verb.presentTense.fistPersonSingular = { text: 'hago' };
@@ -95,7 +153,7 @@ describe('ConjugateService', () => {
       expect(tense.firstPersonPlural).toBe('hacemos');
       expect(tense.secondPersonPlural).toBe('hacéis');
       expect(tense.thirdPersonPlurual).toBe('hacen');
-      
+
     });
 
     it('defender StemChangeType.er_verb_e_to_ei', () => {
@@ -105,12 +163,12 @@ describe('ConjugateService', () => {
       const tense = service.getPresentTenseNew(verb);
       //single
       expect(tense.fistPersonSingular?.text).toBe('defiendo');
-       expect(tense.secondPersonSingular).toBe('defiendes');
-       expect(tense.thirdPersonSingular).toBe('defiende');
+      expect(tense.secondPersonSingular).toBe('defiendes');
+      expect(tense.thirdPersonSingular).toBe('defiende');
       //plural
-       expect(tense.firstPersonPlural).toBe('defendemos');
-       expect(tense.secondPersonPlural).toBe('defendéis');
-       expect(tense.thirdPersonPlurual).toBe('defienden');
+      expect(tense.firstPersonPlural).toBe('defendemos');
+      expect(tense.secondPersonPlural).toBe('defendéis');
+      expect(tense.thirdPersonPlurual).toBe('defienden');
 
     });
 
@@ -118,7 +176,7 @@ describe('ConjugateService', () => {
 
       let verb = new Verb();
       verb.presentTense.stemChangeType = StemChangeType.ar_verb_e_to_ei;
-      verb.to = "cerrar";      
+      verb.to = "cerrar";
       const tense = service.getPresentTenseNew(verb);
       //single
       expect(tense.fistPersonSingular?.text).toBe('cierro');
@@ -283,25 +341,28 @@ describe('ConjugateService', () => {
     //   expect(tense.thirdPersonPlurual).toBe('hacen');
     // });
 
-    
+
   });
 
   describe('getSpanishPresentTense', () => {
 
-    it('CONDUCIR', () => {
-      let tense = service.getPresentTenseSpanish('CONDUCIR');
-      expect(tense.fistPersonSingular.text).toBe('conduzco');
-      expect(tense.secondPersonSingular).toBe('conduces');
-      expect(tense.thirdPersonSingular).toBe('conduce');
-      expect(tense.firstPersonPlural).toBe('conducimos');
-      expect(tense.secondPersonPlural).toBe('conducís');
-      expect(tense.thirdPersonPlurual).toBe('conducen');
-    });
+    // it('CONDUCIR', () => {
 
-    it('CONDUCIR', () => {
-      let tense = service.getPresentTenseSpanish('TRADUCIR');
-      expect(tense.fistPersonSingular.text).toBe('traduzco');
-    });
+    //   let verb = new Verb();
+    //   verb.to = "CONDUCIR";
+    //   let tense = service.getPresentTenseNew(verb);
+    //   expect(tense.fistPersonSingular.text).toBe('conduzco');
+    //   expect(tense.secondPersonSingular).toBe('conduces');
+    //   expect(tense.thirdPersonSingular).toBe('conduce');
+    //   expect(tense.firstPersonPlural).toBe('conducimos');
+    //   expect(tense.secondPersonPlural).toBe('conducís');
+    //   expect(tense.thirdPersonPlurual).toBe('conducen');
+    // });
+
+    // it('CONDUCIR', () => {
+    //   let tense = service.getPresentTenseSpanish('TRADUCIR');
+    //   expect(tense.fistPersonSingular.text).toBe('traduzco');
+    // });
 
     it('agradecer', () => {
       let tense = service.getPresentTenseSpanish('agradecer');
@@ -313,35 +374,35 @@ describe('ConjugateService', () => {
       expect(tense.thirdPersonPlurual).toBe('agradecen');
     });
 
-    it('hablar', () => {
-      let tense = service.getPresentTenseSpanish('hablar');
-      expect(tense.fistPersonSingular.text).toBe('hablo');
-      expect(tense.secondPersonSingular).toBe('hablas');
-      expect(tense.secondPersonPlural).toBe('habláis');
-      expect(tense.thirdPersonSingular).toBe('habla');
-      expect(tense.firstPersonPlural).toBe('hablamos');
-      expect(tense.thirdPersonPlurual).toBe('hablan');
-    });
+    // it('hablar', () => {
+    //   let tense = service.getPresentTenseSpanish('hablar');
+    //   expect(tense.fistPersonSingular.text).toBe('hablo');
+    //   expect(tense.secondPersonSingular).toBe('hablas');
+    //   expect(tense.secondPersonPlural).toBe('habláis');
+    //   expect(tense.thirdPersonSingular).toBe('habla');
+    //   expect(tense.firstPersonPlural).toBe('hablamos');
+    //   expect(tense.thirdPersonPlurual).toBe('hablan');
+    // });
 
-    it('beber', () => {
-      let tense = service.getPresentTenseSpanish('beber');
-      expect(tense.fistPersonSingular.text).toBe('bebo');
-      expect(tense.secondPersonSingular).toBe('bebes');
-      expect(tense.thirdPersonSingular).toBe('bebe');
-      expect(tense.firstPersonPlural).toBe('bebemos');
-      expect(tense.secondPersonPlural).toBe('bebéis');
-      expect(tense.thirdPersonPlurual).toBe('beben');
-    });
+    // it('beber', () => {
+    //   let tense = service.getPresentTenseSpanish('beber');
+    //   expect(tense.fistPersonSingular.text).toBe('bebo');
+    //   expect(tense.secondPersonSingular).toBe('bebes');
+    //   expect(tense.thirdPersonSingular).toBe('bebe');
+    //   expect(tense.firstPersonPlural).toBe('bebemos');
+    //   expect(tense.secondPersonPlural).toBe('bebéis');
+    //   expect(tense.thirdPersonPlurual).toBe('beben');
+    // });
 
-    it('vivir', () => {
-      let tense = service.getPresentTenseSpanish('vivir');
-      expect(tense.fistPersonSingular.text).toBe('vivo');
-      expect(tense.secondPersonSingular).toBe('vives');
-      expect(tense.thirdPersonSingular).toBe('vive');
-      expect(tense.firstPersonPlural).toBe('vivimos');
-      expect(tense.secondPersonPlural).toBe('vivís');
-      expect(tense.thirdPersonPlurual).toBe('viven');
-    });
+    // it('vivir', () => {
+    //   let tense = service.getPresentTenseSpanish('vivir');
+    //   expect(tense.fistPersonSingular.text).toBe('vivo');
+    //   expect(tense.secondPersonSingular).toBe('vives');
+    //   expect(tense.thirdPersonSingular).toBe('vive');
+    //   expect(tense.firstPersonPlural).toBe('vivimos');
+    //   expect(tense.secondPersonPlural).toBe('vivís');
+    //   expect(tense.thirdPersonPlurual).toBe('viven');
+    // });
 
   });
 

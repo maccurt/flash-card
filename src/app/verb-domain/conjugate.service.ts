@@ -29,11 +29,12 @@ export class ConjugateService {
 
   getPresentTenseNew = (verb: Verb): Tense => {
 
-    let stem = verb.to.substring(0, verb.to.length - 2);
+    let stem = verb.to.substring(0, verb.to.length - 2).toLowerCase();
     let bootStem = '';
 
     const verbEnding = this.getVerbEnding(verb.to);
     const endings = this.getVerbEndingList(verbEnding, verbEndings.presentTense);
+    let tense = new Tense();
 
     switch (verb.presentTense.stemChangeType) {
       case StemChangeType.er_verb_e_to_ei:
@@ -43,10 +44,18 @@ export class ConjugateService {
         bootStem = this.getStemChange(verb.to, verb.presentTense.stemChangeType);
         break;
       case StemChangeType.none:
+        if (this.endsInCerOrCirWithVowel(verb.to)) {
+          tense.fistPersonSingular.text = (verb.to.substring(0, verb.to.length - 3) + 'zco').toLowerCase();
+          console.log('')
+
+        }
     }
 
-    let tense = new Tense();
-    tense.fistPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[0]);
+
+    if (tense.fistPersonSingular.text === '') {
+      tense.fistPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[0]);
+    }
+
     tense.secondPersonSingular = this.conjugateFromStem(stem, bootStem, endings[1]);
     tense.thirdPersonSingular = this.conjugateFromStem(stem, bootStem, endings[2]);
     tense.firstPersonPlural = this.conjugateFromStem(stem, '', endings[3]);
@@ -58,9 +67,9 @@ export class ConjugateService {
   conjugateFromStem = (stem: string, stemChange: string, ending: string): string => {
 
     if (stemChange !== '') {
-      return stemChange + ending;
+      return (stemChange + ending).toLowerCase();
     }
-    return stem + ending;
+    return (stem + ending).toLowerCase();
   }
 
   getSpanishRoot = (verb: string): string => {
@@ -184,14 +193,8 @@ export class ConjugateService {
       return stem;
     }
     return stem;
-
   };
 
-
-  // getPresentTense = (verb: Verb): Tense => {
-  //   let tense = this.getPresentTenseSpanish(verb.to, verb.presentTense.isStemChange);
-  //   return this.swapTense(verb.presentTense, tense);
-  // };
 
 
   getPresentTenseSpanish = (verb: string, isStemChange: boolean = false): Tense => {
