@@ -320,10 +320,13 @@ describe('ConjugateService', () => {
       expect(service.endsInCerOrCirWithVowel('Conducir')).toBeTrue();
       expect(service.endsInCerOrCirWithVowel('ejercer')).toBeFalse();
       expect(service.endsInCerOrCirWithVowel('vencer')).toBeFalse();
+
+      
       //TODO how do you fix hacer? It is not in the grop
       //https://www.fluentin3months.com/spanish-irregular-verbs/
       //Use this
       //expect(service.endsInCerOrCirWithVowel('hacer')).toBeFalse();
+      //hacer would be hago, so you will have to override it
 
     });
   });

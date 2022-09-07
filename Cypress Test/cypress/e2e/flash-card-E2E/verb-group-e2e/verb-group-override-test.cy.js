@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 
-describe('verb-group-override-test', () => {
+describe('irregular verb', () => {
 
     before(() => {
-        cy.visit('verb-group/2');
+        cy.visit('verb-group/3');
     });
 
     beforeEach(() => {

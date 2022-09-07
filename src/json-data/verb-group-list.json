@@ -171,5 +171,55 @@
                 }
             }
         ]
+    },
+    {
+        "id": 3,
+        "name": "Misc Irregular Verb",
+        "description": "an assortment of verbs with somee irregularity",
+        "verbList": [
+            {
+                "to": "Hacer",
+                "from": "To Do",
+                "sentenceList": [
+                    {
+                        "english": "I do my homework not because I want to but because I have to.",
+                        "spanish": "Hago mis deberes no porque quiero sino porque necesito."
+                    },
+                    {
+                        "english": "I made my coffee strong this morning. Now I am going to work on my project.",
+                        "spanish": "Hice mi café fuerte esta mañana. Ahora voy a trabajar en mi proyecto."
+                    }
+                ],
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "text": "hago",
+                        "sentenceList": [
+                            {
+                                "english": "I do my homework not because I want to but because I have to.",
+                                "spanish": "Hago mis deberes no porque quiero sino porque necesito."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "to": "caber",
+                "from": "to fit",
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "text": "quepo"
+                    }
+                }
+            },
+            {
+                "to": "saber",
+                "from": "to know",
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "text": "sé"
+                    }
+                }
+            }
+        ]
     }
 ]
