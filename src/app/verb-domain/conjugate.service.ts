@@ -35,6 +35,7 @@ export class ConjugateService {
     const verbEnding = this.getVerbEnding(verb.to);
     const endings = this.getVerbEndingList(verbEnding, verbEndings.presentTense);
     let tense = new Tense();
+    tense.text = "Present Tense"
 
     switch (verb.presentTense.stemChangeType) {
       case StemChangeType.er_verb_e_to_ei:

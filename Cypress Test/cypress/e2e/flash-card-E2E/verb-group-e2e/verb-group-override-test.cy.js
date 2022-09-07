@@ -10,22 +10,15 @@ describe('verb-group-override-test', () => {
         cy.getTestId('present-tense').as('present-tense');
     })
 
-    describe('check defender to defend present-tense', () => {
+    describe('defender congjugation card', () => {        
 
-        it('present tense should exist', () => {
-
-            cy.get('@present-tense').should('have.length', 1);
-            cy.get('@present-tense').getTestId('first-person-singular').should('have.length', 1);
-            
-            cy.get('@present-tense').getTestId('first-person-singular').should('have.text', 'defiendo');
-            cy.get('@present-tense').getTestId('second-person-singular').should('have.text', 'defendemos');
-
-            // cy.get('@present-tense').getTestId('first-person-singular').should('have.text', 'defiendes');
-            // cy.get('@present-tense').getTestId('first-person-singular').should('have.text', 'defiende');
-
-
+        it('present tense is correct', () => {
+            cy.conjugationCard('present-tense', ['defiendo', 'defiendes', 'defiende', 'defendemos', 'defendéis', 'defienden'])
         });
 
+        it('preterite tense  is correct', () => {
+            cy.conjugationCard('preterite', ['defendí', 'defendiste', 'defendió', 'defendimos', 'defendisteis', 'defendieron'])
+        });        
     });
 
 });
