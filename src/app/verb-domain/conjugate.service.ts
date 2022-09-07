@@ -193,42 +193,7 @@ export class ConjugateService {
       return stem;
     }
     return stem;
-  };
-
-
-
-  getPresentTenseSpanish = (verb: string, isStemChange: boolean = false): Tense => {
-
-    let tense = new Tense();
-    verb = verb.toLowerCase();
-    let stem = this.getSpanishRoot(verb);
-    let stemChange = '';
-
-    if (isStemChange) {
-      stemChange = this.getPresentTenseStemChange(verb);
-    }
-    else {
-      stemChange = stem;
-    }
-
-    tense.text = "Present Tense";
-    tense.fistPersonSingular = new TenseType();
-    let endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.presentTense);
-
-    if (this.endsInCerOrCirWithVowel(verb)) {
-      tense.fistPersonSingular.text = verb.substring(0, verb.length - 3) + 'zco';
-    }
-    else {
-      tense.fistPersonSingular.text = stemChange + endings[0];
-    }
-    tense.secondPersonSingular = stemChange + endings[1];
-    tense.thirdPersonSingular = stemChange + endings[2];
-
-    tense.firstPersonPlural = stem + endings[3];
-    tense.secondPersonPlural = stem + endings[4];
-    tense.thirdPersonPlurual = stemChange + endings[5];
-    return tense;
-  };
+  };  
 
   swapTense = (orignalTense: Tense, tense: Tense): Tense => {
 

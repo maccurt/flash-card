@@ -9,7 +9,7 @@ import { VerbGroupComponent } from './verb-domain/verb-group/verb-group.componen
 
 const routes: Routes = [
   { path: 'home', component: VerbGroupListComponent },
-  { path: 'verb-list', component: VerbListComponent },
+  // { path: 'verb-list', component: VerbListComponent },
   { path: 'verb-group-list', component: VerbGroupListComponent },
   { path: 'verb-group/:id', component: VerbGroupComponent },
   { path: 'verb/:verb', component: VerbComponent },

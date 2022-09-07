@@ -97,7 +97,6 @@ export class VerbListComponent implements OnInit, AfterViewInit {
             this.sentenceList = verb.presentTense.fistPersonSingular.sentenceList;
           }
         }
-
         //show the translation
         await wait(waitTime);
         this.showTranslation = true;
