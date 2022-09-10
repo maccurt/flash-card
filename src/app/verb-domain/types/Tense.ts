@@ -1,3 +1,5 @@
+
+import { PronounOption } from "./PronounOption.interface";
 import { StemChangeType } from "./StemChangeType.enum";
 import { TenseType } from "./TenseType";
 
@@ -11,8 +13,8 @@ export class Tense {
     secondPersonPlural: string = '';
     thirdPersonSingular: string = '';
     thirdPersonPlurual: string = '';
-
     isStemChange?: boolean;
+    pronounOption:PronounOption = PronounOption.unknown;
 
     constructor() {
         this.fistPersonSingular = new TenseType();

@@ -30,7 +30,6 @@ export class VerbGroupComponent implements OnInit {
       if (vg?.verbList) {
         this.verbClick(vg?.verbList[0], 0);
       }
-
     });
   }
 

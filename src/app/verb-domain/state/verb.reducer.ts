@@ -1,21 +1,7 @@
-import { VerbGroup } from "../types/VerbGroup.class";
 import { verbActions } from './verb.actions';
 import { createReducer, on } from "@ngrx/store";
-import { Verb } from "../types/verb.class.";
 import verbGroupActions from "./verb-group.actions";
-
-export interface VerbState {
-    verbList: Verb[];
-    verb?: Verb
-    error: string;
-    verbGroupList?: VerbGroup[];
-    verbGroup?: VerbGroup
-};
-
-export const verbStateInitial: VerbState = {
-    verbList: [],
-    error: ''
-};
+import { VerbState, verbStateInitial } from "./VerbState.interface";
 
 export const verbReducer = createReducer<VerbState>(verbStateInitial,
 

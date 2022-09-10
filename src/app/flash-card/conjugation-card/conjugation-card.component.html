@@ -15,14 +15,19 @@
             <tbody>
                 <tr class="first-person">
                     <td style="width:20%" class="pro-noun">
-                        yo
+
+                        <a data-test-id="yo-link" (click)="firstPersonSingular()">yo</a>
+
                     </td>
                     <td data-test-id="first-person-singular" style="width:25%">
+
                         {{tense.fistPersonSingular.text}}
                     </td>
 
                     <td style="width:30%" class="pro-noun">
-                        nosotros
+
+                        <a (click)="firstPersonPlural()">nosotros</a>
+
                     </td>
 
                     <td data-test-id="first-person-plural" style="width:25%">

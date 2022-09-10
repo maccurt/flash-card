@@ -1,4 +1,4 @@
-import { VerbState } from './verb.reducer';
+import { VerbState } from "./VerbState.interface";
 import { verbSelectors } from './verb.selectos';
 
 describe('verb.selectors', () => {
