@@ -45,3 +45,5 @@ Cypress Test/node_modules/
 
 Cypress Test/cypress/e2e/1-getting-started/
 Cypress Test/cypress/e2e/2-advanced-examples/
+
+Cypress Test/cypress/videos/
