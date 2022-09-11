@@ -1,18 +1,18 @@
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { VerbListComponent } from './verb-list.component';
+// import { SentenceComponent } from './sentence.component';
 
-// describe('VerbListComponent', () => {
-//   let component: VerbListComponent;
-//   let fixture: ComponentFixture<VerbListComponent>;
+// describe('SentenceComponent', () => {
+//   let component: SentenceComponent;
+//   let fixture: ComponentFixture<SentenceComponent>;
 
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       declarations: [ VerbListComponent ]
+//       declarations: [ SentenceComponent ]
 //     })
 //     .compileComponents();
 
-//     fixture = TestBed.createComponent(VerbListComponent);
+//     fixture = TestBed.createComponent(SentenceComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

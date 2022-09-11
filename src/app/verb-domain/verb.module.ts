@@ -9,11 +9,20 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { VerbListComponent } from './verb-list/verb-list.component';
 import { VerbComponent } from './verb/verb.component';
+import { VerbGroupListComponent } from './verb-group-list/verb-group-list.component';
+import { VerbGroupComponent } from './verb-group/verb-group.component';
+import { VerbGroupEffect } from './state/verb-group.effects';
+import { TenseListComponent } from './tense-list/tense-list.component';
+import { SentenceComponent } from './sentence/sentence.component';
 
 @NgModule({
   declarations: [
     VerbListComponent,
     VerbComponent,
+    VerbGroupListComponent,
+    VerbGroupComponent,
+    TenseListComponent,
+    SentenceComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +30,7 @@ import { VerbComponent } from './verb/verb.component';
     RouterModule,
     FlashCardModule,
     StoreModule.forFeature('verb', verbReducer),
-    EffectsModule.forFeature([VerbEffect])
+    EffectsModule.forFeature([VerbGroupEffect, VerbEffect])
   ]
 })
 export class VerbModule { }

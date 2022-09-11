@@ -1,5 +1,5 @@
 import { nounActions, loadNounList, loadNounListError } from './non-actions';
-import { FromTo } from './../../verb-domain/state/Verb';
+import { FromTo } from '../../verb-domain/types/FromTo';
 import { createReducer, on } from "@ngrx/store";
 
 export class Noun implements FromTo {

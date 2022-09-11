@@ -1,4 +1,4 @@
-import { VerbState } from './verb.reducer';
+import { VerbState } from "./VerbState.interface";
 import { verbSelectors } from './verb.selectos';
 
 describe('verb.selectors', () => {
@@ -7,7 +7,10 @@ describe('verb.selectors', () => {
     let verbStore: VerbState;
 
     beforeEach(() => {
-        verbStore = { verb: { to: 'estudiar' } as any, verbList: [verbToPractice] } as VerbState;
+        verbStore = {
+            verb: { to: 'estudiar' } as any,
+            verbList: [verbToPractice]
+        } as VerbState;
     });
 
     it('getVerbListSelector should return verblist', () => {

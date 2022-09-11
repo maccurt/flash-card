@@ -1,21 +1,50 @@
 import { verbActions } from './verb.actions';
 import { createReducer, on } from "@ngrx/store";
-import { Verb } from "./verb.class.";
-
-export interface VerbState {
-    verbList: Verb[];
-    verb?: Verb
-    error: string;
-};
-
-export const verbStateInitial: VerbState = {
-    verbList: [],
-    error: ''
-};
+import verbGroupActions from "./verb-group.actions";
+import { VerbState, verbStateInitial } from "./VerbState.interface";
 
 export const verbReducer = createReducer<VerbState>(verbStateInitial,
 
-    on(verbActions.loadVerbList, (state): VerbState => {        
+    on(verbActions.setVerb, (state, action): VerbState => {        
+        return {
+            ...state,
+            verb: action.verb,
+            error: ''
+        };
+    }),
+    on(verbGroupActions.loadVerbGroupSuccess, (state, action): VerbState => {
+        //console.log('in effect',action.verbGroup);
+        return {
+            ...state,
+            verbGroup: action.verbGroup,
+            error: ''
+        };
+    }),
+
+    on(verbGroupActions.loadVerbGroupList, (state): VerbState => {
+        return {
+            ...state,
+            error: ''
+        };
+    }),
+
+    on(verbGroupActions.loadVerbGroupListSuccess, (state, action): VerbState => {
+        return {
+            ...state,
+            error: '',
+            verbGroupList: action.verbGroupList
+        };
+    }),
+
+    on(verbGroupActions.loadVerbGroupListError, (state, action): VerbState => {
+        return {
+            ...state,
+            error: action.error.message,
+            verbGroupList: []
+        };
+    }),
+
+    on(verbActions.loadVerbList, (state): VerbState => {
         return {
             ...state,
             error: ''
@@ -30,14 +59,14 @@ export const verbReducer = createReducer<VerbState>(verbStateInitial,
         };
     }),
 
-    on(verbActions.loadVerbListError, (state, action): VerbState => {        
+    on(verbActions.loadVerbListError, (state, action): VerbState => {
         return {
             ...state,
             error: action.error.message,
             verbList: []
         };
     }),
-    on(verbActions.loadVerb, (state, action): VerbState => {        
+    on(verbActions.loadVerb, (state, action): VerbState => {
         return {
             ...state,
             error: ''
@@ -47,6 +76,13 @@ export const verbReducer = createReducer<VerbState>(verbStateInitial,
         return {
             ...state,
             verb: action.verb,
+            error: ''
+        };
+    }),
+    on(verbGroupActions.setVerbGroupSelectedSuccess, (state, action): VerbState => {
+        return {
+            ...state,
+            verbGroup: action.verbGroup,
             error: ''
         };
     }),

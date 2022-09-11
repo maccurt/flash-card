@@ -28,6 +28,7 @@
               "src/assets",
               "src/json-data/verb-list.json",
               "src/json-data/noun-list.json",
+              "src/json-data/verb-group-list.json",
               "src/web.config"
             ],
             "styles": [

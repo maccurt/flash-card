@@ -26,12 +26,9 @@
 
 
                 <div *ngFor="let t of verb.tenseList" class="col-12">
-
                     <app-conjugation-card [header]="t.text" [tense]="t">
                     </app-conjugation-card>
                     <br>
-
-
                 </div>
 
             </div>
@@ -46,10 +43,10 @@
                     <mat-card-content>
                         <div>
                             <div>
-                                <h4> {{s.to}}</h4>
+                                <h4> {{s.spanish}}</h4>
                                 <hr>
                                 <div>
-                                    <h4>{{s.from }}</h4>
+                                    <h4>{{s.english }}</h4>
                                 </div>
                             </div>
                         </div>

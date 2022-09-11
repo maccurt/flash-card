@@ -1,0 +1,74 @@
+<br>
+<div *ngIf="verbGroup$ | async as verbGroup" class="container">
+
+    <div class="row">
+
+        
+        <div attr.data-test-id="verb-group-{{verbGroup.id}}" class="verb-group col-12 col-xxl-6">
+
+            <mat-card class="verb-group-card">
+
+                <mat-card-title data-test-id="name"  class="name">
+                    {{verbGroup.name}}
+                </mat-card-title>
+                <mat-card-content>
+
+                    <p  data-test-id="description"  class="description">{{verbGroup.description}}</p>
+                    <hr>
+
+                    <table data-test-id="verb-list" style="background-color:white;border: 1px solid #cccccc;"
+                        class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:35%"> Spanish</th>
+                                <th> English</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr attr.data-test-id="{{verb.to | lowercase}}"  [ngClass]="{'selected':i === chosenIndex}" (click)="verbClick(verb,i)"
+                                *ngFor="let verb of verbGroup.verbList,let i=index">
+                                <td>
+
+                                    {{verb.to}}
+                                </td>
+                                <td>
+                                    {{verb.from}}
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </mat-card-content>
+                <hr>
+                
+                <div class="instruction" *ngIf="verbGroup.instruction">
+                    <ul>
+                        <li *ngFor="let bullet of verbGroup.instruction.bulletpoints">
+                            {{bullet}}
+                        </li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <app-sentence></app-sentence>
+
+            </mat-card>
+
+        </div>
+
+
+        <div *ngIf="verb" class="col-xxl-6">
+
+            <div style="border:1px solid #cccccc;padding:10px;background-color:#ebf0fa;">
+
+                <app-tense-list></app-tense-list>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

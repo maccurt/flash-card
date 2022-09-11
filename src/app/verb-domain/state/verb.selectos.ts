@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { VerbState } from "./verb.reducer";
+import { VerbState } from "./VerbState.interface";
 import { selectRouteParams } from '../../router-state/router.selectors';
 
 const getVerbStateSelector = createFeatureSelector<VerbState>('verb');
@@ -25,7 +25,7 @@ export const getVerbFromRouteSelector = createSelector(
 export const verbSelectors = {
     getVerbListSelector,
     getVerbSelector,
-    getVerbFromRouteSelector
+    getVerbFromRouteSelector    
 };
 
-export default verbSelectors; 
+export default verbSelectors;

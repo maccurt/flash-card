@@ -2,6 +2,23 @@
 
     <div class="row">
 
+        <div class="col-6">
+            <form [formGroup]="formGroup">
+                <select id="verb-group-list" formControlName="verbGroupList" class="form-control">
+
+                    <option  *ngFor="let g of verbGroupList" [ngValue]="g">
+                        {{g.name}}
+                    </option>
+
+                </select>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row">
+
         <div class="col-12 col-lg-6 col-xxl-5">
             <!-- TODO  this needs to be a component-->
             <br>

@@ -1,16 +1,10 @@
-import { Tense, TenseType } from './state/Verb';
-import { Verb } from "./state/verb.class.";
+import { StemChangeType } from './types/StemChangeType.enum';
+import { Verb } from "./types/verb.class.";
 import { Injectable } from '@angular/core';
-
-export enum VerbEnding {
-  unknown = 0, ar, ir, er
-};
-
-export interface VerbEndingInterface {
-  ar: string[],
-  er: string[],
-  ir: string[]
-};
+import { Tense } from "./types/Tense";
+import { TenseType } from "./types/TenseType";
+import { VerbEndingInterface } from './VerbEndingInterface';
+import { VerbEnding } from './VerbEnding';
 
 export const verbEndings = {
   presentTense: {
@@ -29,9 +23,74 @@ export const verbEndings = {
   providedIn: 'root'
 })
 export class ConjugateService {
-  // á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
-  // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.
+
   constructor() { }
+
+  getPresentTense = (verb: Verb): Tense => {
+
+    let stem = verb.to.substring(0, verb.to.length - 2).toLowerCase();
+    let bootStem = '';
+
+    const verbEnding = this.getVerbEnding(verb.to);
+    const endings = this.getVerbEndingList(verbEnding, verbEndings.presentTense);
+    let tense = new Tense();
+    tense.text = "Present Tense";
+
+    switch (verb.presentTense.stemChangeType) {
+      case StemChangeType.er_verb_e_to_ei:
+      case StemChangeType.ar_verb_e_to_ei:
+        bootStem = this.getStemChange(verb.to, verb.presentTense.stemChangeType);
+        break;
+      case StemChangeType.none:
+        if (this.endsInCerOrCirWithVowel(verb.to)) {
+          tense.fistPersonSingular.text = (verb.to.substring(0, verb.to.length - 3) + 'zco').toLowerCase();
+        }
+    }
+
+    if (tense.fistPersonSingular.text === '') {
+      tense.fistPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[0]);
+    }
+
+    tense.secondPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[1]);
+    tense.thirdPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[2]);
+    tense.firstPersonPlural.text = this.conjugateFromStem(stem, '', endings[3]);
+    tense.secondPersonPlural.text = this.conjugateFromStem(stem, '', endings[4]);
+    tense.thirdPersonPlurual.text = this.conjugateFromStem(stem, bootStem, endings[5]);
+    return this.swapTense(verb.presentTense, tense);
+  };
+
+  getPreteriteTense = (verb: Verb): Tense => {
+    let tense = this.getPreteriteTenseSpanish(verb.to);
+    return this.swapTense(verb.preteriteTense, tense);
+  };
+
+  getPreteriteTenseSpanish = (verb: string): Tense => {
+    let tense = new Tense();
+    tense.text = "Preterite";
+    tense.fistPersonSingular = new TenseType();
+
+    verb = verb.toLowerCase();
+    let stem = this.getSpanishRoot(verb);
+    let endings: string[] = [];
+
+    endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.preteriteTense);
+
+    tense.fistPersonSingular.text = stem + endings[0];
+    tense.secondPersonSingular.text = stem + endings[1];
+    tense.thirdPersonSingular.text = stem + endings[2];
+    //
+    tense.firstPersonPlural.text = stem + endings[3];
+    tense.secondPersonPlural.text = stem + endings[4];
+    tense.thirdPersonPlurual.text = stem + endings[5];
+    return tense;
+  };
+
+  conjugateFromStem = (stem: string, stemChange: string, ending: string): string => {
+    if (stemChange !== '') {
+      return (stemChange + ending).toLowerCase();
+    }
+    return (stem + ending).toLowerCase();
+  };
 
   getSpanishRoot = (verb: string): string => {
     const root = verb.substring(0, verb.length - 2);
@@ -46,28 +105,22 @@ export class ConjugateService {
     return VerbEnding.unknown;
   };
 
+  getTenselist = (verb: Verb): Tense[] => {
+    const tenseList: Tense[] = [];
+    tenseList.push(this.getPresentTense(verb));
+    tenseList.push(this.getPreteriteTense(verb));
+    return tenseList;
+  };
+
   setAllTense = (verb: Verb) => {
-
     verb.presentTense = this.getPresentTense(verb);
-    verb.preteriteTense = this.getPreteriteTense(verb);    
+    verb.preteriteTense = this.getPreteriteTense(verb);
     verb.tenseList = [];
-    verb.tenseList.push(verb.presentTense);    
+    verb.tenseList.push(verb.presentTense);
     verb.tenseList.push(verb.preteriteTense);
-
-  };
-
-  getPresentTense = (verb: Verb): Tense => {
-    let tense = this.getPresentTenseSpanish(verb.to);
-    return this.swapTense(verb.presentTense, tense);
-  };
-
-  getPreteriteTense = (verb: Verb): Tense => {
-    let tense = this.getPreteriteTenseSpanish(verb.to);
-    return this.swapTense(verb.preteriteTense, tense);
   };
 
   getVerbEndingList = (verbEnding: VerbEnding, tenseVerbEnding: VerbEndingInterface): string[] => {
-
     let endingListToReturn: string[];
     switch (verbEnding) {
       case VerbEnding.ar:
@@ -85,79 +138,77 @@ export class ConjugateService {
     return endingListToReturn;
   };
 
-  getPreteriteTenseSpanish = (verb: string): Tense => {
+  getStemChange = (verb: string, stemChangeType: StemChangeType): string => {
+    let stem = verb.substring(0, verb.length - 2);
 
-    let tense = new Tense();
-    tense.text = "Preterite";
-    tense.fistPersonSingular = new TenseType();
+    switch (stemChangeType) {
+      case StemChangeType.ar_verb_e_to_ei:
+      case StemChangeType.er_verb_e_to_ei:
 
-    verb = verb.toLowerCase();
-    let stem = this.getSpanishRoot(verb);
-    let endings: string[] = [];
+        let split = stem.split('e');
+        //TODO refactor this to work with all for verbs 
+        //that have an 2 e in stems > defender = defiend        
+        //Provde a different examplw
+        stem = split.length === 3 ?
+          stem = stem.replace(split[1] + 'e', split[1] + 'ie') :
+          stem = stem[0] + stem.substring(1).replace('e', 'ie');
+        break;
+      case StemChangeType.ar_verb_o_to_ui:
+      case StemChangeType.er_verb_o_to_ui:
+        stem = stem[0] + stem.substring(1).replace('o', 'ue');
+        break;
+    }
 
-    endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.preteriteTense);
-
-    tense.fistPersonSingular.text = stem + endings[0];
-    tense.secondPersonSingular = stem + endings[1];
-    tense.thirdPersonSingular = stem + endings[2];
-    tense.firstPersonPlural = stem + endings[3];
-    tense.secondPersonPlural = stem + endings[4];
-    tense.thirdPersonPlurual = stem + endings[5];
-
-    return tense;
+    return stem;
   };
 
-  getPresentTenseSpanish = (verb: string): Tense => {
+  getPresentTenseStemChange = (verb: string): string => {
 
-    let tense = new Tense();
-    //TODO consider this, do you want to change all input to lower case
-    verb = verb.toLowerCase();
-    let stem = this.getSpanishRoot(verb);
-
-    tense.text = "Present Tense";
-    tense.fistPersonSingular = new TenseType();
-    let endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.presentTense);
-
-    if (this.endsInCerOrCirWithVowel(verb)) {
-      tense.fistPersonSingular.text = verb.substring(0, verb.length - 3) + 'zco';
+    let stem = verb.substring(0, verb.length - 2);
+    if (stem.indexOf('e') > -1) {
+      //consider empezer (to begin) begins with e
+      if (verb[0].toLowerCase() === "e") {
+        stem = 'e' + stem.substring(1).replace('e', 'ie');
+      }
+      else {
+        stem = stem.replace('e', 'ie');
+      }
+      return stem;
     }
-    else {
-      tense.fistPersonSingular.text = stem + endings[0];
+
+    if (stem.indexOf('o')) {
+      stem = stem.replace('o', 'ue');
+      return stem;
     }
-    tense.secondPersonSingular = stem + endings[1];
-    tense.thirdPersonSingular = stem + endings[2];
-    tense.firstPersonPlural = stem + endings[3];
-    tense.secondPersonPlural = stem + endings[4];
-    tense.thirdPersonPlurual = stem + endings[5];
-    return tense;
+    return stem;
   };
 
   swapTense = (orignalTense: Tense, tense: Tense): Tense => {
 
     if (!orignalTense) { return tense; }
-
-    if (orignalTense.fistPersonSingular.text) {
+    //
+    if (orignalTense?.fistPersonSingular.text) {
       tense.fistPersonSingular = orignalTense.fistPersonSingular;
     };
 
-    if (orignalTense.secondPersonSingular) {
-      tense.secondPersonSingular = orignalTense.secondPersonSingular;
+    if (orignalTense?.secondPersonSingular?.text) {
+      tense.secondPersonSingular.text = orignalTense.secondPersonSingular.text;
     };
 
-    if (orignalTense.thirdPersonSingular) {
-      tense.thirdPersonSingular = orignalTense.thirdPersonSingular;
+    if (orignalTense?.thirdPersonSingular?.text) {
+      tense.thirdPersonSingular.text = orignalTense.thirdPersonSingular.text;
     };
 
-    if (orignalTense.firstPersonPlural) {
-      tense.firstPersonPlural = orignalTense.firstPersonPlural;
+    if (orignalTense?.firstPersonPlural?.text) {
+      tense.firstPersonPlural.text = orignalTense.firstPersonPlural.text;
     };
 
-    if (orignalTense.secondPersonPlural) {
-      tense.secondPersonPlural = orignalTense.secondPersonPlural;
+    if (orignalTense?.secondPersonPlural?.text) {
+      tense.secondPersonPlural.text = orignalTense.secondPersonPlural.text;
     };
 
-    if (orignalTense.thirdPersonPlurual) {
-      tense.thirdPersonPlurual = orignalTense.thirdPersonPlurual;
+    if (orignalTense?.thirdPersonPlurual?.text) {
+      tense.thirdPersonPlurual.text = orignalTense.thirdPersonPlurual.text;
     };
 
     return tense;
@@ -177,3 +228,6 @@ export class ConjugateService {
     return false;
   };
 }
+
+// á = 0225; Á = 0193. // é = 0233; É = 0201. // í = 0237; Í = 0205.
+  // ó = 0243; Ó = 0211. // ú = 0250; Ú = 0218. // ý = 0253; Ý = 0221.

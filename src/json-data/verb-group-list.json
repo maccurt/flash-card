@@ -1,0 +1,225 @@
+[
+    {
+        "id": 1,
+        "name": "Present Tense Stem Change -ar verbs",
+        "description": "-ar stem-changing verbs vowel. e changes to ie.",
+        "instruction": {
+            "text": "e > ei",
+            "example": "",
+            "bulletpoints": [
+                "Change e to ei",
+                "shoe verb, in all forms except nosostros and vosotros."
+            ]
+        },
+        "override": {
+            "presentTenseStemChangeType": 1
+        },
+        "verbList": [
+            {
+                "from": "to hit the mark,guess right, ",
+                "to": "acertar",
+                "sentenceList": [
+                    {
+                        "english": "I got it right the second time.",
+                        "spanish": "Acerté a la segunda vez."
+                    },
+                    {
+                        "english": "I have to get it right this time",
+                        "spanish": "Tengo que acertar esta vez."
+                    }
+                ],
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to govern,rule",
+                "to": "gobernar",
+                "sentenceList": [
+                    {
+                        "english": "I govern over the children in my house as a father.",
+                        "spanish": "Yo gobierno sobre los niños en mi casa como un padre."
+                    },
+                    {
+                        "english": "I governed yesterday sole. Today we govern together.",
+                        "spanish": "Goberné ayer sole. Hoy gobernamos juntos."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to close",
+                "to": "cerrar",
+                "sentenceList": [
+                    {
+                        "spanish": "Cierro la puerta todos los días.",
+                        "english": "I close the gate everday."
+                    },
+                    {
+                        "spanish": "Lo cerré ayer también, pero el perro lo empujó para abrirlo",
+                        "english": "I closed it yesterday also, but the dog pushed it open."
+                    },
+                    {
+                        "spanish": "Mañana cerraré la puerta y la bloquearé.",
+                        "english": "Tommorow I will close the gate and lock it."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to think (of,about)",
+                "to": "pensar",
+                "sentenceList": [
+                    {
+                        "spanish": "Ella piensa en su amiga durante el día.",
+                        "english": "she thinks about her friend during the day."
+                    },
+                    {
+                        "spanish": "yesterday,I thought about my dreams and goals",
+                        "english": "Ayer pensé en mis sueños y metas."
+                    },
+                    {
+                        "spanish": "mañana pensaremos en tus facturas hoy festejaremos.",
+                        "english": "tommorow, we will think about our bills today we will party."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "to start, begin",
+                "to": "empezar",
+                "sentenceList": [
+                    {
+                        "spanish": "Empiezo a estudiar español cuando bebo café.",
+                        "english": "I begin to study spanish when I drink cafe."
+                    },
+                    {
+                        "spanish": "ayer empezaron a estudiar español por la noche.",
+                        "english": "yesterday, they began to study spanish at night."
+                    }
+                ],
+                "presentTense": {
+                    "isStemChange": "true",
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Present Tense Stem Change -er Verbs",
+        "description": "-er stem-changing verbs vowel. e changes to ie.",
+        "override": {
+            "presentTenseStemChangeType": 2
+        },
+        "verbList": [
+            {
+                "from": "to defend",
+                "to": "defender",
+                "sentenceList": [
+                    {
+                        "english": "add english sentence here",
+                        "spanish": "add spanish sentence here"
+                    },
+                    {
+                        "english": "add english sentence here",
+                        "spanish": "add spanish sentence here"
+                    }
+                ],
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            },
+            {
+                "from": "encender",
+                "to": "to light up",
+                "sentenceList": [
+                    {
+                        "english": "add english sentence here",
+                        "spanish": "add spanish sentence here"
+                    },
+                    {
+                        "english": "add english sentence here",
+                        "spanish": "add spanish sentence here"
+                    }
+                ],
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "sentenceList": []
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Misc Irregular Verb",
+        "description": "an assortment of verbs with somee irregularity",
+        "verbList": [
+            {
+                "to": "Hacer",
+                "from": "To Do",
+                "sentenceList": [
+                    {
+                        "english": "I do my homework not because I want to but because I have to.",
+                        "spanish": "Hago mis deberes no porque quiero sino porque necesito."
+                    },
+                    {
+                        "english": "I made my coffee strong this morning. Now I am going to work on my project.",
+                        "spanish": "Hice mi café fuerte esta mañana. Ahora voy a trabajar en mi proyecto."
+                    }
+                ],
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "text": "hago",
+                        "sentenceList": [
+                            {
+                                "english": "I do my homework not because I want to but because I have to.",
+                                "spanish": "Hago mis deberes no porque quiero sino porque necesito."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "to": "caber",
+                "from": "to fit",
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "text": "quepo"
+                    }
+                }
+            },
+            {
+                "to": "saber",
+                "from": "to know",
+                "presentTense": {
+                    "fistPersonSingular": {
+                        "text": "sé"
+                    }
+                }
+            }
+        ]
+    }
+]

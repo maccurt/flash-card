@@ -1,36 +1,77 @@
-<mat-card class="conjugation-card">
+<mat-card attr.data-test-id="{{testId}}" class="conjugation-card">
     <mat-card-title>{{header}}</mat-card-title>
     <hr style="margin:1px 0px 5px 0px">
 
     <mat-card-content>
 
-        <div class="row">
-            <div class="col-6">
-                {{tense.fistPersonSingular.text}}
+        <table class="conjugation-table card-table table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2" class="pro-noun">Pronoun</th>
+                    <th colspan="2" class="pro-noun">Pronoun</th>
+                </tr>
+            </thead>
 
-            </div>
-            <div class="col-6">
-                {{tense.firstPersonPlural}}
-            </div>
-        </div>
+            <tbody>
+                <tr class="first-person">
+                    <td style="width:20%" class="pro-noun">
 
-        <div class="row">
-            <div class="col-6">
-                {{tense.secondPersonSingular}}
-            </div>
-            <div class="col-6">
-                {{tense.secondPersonPlural}}
-            </div>
-        </div>
+                        <a data-test-id="yo-link" (click)="firstPersonSingular()">yo</a>
 
-        <div class="row">
-            <div class="col-6">
-                {{tense.thirdPersonSingular}}
-            </div>
-            <div class="col-6">
-                {{tense.thirdPersonPlurual}}
-            </div>
-        </div>
+                    </td>
+                    <td data-test-id="first-person-singular" style="width:25%">
+
+                        {{tense.fistPersonSingular.text}}
+                    </td>
+
+                    <td style="width:30%" class="pro-noun">
+
+                        <a (click)="firstPersonPlural()">nosotros</a>
+
+                    </td>
+
+                    <td data-test-id="first-person-plural" style="width:25%">
+                        {{tense.firstPersonPlural.text}}
+                    </td>
+                </tr>
+
+                <tr class="second-person">
+                    <td class="pro-noun">
+                        tu
+                    </td>
+                    <td data-test-id="second-person-singular">
+                        {{tense.secondPersonSingular.text}}
+                    </td>
+
+                    <td class="pro-noun">
+                        vosotros,vosotras
+                    </td>
+
+                    <td data-test-id="second-person-plural">
+                        {{tense.secondPersonPlural.text}}
+                    </td>
+                </tr>
+
+                <tr class="third-person">
+                    <td class="pro-noun">
+                        el, ella, usted
+                    </td>
+                    <td data-test-id="third-person-singular">
+                        {{tense.thirdPersonSingular.text}}
+                    </td>
+
+                    <td class="pro-noun">
+                        ustedes, ellos,ellas
+                    </td>
+
+                    <td data-test-id="third-person-plural">
+                        {{tense.thirdPersonPlurual.text}}
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
 
     </mat-card-content>
 </mat-card>

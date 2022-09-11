@@ -16,14 +16,9 @@ export class VerbEffect {
         private store: Store) { }
 
     loadVerbList$ = createEffect(() => {
-        
-        return this.actions$.pipe(            
-            ofType(verbActions.loadVerbList),        
-            //TODO merge maps runs streams/observables in parallel
-            //Is this the best operator for this?
-            //why not concat map? concatMap runs them in order, sync
-            //OK, you are in an observable and need to get another observable
-            //so you merge that observable in
+
+        return this.actions$.pipe(
+            ofType(verbActions.loadVerbList),
             mergeMap(() => this.verbService.getVerbList()
                 .pipe(
                     map(verbList => verbActions.loadVerbListSucess({ verbList }))
@@ -35,8 +30,6 @@ export class VerbEffect {
     loadVerb$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(verbActions.loadVerb),
-            //TODO learn/teach why does switch map get you the parm?   
-            //would map work here
             switchMap(() => {
                 return this.store.select(verbSelectors.getVerbFromRouteSelector).pipe(
                     map((verb) => {

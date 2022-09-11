@@ -1,0 +1,15 @@
+<div *ngIf="verb" class="row">
+
+    <div class="col-12">
+        <span class="spanish"> {{verb.to}}:</span> <span class="english"> {{verb.from}}</span>
+    </div>
+
+</div>
+<div class="row">
+
+    <div *ngFor="let t of tenseList" class="col-12 col-xxl-12">
+        <app-conjugation-card [header]="t.text" [tense]="t">
+        </app-conjugation-card>
+        <br>
+    </div>
+</div>
