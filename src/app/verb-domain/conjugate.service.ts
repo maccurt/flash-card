@@ -187,10 +187,9 @@ export class ConjugateService {
   };
 
   private swapTenseType = (orginalTenseType: TenseType, tense: TenseType): void => {
-
     if (orginalTenseType) {
       //TODO what happens as you add more, is there a way to spread this for all 
-      //new properties
+      //new properties      
       tense.sentenceList = orginalTenseType.sentenceList;
       if (orginalTenseType.text !== '') {
         tense.text = orginalTenseType.text;
@@ -199,7 +198,6 @@ export class ConjugateService {
   }
 
   swapTense = (orignalTense: Tense, tense: Tense): Tense => {
-
     if (!orignalTense) { return tense; };
     //first person
     this.swapTenseType(orignalTense.firstPersonSingular, tense.firstPersonSingular);
