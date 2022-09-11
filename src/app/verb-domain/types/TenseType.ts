@@ -1,6 +1,6 @@
-import { FromTo } from "./FromTo";
+import { Sentence } from "./Sentence";
 
 export class TenseType {
     text: string = '';
-    sentenceList?: FromTo[] = [];
+    sentenceList?: Sentence[] = [];
 }

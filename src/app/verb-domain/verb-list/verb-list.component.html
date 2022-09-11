@@ -30,14 +30,14 @@
                                 <a class="no-style-link" routerLink="/verb/{{verb.to}}">{{verb.to | lowercase}}</a>
                             </h1>
                             <div class="sentence-to">
-                                <span *ngIf="sentence">{{sentence.to}}</span>
+                                <span *ngIf="sentence">{{sentence.spanish}}</span>
                                 <span *ngIf="!sentence"> &nbsp;</span>
                             </div>
                             <hr>
                             <div *ngIf="showTranslation">
                                 <h1>{{verb.from | lowercase }}</h1>
                                 <div class="sentence-from">
-                                    <span *ngIf="sentence">{{sentence.from}}</span>
+                                    <span *ngIf="sentence">{{sentence.english}}</span>
                                     <span *ngIf="!sentence"> &nbsp;</span>
                                 </div>
                             </div>

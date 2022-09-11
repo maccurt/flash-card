@@ -13,12 +13,12 @@
             }
         ],
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": []
             }
         },
         "preteriteTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "text": "practiqué",
                 "sentenceList": []
             }
@@ -46,12 +46,12 @@
             }
         ],
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": []
             }
         },
         "preteriteTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "text": "actaqué",
                 "sentenceList": [
                     {
@@ -66,7 +66,7 @@
         "to": "Hablar",
         "from": "To Speak",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "Yo hablo espanol cada dia.",
@@ -80,7 +80,7 @@
             }
         },
         "pastTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "I spoke spanish yesterday with a student",
@@ -94,7 +94,7 @@
         "to": "Reconocer",
         "from": "To Recognize",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "from": "I recognize that you are very intelligente.",
@@ -116,7 +116,7 @@
         "to": "Deshacer",
         "from": "To Undo",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "text": "dehago",
                 "sentenceList": [
                     {
@@ -131,7 +131,7 @@
         "to": "Beber",
         "from": "To Drink",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "Yo bebo aqua cada dia.",
@@ -153,7 +153,7 @@
         "to": "Vivir",
         "from": "To Live",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "yo vivo en la ciudad de omaha.",
@@ -175,7 +175,7 @@
         "to": "Comprar",
         "from": "To Buy",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "compro lechuga en el supermercado.",
@@ -189,7 +189,7 @@
         "to": "Reconocer",
         "from": "To Recognize",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "reconozco que usted es muy inteligente señorita.",
@@ -211,21 +211,21 @@
         "to": "Agradecer",
         "from": "To Thank, Be Grateful",
         "presentTense": {
-            "fistPersonSingular": {}
+            "firstPersonSingular": {}
         }
     },
     {
         "to": "Aparecer",
         "from": "To Appear",
         "presentTense": {
-            "fistPersonSingular": {}
+            "firstPersonSingular": {}
         }
     },
     {
         "to": "Complacer",
         "from": "To Please",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": []
             }
         }
@@ -234,7 +234,7 @@
         "to": "Crecer",
         "from": "To Grow",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": []
             }
         }
@@ -243,7 +243,7 @@
         "to": "Establecer",
         "from": "To Establish",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "Establezco mi dominio ahora.",
@@ -257,7 +257,7 @@
         "to": "Merecer",
         "from": "To Deserve",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "Merezco todo el dinero ahora.",
@@ -271,7 +271,7 @@
         "to": "Ofrecer",
         "from": "to offer",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "No te ofrezco condiciones de paz.",
@@ -285,7 +285,7 @@
         "to": "Padecer",
         "from": "to suffer",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": []
             }
         }
@@ -294,7 +294,7 @@
         "to": "Permanecer",
         "from": "To Remain",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": []
             }
         }
@@ -303,7 +303,7 @@
         "to": "Pertenecer",
         "from": "To Belong",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "from": "I belong to no one",
@@ -317,7 +317,7 @@
         "to": "Reconocer",
         "from": "To Recognize",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "from": "I recoginze that you are very intelligent.",
@@ -331,7 +331,7 @@
         "to": "Traducir",
         "from": "To Translate",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "from": "I translate the complicated to simple for idiots.",
@@ -345,7 +345,7 @@
         "to": "Conducir",
         "from": "To Drive, Lead",
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "from": "I drive my truck to the lake all the time",
@@ -373,7 +373,7 @@
             }
         ],
         "presentTense": {
-            "fistPersonSingular": {
+            "firstPersonSingular": {
                 "sentenceList": [
                     {
                         "to": "Produzco música sencilla.",
