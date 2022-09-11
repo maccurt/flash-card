@@ -186,10 +186,12 @@ export class ConjugateService {
     return stem;
   };
 
-
   private swapTenseType = (orginalTenseType: TenseType, tense: TenseType): void => {
 
     if (orginalTenseType) {
+      //TODO what happens as you add more, is there a way to spread this for all 
+      //new properties
+      tense.sentenceList = orginalTenseType.sentenceList;
       if (orginalTenseType.text !== '') {
         tense.text = orginalTenseType.text;
       }
