@@ -1,6 +1,5 @@
 import { VerbService } from './../verb.service';
 import { verbActions } from './verb.actions';
-import { verbStateInitial } from './verb.reducer';
 import { VerbEffect } from './verb.effectss';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { Observable, of, throwError } from 'rxjs';
@@ -10,6 +9,7 @@ import { Action } from '@ngrx/store';
 import { TestScheduler } from 'rxjs/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Verb } from '../types/verb.class.';
+import { verbStateInitial } from './VerbState.interface';
 
 describe('verb.effects.marble.specs.ts', () => {
     let testScheduler: TestScheduler, verbEffect: SpyObject<VerbEffect>;

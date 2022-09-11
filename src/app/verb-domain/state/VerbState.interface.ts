@@ -9,8 +9,8 @@ export interface VerbState {
     verbGroupList?: VerbGroup[];
     verbGroup?: VerbGroup;
     verbGroupOptions?: {
-        presentTensePronoun: PronounOption
-        preteriteTensePronou: PronounOption
+        presentTensePronoun?: PronounOption
+        preteriteTensePronoun?: PronounOption
     }
 }
 

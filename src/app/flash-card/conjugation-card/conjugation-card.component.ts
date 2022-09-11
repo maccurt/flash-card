@@ -27,12 +27,10 @@ export class ConjugationCardComponent implements OnInit {
   }
 
   firstPersonSingular = () => {
-    console.log('click');    
-    
+    console.log('click');        
   }
 
-  firstPersonPlural = () => {
-    console.log('click');
+  firstPersonPlural = () => {        
   } 
 
   secondPersonSingular = ()=> {
@@ -42,11 +40,9 @@ export class ConjugationCardComponent implements OnInit {
   }
 
   thirdPersonSingular = ()=> {
-
   }
 
   thirdPersonPlural = ()=> {
 
   }
-
 }

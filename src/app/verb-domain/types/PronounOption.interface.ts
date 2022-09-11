@@ -1,5 +1,3 @@
-
-
 export enum PronounOption {
     unknown = 0,
     firstPersonSingular,

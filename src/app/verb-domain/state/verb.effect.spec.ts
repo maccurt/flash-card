@@ -7,8 +7,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { Observable, of } from 'rxjs';
-import { verbStateInitial } from './verb.reducer';
-import { VerbState } from "./VerbState.interface";
+import { VerbState, verbStateInitial } from "./VerbState.interface";
 import { Verb } from '../types/verb.class.';
 
 describe('verb effect', () => {

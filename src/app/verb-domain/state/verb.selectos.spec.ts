@@ -7,7 +7,10 @@ describe('verb.selectors', () => {
     let verbStore: VerbState;
 
     beforeEach(() => {
-        verbStore = { verb: { to: 'estudiar' } as any, verbList: [verbToPractice] } as VerbState;
+        verbStore = {
+            verb: { to: 'estudiar' } as any,
+            verbList: [verbToPractice]
+        } as VerbState;
     });
 
     it('getVerbListSelector should return verblist', () => {

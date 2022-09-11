@@ -51,11 +51,11 @@ export class ConjugateService {
       tense.fistPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[0]);
     }
 
-    tense.secondPersonSingular = this.conjugateFromStem(stem, bootStem, endings[1]);
-    tense.thirdPersonSingular = this.conjugateFromStem(stem, bootStem, endings[2]);
-    tense.firstPersonPlural = this.conjugateFromStem(stem, '', endings[3]);
-    tense.secondPersonPlural = this.conjugateFromStem(stem, '', endings[4]);
-    tense.thirdPersonPlurual = this.conjugateFromStem(stem, bootStem, endings[5]);
+    tense.secondPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[1]);
+    tense.thirdPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[2]);
+    tense.firstPersonPlural.text = this.conjugateFromStem(stem, '', endings[3]);
+    tense.secondPersonPlural.text = this.conjugateFromStem(stem, '', endings[4]);
+    tense.thirdPersonPlurual.text = this.conjugateFromStem(stem, bootStem, endings[5]);
     return this.swapTense(verb.presentTense, tense);
   };
 
@@ -76,11 +76,12 @@ export class ConjugateService {
     endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.preteriteTense);
 
     tense.fistPersonSingular.text = stem + endings[0];
-    tense.secondPersonSingular = stem + endings[1];
-    tense.thirdPersonSingular = stem + endings[2];
-    tense.firstPersonPlural = stem + endings[3];
-    tense.secondPersonPlural = stem + endings[4];
-    tense.thirdPersonPlurual = stem + endings[5];
+    tense.secondPersonSingular.text = stem + endings[1];
+    tense.thirdPersonSingular.text = stem + endings[2];
+    //
+    tense.firstPersonPlural.text = stem + endings[3];
+    tense.secondPersonPlural.text = stem + endings[4];
+    tense.thirdPersonPlurual.text = stem + endings[5];
     return tense;
   };
 
@@ -185,29 +186,29 @@ export class ConjugateService {
   swapTense = (orignalTense: Tense, tense: Tense): Tense => {
 
     if (!orignalTense) { return tense; }
-
-    if (orignalTense.fistPersonSingular.text) {
+    //
+    if (orignalTense?.fistPersonSingular.text) {
       tense.fistPersonSingular = orignalTense.fistPersonSingular;
     };
 
-    if (orignalTense.secondPersonSingular) {
-      tense.secondPersonSingular = orignalTense.secondPersonSingular;
+    if (orignalTense?.secondPersonSingular?.text) {
+      tense.secondPersonSingular.text = orignalTense.secondPersonSingular.text;
     };
 
-    if (orignalTense.thirdPersonSingular) {
-      tense.thirdPersonSingular = orignalTense.thirdPersonSingular;
+    if (orignalTense?.thirdPersonSingular?.text) {
+      tense.thirdPersonSingular.text = orignalTense.thirdPersonSingular.text;
     };
 
-    if (orignalTense.firstPersonPlural) {
-      tense.firstPersonPlural = orignalTense.firstPersonPlural;
+    if (orignalTense?.firstPersonPlural?.text) {
+      tense.firstPersonPlural.text = orignalTense.firstPersonPlural.text;
     };
 
-    if (orignalTense.secondPersonPlural) {
-      tense.secondPersonPlural = orignalTense.secondPersonPlural;
+    if (orignalTense?.secondPersonPlural?.text) {
+      tense.secondPersonPlural.text = orignalTense.secondPersonPlural.text;
     };
 
-    if (orignalTense.thirdPersonPlurual) {
-      tense.thirdPersonPlurual = orignalTense.thirdPersonPlurual;
+    if (orignalTense?.thirdPersonPlurual?.text) {
+      tense.thirdPersonPlurual.text = orignalTense.thirdPersonPlurual.text;
     };
 
     return tense;
