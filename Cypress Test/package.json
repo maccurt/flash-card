@@ -1,8 +1,8 @@
 {
   "name": "flash-card-cypress",
   "scripts": {
-    "cypress": "cypress open",
-    "cypress-run": "cypress run"
+    "open": "cypress open",
+    "run": "cypress run"
   },
   "devDependencies": {
     "cypress": "^10.7.0",

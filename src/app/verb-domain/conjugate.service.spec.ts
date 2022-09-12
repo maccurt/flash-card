@@ -12,7 +12,32 @@ describe('ConjugateService', () => {
     service = new ConjugateService();
   });
 
+  describe('swapTenseType', () => {
+
+    it('undefined should not override', () => {
+
+      let orignalTense: Tense = new Tense();
+      orignalTense.firstPersonSingular.text = undefined;
+
+      let tense: Tense = new Tense();
+      tense.firstPersonSingular.text = "should be this";
+
+      service.swapTenseType(orignalTense, tense);
+      expect(tense.firstPersonSingular.text).toBe('should be this');
+    });
+
+  });
+
   describe('swap tense', () => {
+
+    it('orginal text is undefined, should not swap', () => {
+      let orignalTense: Tense = new Tense();
+      orignalTense.firstPersonSingular.text = undefined;
+      let tense: Tense = new Tense();
+      tense.firstPersonSingular.text = "should be this";
+      service.swapTense(orignalTense, tense);
+      expect(tense.firstPersonSingular.text).toEqual('should be this');
+    });
 
     it('if I overide all the tenses it should put those tenses there', () => {
 
@@ -26,12 +51,12 @@ describe('ConjugateService', () => {
       let tense: Tense = new Tense();
       let result = service.swapTense(orignalTense, tense);
 
-      expect(result.firstPersonSingular.text).toBe('fps override')
-      expect(result.firstPersonPlural.text).toBe('fpp override')
-      expect(result.secondPersonSingular.text).toBe('sps override')
-      expect(result.secondPersonPlural.text).toBe('spp override')
-      expect(result.thirdPersonSingular.text).toBe('tps override')
-      expect(result.thirdPersonPlural.text).toBe('tpp override')
+      expect(result.firstPersonSingular.text).toBe('fps override');
+      expect(result.firstPersonPlural.text).toBe('fpp override');
+      expect(result.secondPersonSingular.text).toBe('sps override');
+      expect(result.secondPersonPlural.text).toBe('spp override');
+      expect(result.thirdPersonSingular.text).toBe('tps override');
+      expect(result.thirdPersonPlural.text).toBe('tpp override');
     });
 
     it('If I DO NOT overide all the tenses it should put orignal test tenses there', () => {
@@ -50,7 +75,7 @@ describe('ConjugateService', () => {
       let result = service.swapTense(orignalTense, tense);
 
       expect(result.firstPersonSingular.sentenceList)
-        .toEqual([{ spanish: 'spanish', english: 'english' }])
+        .toEqual([{ spanish: 'spanish', english: 'english' }]);
 
       expect(result.firstPersonSingular.text).toBe('fps override');
       expect(result.firstPersonPlural.text).toBe('fpp override');
@@ -59,7 +84,6 @@ describe('ConjugateService', () => {
       expect(result.thirdPersonSingular.text).toBe('tps override');
       expect(result.thirdPersonPlural.text).toBe('tpp override');
     });
-
 
   });
 
