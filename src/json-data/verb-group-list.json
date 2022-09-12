@@ -152,8 +152,8 @@
                 }
             },
             {
-                "from": "encender",
-                "to": "to light up",
+                "from": "to light up",
+                "to": "encender",
                 "sentenceList": [
                     {
                         "english": "add english sentence here",
