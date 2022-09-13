@@ -12,16 +12,79 @@ describe('ConjugateService', () => {
     service = new ConjugateService();
   });
 
+  describe('swapTenseType', () => {
+
+    it('undefined should not override', () => {
+
+      let orignalTense: Tense = new Tense();
+      orignalTense.firstPersonSingular.text = undefined;
+
+      let tense: Tense = new Tense();
+      tense.firstPersonSingular.text = "should be this";
+
+      service.swapTenseType(orignalTense, tense);
+      expect(tense.firstPersonSingular.text).toBe('should be this');
+    });
+
+  });
+
   describe('swap tense', () => {
 
-    it('???????', () => {
-
-        let orignalTense:Tense = new Tense();
-        let tense:Tense = new Tense();
-        service.swapTense(orignalTense,tense);
-      
+    it('orginal text is undefined, should not swap', () => {
+      let orignalTense: Tense = new Tense();
+      orignalTense.firstPersonSingular.text = undefined;
+      let tense: Tense = new Tense();
+      tense.firstPersonSingular.text = "should be this";
+      service.swapTense(orignalTense, tense);
+      expect(tense.firstPersonSingular.text).toEqual('should be this');
     });
-    
+
+    it('if I overide all the tenses it should put those tenses there', () => {
+
+      let orignalTense: Tense = new Tense();
+      orignalTense.firstPersonSingular.text = "fps override";
+      orignalTense.firstPersonPlural.text = "fpp override";
+      orignalTense.secondPersonSingular.text = "sps override";
+      orignalTense.secondPersonPlural.text = "spp override";
+      orignalTense.thirdPersonSingular.text = "tps override";
+      orignalTense.thirdPersonPlural.text = "tpp override";
+      let tense: Tense = new Tense();
+      let result = service.swapTense(orignalTense, tense);
+
+      expect(result.firstPersonSingular.text).toBe('fps override');
+      expect(result.firstPersonPlural.text).toBe('fpp override');
+      expect(result.secondPersonSingular.text).toBe('sps override');
+      expect(result.secondPersonPlural.text).toBe('spp override');
+      expect(result.thirdPersonSingular.text).toBe('tps override');
+      expect(result.thirdPersonPlural.text).toBe('tpp override');
+    });
+
+    it('If I DO NOT overide all the tenses it should put orignal test tenses there', () => {
+
+      let orignalTense: Tense = new Tense();
+      orignalTense.firstPersonSingular.sentenceList =
+        [{ spanish: 'spanish', english: 'english' }];
+      let tense: Tense = new Tense();
+
+      tense.firstPersonSingular.text = "fps override";
+      tense.firstPersonPlural.text = "fpp override";
+      tense.secondPersonSingular.text = "sps override";
+      tense.secondPersonPlural.text = "spp override";
+      tense.thirdPersonSingular.text = "tps override";
+      tense.thirdPersonPlural.text = "tpp override";
+      let result = service.swapTense(orignalTense, tense);
+
+      expect(result.firstPersonSingular.sentenceList)
+        .toEqual([{ spanish: 'spanish', english: 'english' }]);
+
+      expect(result.firstPersonSingular.text).toBe('fps override');
+      expect(result.firstPersonPlural.text).toBe('fpp override');
+      expect(result.secondPersonSingular.text).toBe('sps override');
+      expect(result.secondPersonPlural.text).toBe('spp override');
+      expect(result.thirdPersonSingular.text).toBe('tps override');
+      expect(result.thirdPersonPlural.text).toBe('tpp override');
+    });
+
   });
 
   describe('getPresentTenseStemChange', () => {
@@ -72,12 +135,12 @@ describe('ConjugateService', () => {
       let verb = new Verb();
       verb.to = 'agradecer';
       let tense = service.getPresentTense(verb);
-      expect(tense.fistPersonSingular.text).toBe('agradezco');
+      expect(tense.firstPersonSingular.text).toBe('agradezco');
       expect(tense.secondPersonSingular.text).toBe('agradeces');
       expect(tense.thirdPersonSingular.text).toBe('agradece');
       expect(tense.firstPersonPlural.text).toBe('agradecemos');
       expect(tense.secondPersonPlural.text).toBe('agradecéis');
-      expect(tense.thirdPersonPlurual.text).toBe('agradecen');
+      expect(tense.thirdPersonPlural.text).toBe('agradecen');
     });
 
     it('TRADUCIR', () => {
@@ -85,7 +148,7 @@ describe('ConjugateService', () => {
       verb.to = 'TRADUCIR';
       let tense = service.getPresentTense(verb);
 
-      expect(tense.fistPersonSingular.text).toBe('traduzco');
+      expect(tense.firstPersonSingular.text).toBe('traduzco');
     });
 
     it('hablar', () => {
@@ -93,12 +156,12 @@ describe('ConjugateService', () => {
       verb.to = 'hablar';
       let tense = service.getPresentTense(verb);
 
-      expect(tense.fistPersonSingular.text).toBe('hablo');
+      expect(tense.firstPersonSingular.text).toBe('hablo');
       expect(tense.secondPersonSingular.text).toBe('hablas');
       expect(tense.secondPersonPlural.text).toBe('habláis');
       expect(tense.thirdPersonSingular.text).toBe('habla');
       expect(tense.firstPersonPlural.text).toBe('hablamos');
-      expect(tense.thirdPersonPlurual.text).toBe('hablan');
+      expect(tense.thirdPersonPlural.text).toBe('hablan');
     });
 
     it('beber', () => {
@@ -106,70 +169,70 @@ describe('ConjugateService', () => {
       verb.to = 'beber';
       let tense = service.getPresentTense(verb);
 
-      expect(tense.fistPersonSingular.text).toBe('bebo');
+      expect(tense.firstPersonSingular.text).toBe('bebo');
       expect(tense.secondPersonSingular.text).toBe('bebes');
       expect(tense.thirdPersonSingular.text).toBe('bebe');
       expect(tense.firstPersonPlural.text).toBe('bebemos');
       expect(tense.secondPersonPlural.text).toBe('bebéis');
-      expect(tense.thirdPersonPlurual.text).toBe('beben');
+      expect(tense.thirdPersonPlural.text).toBe('beben');
     });
 
     it('vivir', () => {
       let verb = new Verb();
       verb.to = 'vivir';
       let tense = service.getPresentTense(verb);
-      expect(tense.fistPersonSingular.text).toBe('vivo');
+      expect(tense.firstPersonSingular.text).toBe('vivo');
       expect(tense.secondPersonSingular.text).toBe('vives');
       expect(tense.thirdPersonSingular.text).toBe('vive');
       expect(tense.firstPersonPlural.text).toBe('vivimos');
       expect(tense.secondPersonPlural.text).toBe('vivís');
-      expect(tense.thirdPersonPlurual.text).toBe('viven');
+      expect(tense.thirdPersonPlural.text).toBe('viven');
     });
 
     it('CONDUCIR', () => {
       let verb = new Verb();
       verb.to = "CONDUCIR";
       let tense = service.getPresentTense(verb);
-      expect(tense.fistPersonSingular.text).toBe('conduzco');
+      expect(tense.firstPersonSingular.text).toBe('conduzco');
       expect(tense.secondPersonSingular.text).toBe('conduces');
       expect(tense.thirdPersonSingular.text).toBe('conduce');
       expect(tense.firstPersonPlural.text).toBe('conducimos');
       expect(tense.secondPersonPlural.text).toBe('conducís');
-      expect(tense.thirdPersonPlurual.text).toBe('conducen');
+      expect(tense.thirdPersonPlural.text).toBe('conducen');
     });
 
     it('hablar with with not present test should be correct', () => {
       let verb = new Verb();
       verb.to = 'hablar';
       verb.presentTense = new Tense();
-      verb.presentTense.fistPersonSingular = new TenseType();
-      verb.presentTense.fistPersonSingular.sentenceList?.push({ to: '', from: '' });
+      verb.presentTense.firstPersonSingular = new TenseType();
+      verb.presentTense.firstPersonSingular.sentenceList?.push({ spanish: '', english: '' });
       let tense = service.getPresentTense(verb);
 
-      expect(tense.fistPersonSingular.text).toBe('hablo');
+      expect(tense.firstPersonSingular.text).toBe('hablo');
       expect(tense.secondPersonSingular.text).toBe('hablas');
       expect(tense.secondPersonPlural.text).toBe('habláis');
       expect(tense.thirdPersonSingular.text).toBe('habla');
       expect(tense.firstPersonPlural.text).toBe('hablamos');
-      expect(tense.thirdPersonPlurual.text).toBe('hablan');
+      expect(tense.thirdPersonPlural.text).toBe('hablan');
     });
 
     xit('hacer.', () => {
       let verb = new Verb();
       verb.to = 'hacer';
       verb.presentTense = new Tense();
-      verb.presentTense.fistPersonSingular = { text: 'hago' };
+      verb.presentTense.firstPersonSingular = { text: 'hago' };
       verb.presentTense.secondPersonSingular.text = '';
       verb.presentTense.thirdPersonSingular = undefined as any;
       verb.presentTense.firstPersonPlural = null as any;
       const tense = service.getPresentTense(verb);
 
-      expect(tense.fistPersonSingular?.text).toBe('hago');
+      expect(tense.firstPersonSingular?.text).toBe('hago');
       expect(tense.secondPersonSingular.text).toBe('haces');
       expect(tense.thirdPersonSingular.text).toBe('hace');
       expect(tense.firstPersonPlural.text).toBe('hacemos');
       expect(tense.secondPersonPlural.text).toBe('hacéis');
-      expect(tense.thirdPersonPlurual.text).toBe('hacen');
+      expect(tense.thirdPersonPlural.text).toBe('hacen');
     });
 
     it('defender StemChangeType.er_verb_e_to_ei', () => {
@@ -178,13 +241,13 @@ describe('ConjugateService', () => {
       verb.to = "defender";
       const tense = service.getPresentTense(verb);
       //single
-      expect(tense.fistPersonSingular?.text).toBe('defiendo');
+      expect(tense.firstPersonSingular?.text).toBe('defiendo');
       expect(tense.secondPersonSingular.text).toBe('defiendes');
       expect(tense.thirdPersonSingular.text).toBe('defiende');
       //plural
       expect(tense.firstPersonPlural.text).toBe('defendemos');
       expect(tense.secondPersonPlural.text).toBe('defendéis');
-      expect(tense.thirdPersonPlurual.text).toBe('defienden');
+      expect(tense.thirdPersonPlural.text).toBe('defienden');
     });
 
     it('cerrar StemChangeType.ar_verb_e_to_ei', () => {
@@ -193,13 +256,13 @@ describe('ConjugateService', () => {
       verb.to = "cerrar";
       const tense = service.getPresentTense(verb);
       //single
-      expect(tense.fistPersonSingular?.text).toBe('cierro');
+      expect(tense.firstPersonSingular?.text).toBe('cierro');
       expect(tense.secondPersonSingular.text).toBe('cierras');
       expect(tense.thirdPersonSingular.text).toBe('cierra');
       //plural
       expect(tense.firstPersonPlural.text).toBe('cerramos');
       expect(tense.secondPersonPlural.text).toBe('cerráis');
-      expect(tense.thirdPersonPlurual.text).toBe('cierran');
+      expect(tense.thirdPersonPlural.text).toBe('cierran');
     });
 
     it('empezar should conguate as stem change it begins with e', () => {
@@ -208,13 +271,13 @@ describe('ConjugateService', () => {
       verb.presentTense.stemChangeType = StemChangeType.ar_verb_e_to_ei;
       const tense = service.getPresentTense(verb);
       //single
-      expect(tense.fistPersonSingular?.text).toBe('empiezo');
+      expect(tense.firstPersonSingular?.text).toBe('empiezo');
       expect(tense.secondPersonSingular.text).toBe('empiezas');
       expect(tense.thirdPersonSingular.text).toBe('empieza');
       //plural
       expect(tense.firstPersonPlural.text).toBe('empezamos');
       expect(tense.secondPersonPlural.text).toBe('empezáis');
-      expect(tense.thirdPersonPlurual.text).toBe('empiezan');
+      expect(tense.thirdPersonPlural.text).toBe('empiezan');
     });
   });
 
@@ -240,17 +303,17 @@ describe('ConjugateService', () => {
       verb.from = 'to attack';
       verb.to = 'atacar';
       verb.preteriteTense = new Tense();
-      verb.preteriteTense.fistPersonSingular.text = 'actaqué';
+      verb.preteriteTense.firstPersonSingular.text = 'actaqué';
       let tense = service.getPreteriteTense(verb);
 
       //single
-      expect(tense.fistPersonSingular?.text).toBe('actaqué');
+      expect(tense.firstPersonSingular?.text).toBe('actaqué');
       expect(tense.secondPersonSingular.text).toBe('atacaste');
       expect(tense.thirdPersonSingular.text).toBe('atacó');
       //plural
       expect(tense.firstPersonPlural.text).toBe('atacamos');
       expect(tense.secondPersonPlural.text).toBe('atacasteis');
-      expect(tense.thirdPersonPlurual.text).toBe('atacaron');
+      expect(tense.thirdPersonPlural.text).toBe('atacaron');
     });
 
   });
@@ -281,37 +344,37 @@ describe('ConjugateService', () => {
     it('hablar', () => {
       let tense = service.getPreteriteTenseSpanish('hablar');
       //single
-      expect(tense.fistPersonSingular?.text).toBe('hablé');
+      expect(tense.firstPersonSingular?.text).toBe('hablé');
       expect(tense.secondPersonSingular.text).toBe('hablaste');
       expect(tense.thirdPersonSingular.text).toBe('habló');
       //plural
       expect(tense.firstPersonPlural.text).toBe('hablamos');
       expect(tense.secondPersonPlural.text).toBe('hablasteis');
-      expect(tense.thirdPersonPlurual.text).toBe('hablaron');
+      expect(tense.thirdPersonPlural.text).toBe('hablaron');
     });
 
     it('vivir', () => {
       let tense = service.getPreteriteTenseSpanish('vivir');
       //single
-      expect(tense.fistPersonSingular?.text).toBe('viví');
+      expect(tense.firstPersonSingular?.text).toBe('viví');
       expect(tense.secondPersonSingular.text).toBe('viviste');
       expect(tense.thirdPersonSingular.text).toBe('vivió');
       //plural
       expect(tense.firstPersonPlural.text).toBe('vivimos');
       expect(tense.secondPersonPlural.text).toBe('vivisteis');
-      expect(tense.thirdPersonPlurual.text).toBe('vivieron');
+      expect(tense.thirdPersonPlural.text).toBe('vivieron');
     });
 
     it('comer', () => {
       let tense = service.getPreteriteTenseSpanish('comer');
       //single
-      expect(tense.fistPersonSingular?.text).toBe('comí');
+      expect(tense.firstPersonSingular?.text).toBe('comí');
       expect(tense.secondPersonSingular.text).toBe('comiste');
       expect(tense.thirdPersonSingular.text).toBe('comió');
       //plural
       expect(tense.firstPersonPlural.text).toBe('comimos');
       expect(tense.secondPersonPlural.text).toBe('comisteis');
-      expect(tense.thirdPersonPlurual.text).toBe('comieron');
+      expect(tense.thirdPersonPlural.text).toBe('comieron');
     });
   });
 
@@ -331,7 +394,7 @@ describe('ConjugateService', () => {
       expect(service.endsInCerOrCirWithVowel('Conducir')).toBeTrue();
       expect(service.endsInCerOrCirWithVowel('ejercer')).toBeFalse();
       expect(service.endsInCerOrCirWithVowel('vencer')).toBeFalse();
-      
+
       //TODO how do you fix hacer? It is not in the grop
       //https://www.fluentin3months.com/spanish-irregular-verbs/
       //Use this

@@ -43,19 +43,22 @@ export class ConjugateService {
         break;
       case StemChangeType.none:
         if (this.endsInCerOrCirWithVowel(verb.to)) {
-          tense.fistPersonSingular.text = (verb.to.substring(0, verb.to.length - 3) + 'zco').toLowerCase();
+          tense.firstPersonSingular.text = (verb.to.substring(0, verb.to.length - 3) + 'zco').toLowerCase();
         }
     }
 
-    if (tense.fistPersonSingular.text === '') {
-      tense.fistPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[0]);
+    if (tense.firstPersonSingular.text === '') {
+      tense.firstPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[0]);
     }
 
     tense.secondPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[1]);
     tense.thirdPersonSingular.text = this.conjugateFromStem(stem, bootStem, endings[2]);
     tense.firstPersonPlural.text = this.conjugateFromStem(stem, '', endings[3]);
     tense.secondPersonPlural.text = this.conjugateFromStem(stem, '', endings[4]);
-    tense.thirdPersonPlurual.text = this.conjugateFromStem(stem, bootStem, endings[5]);
+    tense.thirdPersonPlural.text = this.conjugateFromStem(stem, bootStem, endings[5]);
+
+    //TODO this could be a problem because you might remove the
+    //the setence list, etc..
     return this.swapTense(verb.presentTense, tense);
   };
 
@@ -67,7 +70,7 @@ export class ConjugateService {
   getPreteriteTenseSpanish = (verb: string): Tense => {
     let tense = new Tense();
     tense.text = "Preterite";
-    tense.fistPersonSingular = new TenseType();
+    tense.firstPersonSingular = new TenseType();
 
     verb = verb.toLowerCase();
     let stem = this.getSpanishRoot(verb);
@@ -75,13 +78,13 @@ export class ConjugateService {
 
     endings = this.getVerbEndingList(this.getVerbEnding(verb), verbEndings.preteriteTense);
 
-    tense.fistPersonSingular.text = stem + endings[0];
+    tense.firstPersonSingular.text = stem + endings[0];
     tense.secondPersonSingular.text = stem + endings[1];
     tense.thirdPersonSingular.text = stem + endings[2];
     //
     tense.firstPersonPlural.text = stem + endings[3];
     tense.secondPersonPlural.text = stem + endings[4];
-    tense.thirdPersonPlurual.text = stem + endings[5];
+    tense.thirdPersonPlural.text = stem + endings[5];
     return tense;
   };
 
@@ -183,34 +186,28 @@ export class ConjugateService {
     return stem;
   };
 
+  swapTenseType = (orginalTenseType: TenseType, tense: TenseType): void => {
+    if (orginalTenseType) {
+      //TODO what happens as you add more, is there a way to spread this for all 
+      //new properties      
+      tense.sentenceList = orginalTenseType.sentenceList;
+      if (orginalTenseType.text !== '' && orginalTenseType.text) {
+        tense.text = orginalTenseType.text;
+      }
+    };
+  };
+
   swapTense = (orignalTense: Tense, tense: Tense): Tense => {
-
-    if (!orignalTense) { return tense; }
-    //
-    if (orignalTense?.fistPersonSingular.text) {
-      tense.fistPersonSingular = orignalTense.fistPersonSingular;
-    };
-
-    if (orignalTense?.secondPersonSingular?.text) {
-      tense.secondPersonSingular.text = orignalTense.secondPersonSingular.text;
-    };
-
-    if (orignalTense?.thirdPersonSingular?.text) {
-      tense.thirdPersonSingular.text = orignalTense.thirdPersonSingular.text;
-    };
-
-    if (orignalTense?.firstPersonPlural?.text) {
-      tense.firstPersonPlural.text = orignalTense.firstPersonPlural.text;
-    };
-
-    if (orignalTense?.secondPersonPlural?.text) {
-      tense.secondPersonPlural.text = orignalTense.secondPersonPlural.text;
-    };
-
-    if (orignalTense?.thirdPersonPlurual?.text) {
-      tense.thirdPersonPlurual.text = orignalTense.thirdPersonPlurual.text;
-    };
-
+    if (!orignalTense) { return tense; };
+    //first person
+    this.swapTenseType(orignalTense.firstPersonSingular, tense.firstPersonSingular);
+    this.swapTenseType(orignalTense.firstPersonPlural, tense.firstPersonPlural);
+    //second person
+    this.swapTenseType(orignalTense.secondPersonSingular, tense.secondPersonSingular);
+    this.swapTenseType(orignalTense.secondPersonPlural, tense.secondPersonPlural);
+    //third person
+    this.swapTenseType(orignalTense.thirdPersonSingular, tense.thirdPersonSingular);
+    this.swapTenseType(orignalTense.thirdPersonPlural, tense.thirdPersonPlural);
     return tense;
   };
 

@@ -1,3 +1,4 @@
+import { Sentence } from './../types/Sentence';
 import { verbGroupSelectors } from '../state/verb-group.selectors';
 import { verbGroupActions } from './../state/verb-group.actions';
 import { FromTo } from '../types/FromTo';
@@ -24,9 +25,9 @@ export class VerbListComponent implements OnInit, AfterViewInit {
 
   presentTense!: Tense | null;
   preteriteTense!: Tense | null;
-  sentence!: FromTo | null;
+  sentence!: Sentence | null;
   showSentence: boolean = false;
-  sentenceList: FromTo[] = [];
+  sentenceList: Sentence[] = [];
 
   verbGroupList?: VerbGroup[] = [];
   //form
@@ -91,10 +92,10 @@ export class VerbListComponent implements OnInit, AfterViewInit {
         this.preteriteTense = this.conjugationService.getPreteriteTense(verb);
 
         this.sentence = null;
-        if (verb.presentTense && verb.presentTense.fistPersonSingular && verb.presentTense.fistPersonSingular.sentenceList) {
-          if (verb.presentTense.fistPersonSingular.sentenceList.length > 0) {
-            this.sentence = verb.presentTense.fistPersonSingular.sentenceList[0];
-            this.sentenceList = verb.presentTense.fistPersonSingular.sentenceList;
+        if (verb.presentTense && verb.presentTense.firstPersonSingular && verb.presentTense.firstPersonSingular.sentenceList) {
+          if (verb.presentTense.firstPersonSingular.sentenceList.length > 0) {
+            this.sentence = verb.presentTense.firstPersonSingular.sentenceList[0];
+            this.sentenceList = verb.presentTense.firstPersonSingular.sentenceList;
           }
         }
         //show the translation

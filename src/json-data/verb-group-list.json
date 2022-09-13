@@ -29,7 +29,7 @@
                     }
                 ],
                 "presentTense": {
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "sentenceList": []
                     }
                 }
@@ -49,7 +49,7 @@
                 ],
                 "presentTense": {
                     "isStemChange": "true",
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "sentenceList": []
                     }
                 }
@@ -73,7 +73,7 @@
                 ],
                 "presentTense": {
                     "isStemChange": "true",
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "sentenceList": []
                     }
                 }
@@ -97,7 +97,7 @@
                 ],
                 "presentTense": {
                     "isStemChange": "true",
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "sentenceList": []
                     }
                 }
@@ -117,7 +117,7 @@
                 ],
                 "presentTense": {
                     "isStemChange": "true",
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "sentenceList": []
                     }
                 }
@@ -146,14 +146,14 @@
                     }
                 ],
                 "presentTense": {
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "sentenceList": []
                     }
                 }
             },
             {
-                "from": "encender",
-                "to": "to light up",
+                "from": "to light up",
+                "to": "encender",
                 "sentenceList": [
                     {
                         "english": "add english sentence here",
@@ -165,7 +165,7 @@
                     }
                 ],
                 "presentTense": {
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "sentenceList": []
                     }
                 }
@@ -191,7 +191,7 @@
                     }
                 ],
                 "presentTense": {
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "text": "hago",
                         "sentenceList": [
                             {
@@ -206,7 +206,7 @@
                 "to": "caber",
                 "from": "to fit",
                 "presentTense": {
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "text": "quepo"
                     }
                 }
@@ -215,7 +215,7 @@
                 "to": "saber",
                 "from": "to know",
                 "presentTense": {
-                    "fistPersonSingular": {
+                    "firstPersonSingular": {
                         "text": "sé"
                     }
                 }

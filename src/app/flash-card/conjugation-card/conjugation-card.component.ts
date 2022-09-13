@@ -3,8 +3,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Tense } from 'src/app/verb-domain/types/Tense';
 import { Store } from '@ngrx/store';
 
-
-
 @Component({
   selector: 'app-conjugation-card',
   templateUrl: './conjugation-card.component.html',
@@ -27,22 +25,22 @@ export class ConjugationCardComponent implements OnInit {
   }
 
   firstPersonSingular = () => {
-    console.log('click');        
-  }
+    
+  };
 
   firstPersonPlural = () => {        
-  } 
+  }; 
 
   secondPersonSingular = ()=> {
-  }
+  };
 
   secondPersonPlural = ()=> {
-  }
+  };
 
   thirdPersonSingular = ()=> {
-  }
+  };
 
   thirdPersonPlural = ()=> {
 
-  }
+  };
 }
