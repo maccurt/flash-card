@@ -3,17 +3,16 @@
 
     <div class="row">
 
-        
         <div attr.data-test-id="verb-group-{{verbGroup.id}}" class="verb-group col-12 col-xxl-6">
 
             <mat-card class="verb-group-card">
 
-                <mat-card-title data-test-id="name"  class="name">
+                <mat-card-title data-test-id="name" class="name">
                     {{verbGroup.name}}
                 </mat-card-title>
                 <mat-card-content>
 
-                    <p  data-test-id="description"  class="description">{{verbGroup.description}}</p>
+                    <p data-test-id="description" class="description">{{verbGroup.description}}</p>
                     <hr>
 
                     <table data-test-id="verb-list" style="background-color:white;border: 1px solid #cccccc;"
@@ -25,8 +24,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr attr.data-test-id="{{verb.to | lowercase}}"  [ngClass]="{'selected':i === chosenIndex}" (click)="verbClick(verb,i)"
-                                *ngFor="let verb of verbGroup.verbList,let i=index">
+                            <tr attr.data-test-id="{{verb.to | lowercase}}" [ngClass]="{'selected':i === chosenIndex}"
+                                (click)="verbClick(verb,i)" *ngFor="let verb of verbGroup.verbList,let i=index">
                                 <td>
 
                                     {{verb.to}}
@@ -38,11 +37,11 @@
                             </tr>
                         </tbody>
 
-                    </table>
-
+                    </table>                    
                 </mat-card-content>
                 <hr>
-                
+
+
                 <div class="instruction" *ngIf="verbGroup.instruction">
                     <ul>
                         <li *ngFor="let bullet of verbGroup.instruction.bulletpoints">

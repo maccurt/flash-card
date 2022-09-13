@@ -1,19 +1,16 @@
 <div class="container">
 
     <div class="row">
-
         <div class="col-6">
             <form [formGroup]="formGroup">
                 <select id="verb-group-list" formControlName="verbGroupList" class="form-control">
 
-                    <option  *ngFor="let g of verbGroupList" [ngValue]="g">
+                    <option *ngFor="let g of verbGroupList" [ngValue]="g">
                         {{g.name}}
                     </option>
 
                 </select>
-
             </form>
-
         </div>
     </div>
 
@@ -48,7 +45,6 @@
                 </mat-card-content>
             </mat-card>
 
-            <br>
             <div class="row">
 
                 <div class="col-12">
@@ -65,22 +61,7 @@
 
             </div>
         </div>
-
-        <!-- <div class="col-12 col-xxl-6">
-            <mat-card>
-                <mat-card-content>
-                    <div *ngIf="sentenceList.length > 0">
-                        <ul class="sentene" *ngFor="let s of sentenceList">
-                            <li class="from"> {{s.to}}</li>
-                        </ul>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </div> -->
-
-
     </div>
-
     <br>
 
 </div>
