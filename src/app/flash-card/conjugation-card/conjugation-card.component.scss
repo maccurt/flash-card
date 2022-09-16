@@ -13,8 +13,17 @@
         font-size: smaller;
         font-weight: 200;
     }
-    tbody{
+    tbody {
         font-weight: 500;
+
+        a {
+            text-decoration: underline;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
     }
 
     thead {

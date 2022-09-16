@@ -1,8 +1,9 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
@@ -10,12 +11,16 @@ import {MatChipsModule} from '@angular/material/chips';
     CommonModule,
     MatCardModule,
     MatChipsModule,
-    ReactiveFormsModule
+    MatRadioModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     MatCardModule,
     MatChipsModule,
-    ReactiveFormsModule
+    MatRadioModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

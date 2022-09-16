@@ -30,7 +30,12 @@
                 ],
                 "presentTense": {
                     "firstPersonSingular": {
-                        "sentenceList": []
+                        "sentenceList": [
+                            {
+                                "english": "I always get the words right.",
+                                "spanish": "Siempre acierto las palabras."
+                            }
+                        ]
                     }
                 }
             },

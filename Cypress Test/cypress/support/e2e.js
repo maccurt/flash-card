@@ -14,9 +14,10 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
-import './getTestId.command'
-import './conjugation.command'
+import './commands';
+import './getTestId.command';
+import './conjugation.command';
+import './getDataTestId.command';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

@@ -4,74 +4,76 @@
 
     <mat-card-content>
 
-        <table class="conjugation-table card-table table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th colspan="2" class="pro-noun">Pronoun</th>
-                    <th colspan="2" class="pro-noun">Pronoun</th>
-                </tr>
-            </thead>
+        <mat-radio-group [(ngModel)]="pronounOption" (change)="tenseChanged($event)" aria-label="Select an option">
+            <table class="conjugation-table card-table table table-striped table-bordered  ">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="pro-noun">Pronoun</th>
+                        <th colspan="2" class="pro-noun">Pronoun</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr class="first-person">
-                    <td style="width:20%" class="pro-noun">
+                <tbody>
+                    <tr class="first-person">
+                        <td style="width:20%" class="pro-noun">
+                            <mat-radio-button data-test-id="fps-radio" value="1">yo</mat-radio-button>
+                        </td>
+                        <td data-test-id="first-person-singular" style="width:25%">
+                            {{tense.firstPersonSingular.text}}
+                        </td>
 
-                        <a data-test-id="yo-link" (click)="firstPersonSingular()">yo</a>
+                        <td style="width:30%" class="pro-noun">
+                            <mat-radio-button data-test-id="fpp-radio" value="2">nosotros</mat-radio-button>
+                        </td>
 
-                    </td>
-                    <td data-test-id="first-person-singular" style="width:25%">
+                        <td data-test-id="first-person-plural" style="width:25%">
+                            {{tense.firstPersonPlural.text}}
+                        </td>
+                    </tr>
 
-                        {{tense.firstPersonSingular.text}}
-                    </td>
+                    <tr class="second-person">
+                        <td class="pro-noun">
+                            <mat-radio-button data-test-id="sps-radio" value="3">tu</mat-radio-button>
 
-                    <td style="width:30%" class="pro-noun">
+                        </td>
+                        <td data-test-id="second-person-singular">
+                            {{tense.secondPersonSingular.text}}
+                        </td>
 
-                        <a (click)="firstPersonPlural()">nosotros</a>
+                        <td class="pro-noun">
+                            <mat-radio-button data-test-id="spp-radio" value="4">vosotros,vosotras</mat-radio-button>
+                        </td>
 
-                    </td>
+                        <td data-test-id="second-person-plural">
+                            {{tense.secondPersonPlural.text}}
+                        </td>
+                    </tr>
 
-                    <td data-test-id="first-person-plural" style="width:25%">
-                        {{tense.firstPersonPlural.text}}
-                    </td>
-                </tr>
+                    <tr class="third-person">
+                        <td class="pro-noun">
 
-                <tr class="second-person">
-                    <td class="pro-noun">
-                        tu
-                    </td>
-                    <td data-test-id="second-person-singular">
-                        {{tense.secondPersonSingular.text}}
-                    </td>
+                            <mat-radio-button data-test-id="tps-radio" value="5">el, ella, usted</mat-radio-button>
 
-                    <td class="pro-noun">
-                        vosotros,vosotras
-                    </td>
+                        </td>
+                        <td data-test-id="third-person-singular">
+                            {{tense.thirdPersonSingular.text}}
+                        </td>
 
-                    <td data-test-id="second-person-plural">
-                        {{tense.secondPersonPlural.text}}
-                    </td>
-                </tr>
+                        <td class="pro-noun">
+                            <mat-radio-button data-test-id="tpp-radio" value="6">ustedes, ellos,ellas</mat-radio-button>
+                        </td>
 
-                <tr class="third-person">
-                    <td class="pro-noun">
-                        el, ella, usted
-                    </td>
-                    <td data-test-id="third-person-singular">
-                        {{tense.thirdPersonSingular.text}}
-                    </td>
+                        <td data-test-id="third-person-plural">
+                            {{tense.thirdPersonPlural.text}}
+                        </td>
+                    </tr>
+                </tbody>
 
-                    <td class="pro-noun">
-                        ustedes, ellos,ellas
-                    </td>
 
-                    <td data-test-id="third-person-plural">
-                        {{tense.thirdPersonPlural.text}}
-                    </td>
-                </tr>
+            </table>
+        </mat-radio-group>
 
-            </tbody>
-
-        </table>
+        <!-- <app-sentence-list [sentenceList]="sentenceList" ></app-sentence-list> -->
 
     </mat-card-content>
 </mat-card>
