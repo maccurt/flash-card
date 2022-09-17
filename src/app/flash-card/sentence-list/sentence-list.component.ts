@@ -6,11 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './sentence-list.component.html',
   styleUrls: ['./sentence-list.component.scss']
 })
-export class SentenceListComponent implements OnInit {
+export class SentenceListComponent {
   @Input() sentenceList: Sentence[] = [];
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

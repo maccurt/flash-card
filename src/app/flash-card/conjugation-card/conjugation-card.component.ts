@@ -38,11 +38,10 @@ export class ConjugationCardComponent implements OnInit {
     return [];
   };
 
-
   pronounChanged = (event: any) => {
     let pronoun: PronounOption = parseInt(event.value);
     this.sentenceList = this.getPrononSentenceList(this.tense, pronoun);
-  }
+  };
 
   getPrononSentenceList(tense: Tense, pronoun: PronounOption): Sentence[] {
 
