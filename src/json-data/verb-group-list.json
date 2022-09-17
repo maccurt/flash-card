@@ -30,6 +30,10 @@
                             {
                                 "english": "I always get the words right.",
                                 "spanish": "Siempre acierto las palabras."
+                            },
+                            {
+                                "english": "I always get the words right.",
+                                "spanish": "Siempre acierto las palabras."
                             }
                         ]
                     },
@@ -48,10 +52,6 @@
                 "to": "gobernar",
                 "sentenceList": [
                     {
-                        "english": "I govern over the children in my house as a father.",
-                        "spanish": "Yo gobierno sobre los niños en mi casa como un padre."
-                    },
-                    {
                         "english": "I governed yesterday sole. Today we govern together.",
                         "spanish": "Goberné ayer sole. Hoy gobernamos juntos."
                     }
@@ -59,7 +59,12 @@
                 "presentTense": {
                     "isStemChange": "true",
                     "firstPersonSingular": {
-                        "sentenceList": []
+                        "sentenceList": [
+                            {
+                                "english": "I govern over the children in my house as a father.",
+                                "spanish": "Yo gobierno sobre los niños en mi casa como un padre."
+                            }
+                        ]
                     }
                 }
             },

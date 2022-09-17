@@ -1,9 +1,18 @@
-<div *ngIf="sentenceList">
+<div class="sentence-list" *ngIf="sentenceList">
 
-    <div *ngFor="let s of sentenceList">
+    <div [ngClass]="{'is-not-implemented':s.isNotImplemented}" class="row gy-1"
+        *ngFor="let s of sentenceList;let i=index">
 
-        {{s.spanish}}
+        <div class="sentence-spanish col-12">
+            {{s.spanish}}
+        </div>
+
+
+        <div class="sentence-english col-12">
+            {{s.english}}
+        </div>
+
+        <hr>
 
     </div>
-    
 </div>

@@ -35,13 +35,16 @@ export class ConjugationCardComponent implements OnInit {
     if (tenseType && tenseType.sentenceList && tenseType.sentenceList.length > 0) {
       return tenseType.sentenceList;
     }
-    return [];
+    return this.getNotImplementedSentenceList();
   };
 
   pronounChanged = (event: any) => {
     let pronoun: PronounOption = parseInt(event.value);
     this.sentenceList = this.getPrononSentenceList(this.tense, pronoun);
   };
+
+  //TODO move this to a service, use what you got 
+  
 
   getPrononSentenceList(tense: Tense, pronoun: PronounOption): Sentence[] {
 
@@ -64,10 +67,30 @@ export class ConjugationCardComponent implements OnInit {
         break;
       case PronounOption.thirdPersonPlural:
         sentenceList = this.getSentenceList(tense.thirdPersonPlural);
-        break;
+        break;      
 
     }
+
+    
     return sentenceList;
 
   };
+
+  getNotImplementedSentenceList(): Sentence[] {
+
+    let list: Sentence[] = [];
+
+    let sentence = new Sentence()    
+    sentence.isNotImplemented = true
+    sentence.english = 'I am sorry I have not implemented this feature yet';
+    sentence.spanish = 'Lo siento, aún no he implementado esta característica.';
+    list.push(sentence);
+    return list;
+    
+    // sentence = new Sentence()    
+    // sentence.isNotImplemented = true
+    // sentence.english = 'I am sorry I have not implemented this feature yet';
+    // sentence.spanish = 'Lo siento, aún no he implementado esta característica.';
+    // list.push(sentence);   return list;
+  }
 }
