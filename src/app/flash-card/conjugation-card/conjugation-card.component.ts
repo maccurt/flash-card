@@ -15,7 +15,7 @@ export class ConjugationCardComponent implements OnInit {
   @Input() header!: string | null | undefined;
   @Input() tense!: Tense;
   pronounOption: string = '1';
-  sentence?: Sentence;
+  sentenceList: Sentence[] = [];
   testId: string = '';
 
   constructor(private conjugationService: ConjugateService,
@@ -26,33 +26,49 @@ export class ConjugationCardComponent implements OnInit {
       //TODO Make this a pipe don't put in here
       const searchRegExp = /\s/g;
       this.testId = this.tense.text.replace(searchRegExp, '-').toLowerCase();
-      this.sentence = this.getSentence(this.tense.firstPersonSingular);
+      this.sentenceList = this.getSentenceList(this.tense.firstPersonSingular);
     }
   }
 
   //todo can this be in the class
-  getSentence = (tenseType: TenseType): Sentence | undefined => {
+  getSentenceList = (tenseType: TenseType): Sentence[] => {
     if (tenseType && tenseType.sentenceList && tenseType.sentenceList.length > 0) {
-      return tenseType.sentenceList[0];
+      return tenseType.sentenceList;
     }
-    return undefined;
+    return [];
   };
 
 
-  //TODO Pronnoun changed fix this
-  tenseChanged = (event: any) => {
-
+  pronounChanged = (event: any) => {
     let pronoun: PronounOption = parseInt(event.value);
+    this.sentenceList = this.getPrononSentenceList(this.tense, pronoun);
+  }
+
+  getPrononSentenceList(tense: Tense, pronoun: PronounOption): Sentence[] {
+
+    let sentenceList: Sentence[] = [];
     switch (pronoun) {
-
       case PronounOption.firstPersonSingular:
-        this.sentence = this.getSentence(this.tense.firstPersonSingular);
+        sentenceList = this.getSentenceList(tense.firstPersonSingular);
         break;
-      default:
-        this.sentence = undefined;
-    }
+      case PronounOption.firstPersonPlural:
+        sentenceList = this.getSentenceList(tense.firstPersonPlural);
+        break;
+      case PronounOption.secondPersonSingular:
+        sentenceList = this.getSentenceList(tense.secondPersonSingular);
+        break;
+      case PronounOption.secondPersonPlural:
+        sentenceList = this.getSentenceList(tense.secondPersonPlural);
+        break;
+      case PronounOption.thirdPersonSingular:
+        sentenceList = this.getSentenceList(tense.thirdPersonSingular);
+        break;
+      case PronounOption.thirdPersonPlural:
+        sentenceList = this.getSentenceList(tense.thirdPersonPlural);
+        break;
 
-    console.log(this.sentence);
+    }
+    return sentenceList;
 
   };
 }

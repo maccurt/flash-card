@@ -5,13 +5,15 @@ import { FlashCardComponent } from './flash-card/flash-card.component';
 import { ConjugationCardComponent } from './conjugation-card/conjugation-card.component';
 import { ConjugationListComponent } from './conjugation-list/conjugation-list.component';
 import { FromToCardComponent } from './from-to-card/from-to-card.component';
+import { SentenceListComponent } from './sentence-list/sentence-list.component';
 
 @NgModule({
   declarations: [
     FlashCardComponent,
     ConjugationCardComponent,
     ConjugationListComponent,
-    FromToCardComponent
+    FromToCardComponent,
+    SentenceListComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { FromToCardComponent } from './from-to-card/from-to-card.component';
   ],
   exports: [
     FlashCardComponent,
-    ConjugationCardComponent
+    ConjugationCardComponent,
+    SentenceListComponent
   ]
 })
 export class FlashCardModule { }

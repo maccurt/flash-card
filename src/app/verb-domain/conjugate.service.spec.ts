@@ -1,9 +1,9 @@
 import { Verb } from "./types/verb.class.";
 import { ConjugateService, verbEndings } from './conjugate.service';
 import { VerbEnding } from "./VerbEnding";
-import { Tense } from "./types/Tense";
 import { TenseType } from "./types/TenseType";
 import { StemChangeType } from "./types/StemChangeType.enum";
+import { Tense } from "./types/Tense";
 
 describe('ConjugateService', () => {
   let service: ConjugateService;
@@ -22,7 +22,7 @@ describe('ConjugateService', () => {
       let tense: Tense = new Tense();
       tense.firstPersonSingular.text = "should be this";
 
-      service.swapTenseType(orignalTense, tense);
+      service.swapTenseType(orignalTense.firstPersonSingular, tense.firstPersonSingular);
       expect(tense.firstPersonSingular.text).toBe('should be this');
     });
 
@@ -221,7 +221,8 @@ describe('ConjugateService', () => {
       let verb = new Verb();
       verb.to = 'hacer';
       verb.presentTense = new Tense();
-      verb.presentTense.firstPersonSingular = { text: 'hago' };
+      verb.presentTense.firstPersonSingular = new TenseType();
+      verb.presentTense.firstPersonSingular.text = 'hago';
       verb.presentTense.secondPersonSingular.text = '';
       verb.presentTense.thirdPersonSingular = undefined as any;
       verb.presentTense.firstPersonPlural = null as any;
