@@ -44,8 +44,6 @@ export class ConjugationCardComponent implements OnInit {
   };
 
   //TODO move this to a service, use what you got 
-  
-
   getPrononSentenceList(tense: Tense, pronoun: PronounOption): Sentence[] {
 
     let sentenceList: Sentence[] = [];
@@ -70,7 +68,6 @@ export class ConjugationCardComponent implements OnInit {
         break;      
 
     }
-
     
     return sentenceList;
 
@@ -80,8 +77,8 @@ export class ConjugationCardComponent implements OnInit {
 
     let list: Sentence[] = [];
 
-    let sentence = new Sentence()    
-    sentence.isNotImplemented = true
+    let sentence = new Sentence();    
+    sentence.isNotImplemented = true;
     sentence.english = 'I am sorry I have not implemented this feature yet';
     sentence.spanish = 'Lo siento, aún no he implementado esta característica.';
     list.push(sentence);

@@ -30,18 +30,46 @@
                             {
                                 "english": "I always get the words right.",
                                 "spanish": "Siempre acierto las palabras."
-                            },
-                            {
-                                "english": "I always get the words right.",
-                                "spanish": "Siempre acierto las palabras."
-                            }
+                            }                            
                         ]
                     },
                     "firstPersonPlural": {
                         "sentenceList": [
                             {
-                                "english": "add english sentence here.",
-                                "spanish": "add spanish sentence here."
+                                "english": "We got it right.",
+                                "spanish": "La acertamos correctamente"
+                            }
+                        ]
+                    },
+                    "secondPersonSingular": {
+                        "sentenceList": [
+                            {
+                                "english": "you are always right.",
+                                "spanish": "Tu aciertas siempre."
+                            }
+                        ]
+                    },
+                    "secondPersonPlural": {
+                        "sentenceList": [
+                            {
+                                "english": "you hit it right the first time",
+                                "spanish": "acertáis bien la primera vez."
+                            }
+                        ]
+                    },
+                    "thirdPersonSingular": {
+                        "sentenceList": [
+                            {
+                                "english": "Perhaps he is right to say that I am wrong.",
+                                "spanish": "Quizás el acierta al decir que me equivoco."
+                            }
+                        ]
+                    },
+                    "thirdPersonPlural": {
+                        "sentenceList": [
+                            {
+                                "english": "they got it right.",
+                                "spanish": "La aciertan correctamente"
                             }
                         ]
                     }
@@ -61,8 +89,47 @@
                     "firstPersonSingular": {
                         "sentenceList": [
                             {
-                                "english": "I govern over the children in my house as a father.",
-                                "spanish": "Yo gobierno sobre los niños en mi casa como un padre."
+                                "english": "I govern over the children in my house.",
+                                "spanish": "Yo gobierno sobre los niños en mi casa."
+                            }
+                        ]
+                    },
+                    "firstPersonPlural": {
+                        "sentenceList": [
+                            {
+                                "english": "We govern the people of Mexico.",
+                                "spanish": "Gobernamos al pueblo de Mexico."
+                            }
+                        ]
+                    },
+                    "secondPersonSingular": {
+                        "sentenceList": [
+                            {
+                                "english": "You govern your own life",
+                                "spanish": "Tú gobiernas tu propia vida"
+                            }
+                        ]
+                    },
+                    "secondPersonPlural": {
+                        "sentenceList": [
+                            {
+                                "english": "You rule your emotions.",
+                                "spanish": "Gobernáis  tus emociones."
+                            }
+                        ]                    
+                    },
+                    "thirdPersonSingular": {
+                        "sentenceList": [
+                            {
+                                "english": "She governs her household as mother.",
+                                "spanish": "Ella gobierna su casa como madre."
+                            }                        ]
+                    },
+                    "thirdPersonPlural": {
+                        "sentenceList": [
+                            {
+                                "english": "The teachers govern the playground",
+                                "spanish": "Las maestras gobiernan el patio de recreo."
                             }
                         ]
                     }
@@ -71,11 +138,7 @@
             {
                 "from": "to close",
                 "to": "cerrar",
-                "sentenceList": [
-                    {
-                        "spanish": "Cierro la puerta todos los días.",
-                        "english": "I close the gate everday."
-                    },
+                "sentenceList": [                    
                     {
                         "spanish": "Lo cerré ayer también, pero el perro lo empujó para abrirlo",
                         "english": "I closed it yesterday also, but the dog pushed it open."
@@ -88,7 +151,20 @@
                 "presentTense": {
                     "isStemChange": "true",
                     "firstPersonSingular": {
-                        "sentenceList": []
+                        "sentenceList": [
+                            {
+                                "spanish": "Cierro la puerta todos los días.",
+                                "english": "I close the gate everday."
+                            }
+                        ]
+                    },
+                    "firstPersonPlural": {
+                        "sentenceList": [
+                            {   "spanish": "Ceramos la puerta todos los días.",                             
+                                "english": "We close the gate everday."
+                                
+                            }
+                        ]
                     }
                 }
             },

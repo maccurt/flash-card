@@ -3,6 +3,7 @@ import { FromTo } from "./FromTo";
 import { Tense } from "./Tense";
 
 export class Verb implements FromTo {
+    paragraph?:string;
     sentenceList: Sentence[] = [];
     to: string = '';
     from: string = '';
