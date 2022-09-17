@@ -1,6 +1,7 @@
 <div class="sentence-list" *ngIf="sentenceList">
 
-    <div [ngClass]="{'is-not-implemented':s.isNotImplemented}" class="row gy-1"
+    <div [ngClass]="{'is-not-implemented':s.isNotImplemented}" attr.data-test-id="sentence-{{i}}" class="row gy-1"
+        
         *ngFor="let s of sentenceList;let i=index">
 
         <div class="sentence-spanish col-12">
