@@ -11,7 +11,7 @@ export class Tense {
     secondPersonPlural!: TenseType;
     thirdPersonSingular!: TenseType;
     thirdPersonPlural!: TenseType;
-    
+
     isStemChange?: boolean;
     pronounOption: PronounOption = PronounOption.unknown;
 

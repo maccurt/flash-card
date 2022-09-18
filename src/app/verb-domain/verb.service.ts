@@ -1,3 +1,4 @@
+import { TenseType } from './types/TenseType';
 import { Sentence, Paragraph } from './types/Sentence';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -5,6 +6,8 @@ import { Observable, map } from 'rxjs';
 import { StemChangeType } from './types/StemChangeType.enum';
 import { Verb } from "./types/verb.class.";
 import { VerbGroup } from './types/VerbGroup.class';
+import { Tense } from './types/Tense';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +30,43 @@ export class VerbService {
         return verbGroupList;
       }));
   };
+
+
+  setTenseTypeSentence = (sentence: Sentence, tenseType: TenseType): void => {
+
+    if (tenseType.text) {
+
+      let spanish = sentence.spanish.toLowerCase();
+      if (new RegExp(`\\b${tenseType.text.toLowerCase()}\\b`).test(spanish)) {
+        tenseType.sentenceList.push(sentence);
+      }
+
+      // if (sentence.spanish.search(r) > 0) {
+      //   tenseType.sentenceList.push(sentence);
+      // }
+
+      // if (sentence.spanish.toLowerCase().indexOf(tenseType.text) > -1) {
+      //   tenseType.sentenceList.push(sentence);
+      // }
+    }
+  }
+
+  setTenseSentence = (sentenceList: Sentence[], tense: Tense): void => {
+
+    sentenceList.forEach((s) => {
+
+      //1st
+      this.setTenseTypeSentence(s, tense.firstPersonSingular)
+      this.setTenseTypeSentence(s, tense.firstPersonPlural);
+      //2nd
+      this.setTenseTypeSentence(s, tense.secondPersonSingular);
+      this.setTenseTypeSentence(s, tense.secondPersonPlural);
+      //3rd
+      this.setTenseTypeSentence(s, tense.thirdPersonSingular);
+      this.setTenseTypeSentence(s, tense.thirdPersonPlural);
+    })
+
+  }
 
   getSetenceListFromStringParagraph = (paragraph: string): string[] => {
 
