@@ -11,7 +11,7 @@ describe('VerbService', () => {
     let service: VerbService = new VerbService(null as any);
 
     const englishParagraph = 'I close.      We close.           You close?  You close now!           She close.     They close.'
-    const spanishParagraph = 'Yo cierro.    Nosotros Cerramos.  Tú cierras. Vosotros cerráis ahora!  Ella cierra.   Ellos cierran.'
+    const spanishParagraph = 'Yo cierro.    Nosotros Cerramos.  Tú cierras? Vosotros cerráis ahora!  Ella cierra.   Ellos cierran.'
 
     describe('verb', () => {
 
@@ -72,7 +72,7 @@ describe('VerbService', () => {
                 .toEqual('Nosotros Cerramos.');
             //2nd
             expect(tense.secondPersonSingular.sentenceList[0].spanish)
-                .toEqual('Tú cierras.');
+                .toEqual('Tú cierras?');
             expect(tense.secondPersonPlural.sentenceList[0].spanish)
                 .toEqual('Vosotros cerráis ahora!');
 
@@ -101,7 +101,7 @@ describe('VerbService', () => {
             const list = service.getSetenceListFromStringParagraph(spanishParagraph)
             expect(list[0]).toEqual('Yo cierro.');
             expect(list[1]).toEqual('Nosotros Cerramos.');
-            expect(list[2]).toEqual('Tú cierras.');
+            expect(list[2]).toEqual('Tú cierras?');
             expect(list[3]).toEqual('Vosotros cerráis ahora!');
             expect(list[4]).toEqual('Ella cierra.');
             expect(list[5]).toEqual('Ellos cierran.');
@@ -117,12 +117,8 @@ describe('VerbService', () => {
 
             let list = service.getSentenceListFromParagraph(paragraph);
             expect(list.length).toEqual(6);
-
-
            // 'I close.      We close.           You close?  You close now!           She close.     They close.'
-           // 'Yo cierro.    Nosotros Cerramos.  Tú cierras. Vosotros cerráis ahora!  Ella cierra.   Ellos cierran.'
-
-
+           // 'Yo cierro.    Nosotros Cerramos.  Tú cierras? Vosotros cerráis ahora!  Ella cierra.   Ellos cierran.'
             expect(list[0].english).toEqual('I close.');
             expect(list[1].english).toEqual('We close.');
             expect(list[2].english).toEqual('You close?');
@@ -131,7 +127,7 @@ describe('VerbService', () => {
 
             expect(list[0].spanish).toEqual('Yo cierro.');
             expect(list[1].spanish).toEqual('Nosotros Cerramos.');
-            expect(list[2].spanish).toEqual('Tú cierras.');
+            expect(list[2].spanish).toEqual('Tú cierras?');
             expect(list[3].spanish).toEqual('Vosotros cerráis ahora!');
             expect(list[4].spanish).toEqual('Ella cierra.');
             expect(list[5].spanish).toEqual('Ellos cierran.');
