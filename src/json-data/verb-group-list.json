@@ -30,7 +30,7 @@
                             {
                                 "english": "I always get the words right.",
                                 "spanish": "Siempre acierto las palabras."
-                            }                            
+                            }
                         ]
                     },
                     "firstPersonPlural": {
@@ -116,14 +116,15 @@
                                 "english": "You rule your emotions.",
                                 "spanish": "Gobernáis  tus emociones."
                             }
-                        ]                    
+                        ]
                     },
                     "thirdPersonSingular": {
                         "sentenceList": [
                             {
                                 "english": "She governs her household as mother.",
                                 "spanish": "Ella gobierna su casa como madre."
-                            }                        ]
+                            }
+                        ]
                     },
                     "thirdPersonPlural": {
                         "sentenceList": [
@@ -138,7 +139,7 @@
             {
                 "from": "to close",
                 "to": "cerrar",
-                "sentenceList": [                    
+                "sentenceList": [
                     {
                         "spanish": "Lo cerré ayer también, pero el perro lo empujó para abrirlo",
                         "english": "I closed it yesterday also, but the dog pushed it open."
@@ -160,9 +161,9 @@
                     },
                     "firstPersonPlural": {
                         "sentenceList": [
-                            {   "spanish": "Ceramos la puerta todos los días.",                             
+                            {
+                                "spanish": "Ceramos la puerta todos los días.",
                                 "english": "We close the gate everday."
-                                
                             }
                         ]
                     }
@@ -187,6 +188,11 @@
                 ],
                 "presentTense": {
                     "isStemChange": "true",
+                    "paragraph": {
+                        "english": "I think. We think. You think about. She think. They Think.",
+                        "spanish": "Pienso. Nosotros pensamos. Tu piensas sobre. Ella piensa. Ellos piensan."
+                        
+                    },
                     "firstPersonSingular": {
                         "sentenceList": []
                     }

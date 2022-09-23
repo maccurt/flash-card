@@ -5,7 +5,16 @@ import { VerbState, verbStateInitial } from "./VerbState.interface";
 
 export const verbReducer = createReducer<VerbState>(verbStateInitial,
 
-    on(verbActions.setVerb, (state, action): VerbState => {        
+    //TODO remove this if you don't need
+    on(verbActions.loadVerbSuccess, (state, action): VerbState => {        
+        return {
+            ...state,
+            verb: action.verb,
+            error: ''
+        };
+    }),
+
+    on(verbActions.populateVerbSuccess, (state, action): VerbState => {        
         return {
             ...state,
             verb: action.verb,

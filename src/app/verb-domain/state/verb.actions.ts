@@ -1,4 +1,3 @@
-import { VerbGroup } from "../types/VerbGroup.class";
 import { createAction, props } from "@ngrx/store";
 import { Verb } from "../types/verb.class.";
 
@@ -12,7 +11,8 @@ export const loadVerbError = createAction('[verb] load verb error', props<{ erro
 export const loadVerbTense = createAction('[verb] load verb tense', props<{ verb: Verb }>());
 export const loadVerbTenseSuccess = createAction('[verb] load verb tense success', props<{ verb: Verb }>());
 
-export const setVerb = createAction('[verb] set verb', props<{ verb: Verb }>());
+export const populateVerb = createAction('[verb group component] populate verb properties', props<{ verb: Verb }>());
+export const populateVerbSuccess = createAction('[verb group effect] populate verb properties success', props<{ verb: Verb }>());
 
 export const verbActions = {
     loadVerbList,
@@ -23,8 +23,8 @@ export const verbActions = {
     loadVerbError,
     loadVerbTense,
     loadVerbTenseSuccess,
-    setVerb
-
+    populateVerb,
+    populateVerbSuccess
 };
 
 export default verbActions;

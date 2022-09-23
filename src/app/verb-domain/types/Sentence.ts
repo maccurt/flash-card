@@ -1,5 +1,3 @@
-import { FromTo } from "./FromTo";
-
 export class Paragraph {
     english!: string;
     spanish!: string;

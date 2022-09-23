@@ -1,4 +1,5 @@
-import { verbActions } from './../state/verb.actions';
+import { verbSelectors } from './../state/verb.selectos';
+import { verbActions, populateVerb } from './../state/verb.actions';
 import { Tense } from 'src/app/verb-domain/types/Tense';
 import { ConjugateService } from './../conjugate.service';
 import { Verb } from './../types/verb.class.';
@@ -23,6 +24,7 @@ export class VerbGroupComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+     
     this.store.dispatch(verbGroupActions.loadVerbGroupSelectedInRoute());
     this.verbGroup$ = this.store.select(verbGroupSelectors.getVerbGroup);
 
@@ -35,7 +37,14 @@ export class VerbGroupComponent implements OnInit {
 
   verbClick = (verb: Verb, index: number) => {
     this.chosenIndex = index;
-    this.verb = verb;
-    this.store.dispatch(verbActions.setVerb({ verb }));
+
+    this.store.dispatch(verbActions.populateVerb({ verb }));
+
+    this.store.select(verbSelectors.getVerbSelector).subscribe((verb) => {
+      if (verb) {
+        this.verb = verb;
+      }
+
+    })
   };
 }

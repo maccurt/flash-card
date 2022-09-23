@@ -15,6 +15,23 @@ export class VerbEffect {
         private conjugateService: ConjugateService,
         private store: Store) { }
 
+
+    populateVerb$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(verbActions.populateVerb),
+            map((action) => {
+                //Copy due to NGRX pattern, can't set properites on something from state
+                const verb = JSON.parse(JSON.stringify(action.verb));
+
+                this.conjugateService.setAllTense(verb);
+                this.verbService.setAllSentenceTenseFromParagraph(verb);
+
+                return verbActions.populateVerbSuccess({ verb })
+            })
+
+        )
+    })
+
     loadVerbList$ = createEffect(() => {
 
         return this.actions$.pipe(

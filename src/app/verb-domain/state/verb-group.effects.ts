@@ -17,7 +17,7 @@ export class VerbGroupEffect {
         private verbService: VerbService,
         private store: Store) {
     }
-
+    
     loadVerbGroupList$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(verbGroupActions.loadVerbGroupList),

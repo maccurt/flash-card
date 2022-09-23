@@ -20,13 +20,14 @@ import { RouterStateModule } from './router-state/router-state.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    VerbModule,    
+    VerbModule,
     StoreModule.forRoot({}, {}),
+    RouterStateModule,
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     BrowserAnimationsModule,
     SharedModule,
-    RouterStateModule
+
   ],
   exports: [
     RouterStateModule

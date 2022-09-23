@@ -17,8 +17,6 @@ describe('VerbService', () => {
 
         describe('setTenseTypeSentence', () => {
             it('cierra with period at end  should be found in cierras', () => {
-
-
                 let w = 'found'
                 let s = 'I am found'
                 console.log(new RegExp(`\\b${w}\\b`).test(s));
@@ -28,8 +26,7 @@ describe('VerbService', () => {
                 let sentence = new Sentence();
                 sentence.spanish = "cierras";
                 let tenseType = new TenseType();
-                tenseType.text = 'cierra'
-
+                tenseType.text = 'cierra';
                 service.setTenseTypeSentence(sentence, tenseType);
                 expect(tenseType.sentenceList.length).toBe(0);
             });
@@ -62,12 +59,9 @@ describe('VerbService', () => {
             let tense = conjugationService.getPresentTense(verb);
 
             service.setTenseSentence(sentenceList, tense);
-
             //1st
             expect(tense.firstPersonSingular.sentenceList[0].spanish)
                 .toEqual('Yo cierro.');
-
-
             expect(tense.firstPersonPlural.sentenceList[0].spanish)
                 .toEqual('Nosotros Cerramos.');
             //2nd
@@ -81,7 +75,6 @@ describe('VerbService', () => {
                 .toEqual('Ella cierra.');
             expect(tense.thirdPersonPlural.sentenceList[0].spanish)
                 .toEqual('Ellos cierran.');
-
         });
 
     });
@@ -117,8 +110,8 @@ describe('VerbService', () => {
 
             let list = service.getSentenceListFromParagraph(paragraph);
             expect(list.length).toEqual(6);
-           // 'I close.      We close.           You close?  You close now!           She close.     They close.'
-           // 'Yo cierro.    Nosotros Cerramos.  Tú cierras? Vosotros cerráis ahora!  Ella cierra.   Ellos cierran.'
+            // 'I close.      We close.           You close?  You close now!           She close.     They close.'
+            // 'Yo cierro.    Nosotros Cerramos.  Tú cierras? Vosotros cerráis ahora!  Ella cierra.   Ellos cierran.'
             expect(list[0].english).toEqual('I close.');
             expect(list[1].english).toEqual('We close.');
             expect(list[2].english).toEqual('You close?');

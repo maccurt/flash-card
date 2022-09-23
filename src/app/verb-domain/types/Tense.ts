@@ -1,3 +1,4 @@
+import { Paragraph } from './Sentence';
 import { PronounOption } from "./PronounOption.interface";
 import { StemChangeType } from "./StemChangeType.enum";
 import { TenseType } from "./TenseType";
@@ -5,6 +6,7 @@ import { TenseType } from "./TenseType";
 export class Tense {
     stemChangeType: StemChangeType = StemChangeType.none;
     text: string = ''; //this is the title, perhaps it should change
+    paragraph?:Paragraph;
     firstPersonSingular!: TenseType;
     firstPersonPlural!: TenseType;
     secondPersonSingular!: TenseType;

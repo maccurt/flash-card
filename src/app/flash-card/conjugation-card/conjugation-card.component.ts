@@ -1,3 +1,4 @@
+import { VerbService } from './../../verb-domain/verb.service';
 import { PronounOption } from 'src/app/verb-domain/types/PronounOption.interface';
 import { TenseType } from './../../verb-domain/types/TenseType';
 import { Sentence } from './../../verb-domain/types/Sentence';
@@ -18,14 +19,14 @@ export class ConjugationCardComponent implements OnInit {
   sentenceList: Sentence[] = [];
   testId: string = '';
 
-  constructor(private conjugationService: ConjugateService,
+  constructor(private conjugationService: ConjugateService, private verbService: VerbService,
     private store: Store) { }
 
   ngOnInit(): void {
     if (this.tense) {
       //TODO Make this a pipe don't put in here
       const searchRegExp = /\s/g;
-      this.testId = this.tense.text.replace(searchRegExp, '-').toLowerCase();
+      this.testId = this.tense.text.replace(searchRegExp, '-').toLowerCase();      
       this.sentenceList = this.getSentenceList(this.tense.firstPersonSingular);
     }
   }
@@ -65,29 +66,19 @@ export class ConjugationCardComponent implements OnInit {
         break;
       case PronounOption.thirdPersonPlural:
         sentenceList = this.getSentenceList(tense.thirdPersonPlural);
-        break;      
-
+        break;
     }
-    
-    return sentenceList;
 
+    return sentenceList;
   };
 
   getNotImplementedSentenceList(): Sentence[] {
-
     let list: Sentence[] = [];
-
-    let sentence = new Sentence();    
+    let sentence = new Sentence();
     sentence.isNotImplemented = true;
     sentence.english = 'I am sorry I have not implemented this feature yet';
     sentence.spanish = 'Lo siento, aún no he implementado esta característica.';
     list.push(sentence);
-    return list;
-    
-    // sentence = new Sentence()    
-    // sentence.isNotImplemented = true
-    // sentence.english = 'I am sorry I have not implemented this feature yet';
-    // sentence.spanish = 'Lo siento, aún no he implementado esta característica.';
-    // list.push(sentence);   return list;
+    return list;    
   }
 }

@@ -59,7 +59,9 @@ export class ConjugateService {
 
     //TODO this could be a problem because you might remove the
     //the setence list, etc..
-    return this.swapTense(verb.presentTense, tense);
+    let t = this.swapTense(verb.presentTense, tense);
+    return t;
+
   };
 
   getPreteriteTense = (verb: Verb): Tense => {
@@ -199,6 +201,11 @@ export class ConjugateService {
 
   swapTense = (orignalTense: Tense, tense: Tense): Tense => {
     if (!orignalTense) { return tense; };
+
+    //TODO this is causing problems, everytime you add a propery you have 
+    //to remember to swap it out here, this is is dumb!!
+    tense.paragraph = orignalTense.paragraph;
+
     //first person
     this.swapTenseType(orignalTense.firstPersonSingular, tense.firstPersonSingular);
     this.swapTenseType(orignalTense.firstPersonPlural, tense.firstPersonPlural);
